@@ -229,6 +229,124 @@ class HomeController extends Controller
         return view('frontend.special-program.sports-complex', compact('seo'));
     }
 
+    public function readingMission()
+    {
+        $seo = [
+            'title' => 'Reading Mission Programme | Gurukul Takshshila',
+            'description' => 'Reading Mission Programme at Gurukul Takshshila encourages critical thinking, vocabulary building and love for literature among students.',
+            'keywords' => 'reading mission, school reading program, literacy development, gurukul reading initiative',
+            'image' => asset('assets/img/reading-mission-banner.jpg'),
+        ];
+
+        return view('frontend.special-program.reading-mission', compact('seo'));
+    }
+
+    public function celebrationsAdventure()
+    {
+        $seo = [
+            'title' => 'Celebrations & Adventure Trips | Gurukul Takshshila',
+            'description' => 'Celebrations and Adventure Trips at Gurukul Takshshila create unforgettable memories through educational tours, cultural events and joyful celebrations.',
+            'keywords' => 'school adventure trips, school celebrations, educational tours, gurukul activities',
+            'image' => asset('assets/img/celebrations-banner.jpg'),
+        ];
+
+        return view('frontend.special-program.celebrations-adventure', compact('seo'));
+    }
+
+    public function coCurricularActivities()
+    {
+        $seo = [
+            'title' => 'Co-curricular Activities | Gurukul Takshshila',
+            'description' => 'Co-curricular activities at Gurukul Takshshila help students develop creativity, teamwork, leadership and confidence beyond academics.',
+            'keywords' => 'co-curricular activities, school activities, student development, gurukul activities',
+            'image' => asset('assets/img/co-curricular-banner.jpg'),
+        ];
+
+        return view('frontend.special-program.co-curricular-activities', compact('seo'));
+    }
+
+    public function competitiveExaminations()
+    {
+        $seo = [
+            'title' => 'Excellence in Competitive Examinations | Gurukul Takshshila',
+            'description' => 'Gurukul Takshshila prepares students for competitive examinations like NEET, JEE, NDA, Olympiads and national-level competitions.',
+            'keywords' => 'competitive exam preparation, NEET coaching, JEE preparation, olympiad training, gurukul competitive exams',
+            'image' => asset('assets/img/competitive-exams.jpg'),
+        ];
+
+        return view('frontend.special-program.competitive-examinations', compact('seo'));
+    }
+
+    public function houseSystem()
+    {
+        $seo = [
+            'title' => 'House System | Gurukul Takshshila',
+            'description' => 'The House System at Gurukul Takshshila fosters leadership, teamwork and healthy competition through four houses of excellence.',
+            'keywords' => 'school house system, student leadership, inter house activities, gurukul house system',
+            'image' => asset('assets/img/house-system.jpg'),
+        ];
+
+        return view('frontend.special-program.house-system', compact('seo'));
+    }
+
+    public function admissionProcedure()
+    {
+        $seo = [
+            'title' => 'Admission Procedure | Gurukul Takshshila',
+            'description' => 'Know the admission procedure, selection process, entrance test, interview and required documents at Gurukul Takshshila.',
+            'keywords' => 'school admission procedure, gurukul admission, boarding school admission',
+            'image' => asset('assets/img/admission-banner.jpg'),
+        ];
+
+        return view('frontend.admission.admission-procedure', compact('seo'));
+    }
+
+    public function entranceCumSyllabus()
+    {
+        $seo = [
+            'title' => 'Entrance cum Syllabus | Gurukul Takshshila',
+            'description' => 'Complete entrance test pattern and syllabus details for admission to Gurukul Takshshila.',
+            'keywords' => 'entrance test syllabus, gurukul admission test, school entrance exam syllabus',
+            'image' => asset('assets/img/admission-banner.jpg'),
+        ];
+
+        return view('frontend.admission.entrance-cum-syllabus', compact('seo'));
+    }
+
+    public function feeStructure()
+    {
+        $seo = [
+            'title' => 'Fee Structure | Gurukul Takshshila',
+            'description' => 'Comprehensive fee details, concession policies and refund rules applicable for admission at Gurukul Takshshila.',
+            'keywords' => 'school fee structure, gurukul fee, boarding school fee',
+            'image' => asset('assets/img/admission-banner.jpg'),
+        ];
+
+        return view('frontend.admission.fee-structure', compact('seo'));
+    }
+
+    public function requiredItem()
+    {
+        $seo = [
+            'title' => 'Required Items | Gurukul Takshshila',
+            'description' => 'Complete list of required items, inventory details and school uniform for admission and hostel stay at Gurukul Takshshila.',
+            'keywords' => 'Gurukul Takshshila required items, hostel items list, school uniform details',
+            'image' => asset('assets/img/admission-banner.jpg'),
+        ];
+
+        return view('frontend.admission.required-item', compact('seo'));
+    }
+
+    
+
+
+
+
+
+
+
+
+
 
 
     

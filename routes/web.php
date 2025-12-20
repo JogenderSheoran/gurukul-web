@@ -13,6 +13,8 @@ use App\Http\Controllers\Admin\LabController;
 use App\Http\Controllers\Admin\HomePageTextController;
 use App\Http\Controllers\Admin\WelcomePopupController;
 use App\Http\Controllers\Admin\BlogController;
+use App\Http\Controllers\CommonController;
+use App\Http\Controllers\GalleryController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
@@ -45,9 +47,26 @@ Route::get('co-curricular-activities', [HomeController::class, 'coCurricularActi
 Route::get('competitive-exam', [HomeController::class, 'competitiveExam'])->name('competitive-exam');
 Route::get('house-system', [HomeController::class, 'houseSystem'])->name('house-system');
 
+Route::get('admission-form', [HomeController::class, 'admissionForm'])->name('admission-form');
+Route::get('admission-procedure', [HomeController::class, 'admissionProcedure'])->name('admission-procedure');
+Route::get('entrance-cum-syllabus', [HomeController::class, 'entranceCumSyllabus'])->name('entrance-cum-syllabus');
+Route::get('fee-structure', [HomeController::class, 'feeStructure'])->name('fee-structure');
+Route::get('required-item', [HomeController::class, 'requiredItem'])->name('required-item');
+Route::get('important-information', [HomeController::class, 'importantInformation'])->name('important-information');
 
-Route::get('gallery', [HomeController::class, 'gallery'])->name('gallery');
+
+Route::get('blogs', [CommonController::class, 'blogs'])->name('blogs');
+Route::get('/blogs/{slug}', [CommonController::class, 'blogDetails'])->name('blog.details');
 Route::get('contact', [HomeController::class, 'contact'])->name('contact');
+Route::get('/gallery', [GalleryController::class, 'gallery'])->name('gallery.index');
+
+/* EVENTS */
+Route::get('/events', [CommonController::class, 'eventsIndex'])->name('events.index');
+Route::get('/events/{slug}', [CommonController::class, 'eventsDetails'])->name('events.details');
+Route::get('/news', [CommonController::class, 'newsIndex'])->name('news.index');
+Route::get('/news/{slug}', [CommonController::class, 'newsDetails'])->name('news.details');
+
+Route::get('/contact-us', [CommonController::class, 'contactUs'])->name('contact');
 
 
 
