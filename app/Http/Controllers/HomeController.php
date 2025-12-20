@@ -337,6 +337,18 @@ class HomeController extends Controller
         return view('frontend.admission.required-item', compact('seo'));
     }
 
+    public function importantInformation()
+    {
+        $seo = [
+            'title' => 'Important Information | Gurukul Takshshila Rules & Regulations',
+            'description' => 'Rules, regulations, discipline guidelines and boarding rules of Gurukul Takshshila',
+            'keywords' => 'Gurukul Takshshila rules, boarding rules, school discipline, hostel rules',
+            'image' => asset('assets/images/seo/rules.jpg'),
+        ];
+
+        return view('frontend.admission.important-information', compact('seo'));
+    }
+
     
 
 

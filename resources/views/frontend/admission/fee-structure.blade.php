@@ -11,7 +11,7 @@
     />
 
     {{-- Admission common CSS --}}
-     @include('frontend.include.admission-css')
+    @include('frontend.include.admission-css')
 </head>
 
 <body>
