@@ -65,9 +65,10 @@
             <h2>Physics Lab Amenities</h2>
             <p class="mb-5">Facilities designed for effective practical learning</p>
 
-            <div class="row g-4 align-items-stretch">
+            <!-- 🔴 Bootstrap 4 FIXED ROW -->
+            <div class="row align-items-stretch">
 
-                <div class="col-lg-3 col-md-6">
+                <div class="col-lg-3 col-md-6 amenityCol">
                     <div class="amenityCard">
                         <div class="icon">🔬</div>
                         <h5>Modern Apparatus</h5>
@@ -75,7 +76,7 @@
                     </div>
                 </div>
 
-                <div class="col-lg-3 col-md-6">
+                <div class="col-lg-3 col-md-6 amenityCol">
                     <div class="amenityCard">
                         <div class="icon">⚡</div>
                         <h5>Electrical Experiments</h5>
@@ -83,7 +84,7 @@
                     </div>
                 </div>
 
-                <div class="col-lg-3 col-md-6">
+                <div class="col-lg-3 col-md-6 amenityCol">
                     <div class="amenityCard">
                         <div class="icon">📐</div>
                         <h5>Optics & Mechanics</h5>
@@ -91,7 +92,7 @@
                     </div>
                 </div>
 
-                <div class="col-lg-3 col-md-6">
+                <div class="col-lg-3 col-md-6 amenityCol">
                     <div class="amenityCard">
                         <div class="icon">🧪</div>
                         <h5>Safe Lab Environment</h5>
@@ -99,7 +100,7 @@
                     </div>
                 </div>
 
-                <div class="col-lg-3 col-md-6">
+                <div class="col-lg-3 col-md-6 amenityCol">
                     <div class="amenityCard">
                         <div class="icon">👨‍🏫</div>
                         <h5>Qualified Faculty</h5>
@@ -107,7 +108,7 @@
                     </div>
                 </div>
 
-                <div class="col-lg-3 col-md-6">
+                <div class="col-lg-3 col-md-6 amenityCol">
                     <div class="amenityCard">
                         <div class="icon">📘</div>
                         <h5>Practical Manuals</h5>
@@ -115,7 +116,7 @@
                     </div>
                 </div>
 
-                <div class="col-lg-3 col-md-6">
+                <div class="col-lg-3 col-md-6 amenityCol">
                     <div class="amenityCard">
                         <div class="icon">🧠</div>
                         <h5>Concept Clarity</h5>
@@ -123,7 +124,7 @@
                     </div>
                 </div>
 
-                <div class="col-lg-3 col-md-6">
+                <div class="col-lg-3 col-md-6 amenityCol">
                     <div class="amenityCard">
                         <div class="icon">🔍</div>
                         <h5>Scientific Observation</h5>

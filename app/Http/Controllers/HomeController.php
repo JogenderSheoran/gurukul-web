@@ -217,6 +217,19 @@ class HomeController extends Controller
         return view('frontend.infrastructure.art-lab', compact('seo'));
     }
 
+    public function sportsComplex()
+    {
+        $seo = [
+            'title' => 'Sports Complex | Gurukul Takshshila Residential School',
+            'description' => 'World-class sports complex at Gurukul Takshshila with volleyball, basketball, football, athletics, boxing, gymnastics and multi-sports facilities.',
+            'keywords' => 'school sports complex, sports facilities, gurukul sports, athletics training',
+            'image' => asset('assets/img/sports-complex-banner.jpg'),
+        ];
+
+        return view('frontend.special-program.sports-complex', compact('seo'));
+    }
+
+
 
     
 

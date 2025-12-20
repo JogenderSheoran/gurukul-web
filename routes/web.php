@@ -38,6 +38,18 @@ Route::get('/chemistry-lab', [HomeController::class, 'chemistryLabs'])->name('ch
 Route::get('/biology-lab', [HomeController::class, 'biologyLabs'])->name('biology-labs');
 Route::get('/art-lab', [HomeController::class, 'artLabs'])->name('art-labs');
 
+Route::get('sports-complex', [HomeController::class, 'sportsComplex'])->name('sports-complex');
+Route::get('reading-mission', [HomeController::class, 'readingMission'])->name('reading-mission');
+Route::get('celebration-adventure', [HomeController::class, 'celebrationAdventure'])->name('celebration-adventure');
+Route::get('co-curricular-activities', [HomeController::class, 'coCurricularActivities'])->name('co-curricular-activities');
+Route::get('competitive-exam', [HomeController::class, 'competitiveExam'])->name('competitive-exam');
+Route::get('house-system', [HomeController::class, 'houseSystem'])->name('house-system');
+
+
+Route::get('gallery', [HomeController::class, 'gallery'])->name('gallery');
+Route::get('contact', [HomeController::class, 'contact'])->name('contact');
+
+
 
 
 

@@ -165,5 +165,8 @@
     margin-bottom:32px;
 }
 
+.amenityCol{
+    margin-bottom:32px;
+}
 
 </style>
