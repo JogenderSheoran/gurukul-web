@@ -1,0 +1,42 @@
+.login-page, .register-page {
+    background-color: #ecf0fa;
+}
+
+.login-box, .register-box {
+    width: 550px;
+}
+.login-separater.text-center.mb-4 {
+    margin-top: -45px;
+    padding-bottom: 3px;
+}
+.login-separater span {
+    position: relative;
+    top: 27px;
+    margin-top: -10px;
+    background: #fff;
+    padding: 5px;
+    font-size: 14px;
+    color: #979797;
+    z-index: 1;
+}
+.card-header {
+    background-color: transparent;
+    border-bottom: none;
+    padding: .75rem 1.25rem;
+    position: relative;
+    border-top-left-radius: .25rem;
+    border-top-right-radius: .25rem;
+}
+.login-box .card, .register-box .card {
+    padding: 40px;
+    border-top: 0;
+    box-shadow: 0 0.1rem 0.7rem rgba(0, 0, 0, .1);
+    border-radius: 4px;
+}
+
+/* For form validation  */
+.error {
+    color: #ed0303;
+    padding-top: 8px;
+}
+/* For form validation  */

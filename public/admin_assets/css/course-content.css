@@ -1,0 +1,65 @@
+:root {
+    --dark-color: #464646;
+    --light-color: #fff;
+    --primary-bg-color: #2e3191;
+    --secondary-bg-color: #f6921e;
+    --primary-accent-color: #2e3191;
+    --secondary-accent-color: #f6921e;
+    --primary-gradient: linear-gradient(
+        45deg,
+        rgb(1, 98, 232),
+        rgba(1, 98, 232, 0.5)
+    );
+    --secondary-gradient: linear-gradient(
+        45deg,
+        rgba(1, 98, 232, 0.8),
+        rgb(1, 98, 232)
+    );
+    --primary-font: "Lexend", sans-serif;
+
+    --border-color: #d5d5d5;
+}
+
+/* ============= Comon csss ============ */
+.content_create_page .content-wrapper {
+    background: #fff;
+}
+.content_create_page .elevation-4 {
+    box-shadow: none !important;
+    border-right: 1px solid var(--border-color);
+}
+.content_create_page .brand__logo {
+    width: 90px;
+}
+/* ============= Comon csss ============ */
+
+/* buttons area  */
+
+.cr__btn__box__border {
+    border-right: 1px solid var(--border-color);
+}
+.cr__btn__top {
+    font-size: 15px;
+}
+.btn__blue {
+    color: var(--secondary-accent-color);
+}
+.btn__yellow {
+    color: var(--primary-accent-color);
+}
+.cr__btn__main {
+    font-size: 24px;
+}
+/* buttons area  */
+.course__content__left__border {
+    border-right: 1px solid var(--border-color);
+}
+.course__content__left__main {
+    background-color: #fff;
+    overflow-x: hidden;
+    min-height: calc(120vh - calc(3.5rem + 1px) - calc(1.5rem + 1px));
+}
+.course__content__right__main {
+    background-color: #fff;
+    min-height: calc(120vh - calc(3.5rem + 1px) - calc(1.5rem + 1px));
+}

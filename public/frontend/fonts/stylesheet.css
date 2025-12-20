@@ -1,0 +1,126 @@
+@font-face {
+    font-family: 'FONTSPRING DEMO - Gelica Rg';
+    src: url('FONTSPRINGDEMO-GelicaRgItalic.woff2') format('woff2'),
+        url('FONTSPRINGDEMO-GelicaRgItalic.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'FONTSPRING DEMO - Gelica Bk';
+    src: url('FONTSPRINGDEMO-GelicaBkBlack.woff2') format('woff2'),
+        url('FONTSPRINGDEMO-GelicaBkBlack.woff') format('woff');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'FONTSPRING DEMO - Gelica Rg';
+    src: url('FONTSPRINGDEMO-GelicaRgBold.woff2') format('woff2'),
+        url('FONTSPRINGDEMO-GelicaRgBold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'FONTSPRING DEMO - Gelica Rg';
+    src: url('FONTSPRINGDEMO-GelicaRgBoldItalic.woff2') format('woff2'),
+        url('FONTSPRINGDEMO-GelicaRgBoldItalic.woff') format('woff');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'FONTSPRING DEMO - Gelica Bk';
+    src: url('FONTSPRINGDEMO-GelicaBkBlackItalic.woff2') format('woff2'),
+        url('FONTSPRINGDEMO-GelicaBkBlackItalic.woff') format('woff');
+    font-weight: 900;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'FONTSPRING DEMO - Gelica XLt';
+    src: url('FONTSPRINGDEMO-GelicaXLtExtraLight.woff2') format('woff2'),
+        url('FONTSPRINGDEMO-GelicaXLtExtraLight.woff') format('woff');
+    font-weight: 200;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'FONTSPRING DEMO - Gelica XLt';
+    src: url('FONTSPRINGDEMO-GelicaXLtExtraLightItalic.woff2') format('woff2'),
+        url('FONTSPRINGDEMO-GelicaXLtExtraLightItalic.woff') format('woff');
+    font-weight: 200;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'FONTSPRING DEMO - Gelica SBd';
+    src: url('FONTSPRINGDEMO-GelicaSBdSemiBoldItalic.woff2') format('woff2'),
+        url('FONTSPRINGDEMO-GelicaSBdSemiBoldItalic.woff') format('woff');
+    font-weight: 600;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'FONTSPRING DEMO - Gelica SBd';
+    src: url('FONTSPRINGDEMO-GelicaSBdSemiBold.woff2') format('woff2'),
+        url('FONTSPRINGDEMO-GelicaSBdSemiBold.woff') format('woff');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'FONTSPRING DEMO - Gelica Md';
+    src: url('FONTSPRINGDEMO-GelicaMdMedium.woff2') format('woff2'),
+        url('FONTSPRINGDEMO-GelicaMdMedium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'FONTSPRING DEMO - Gelica Lt';
+    src: url('FONTSPRINGDEMO-GelicaLtLightItalic.woff2') format('woff2'),
+        url('FONTSPRINGDEMO-GelicaLtLightItalic.woff') format('woff');
+    font-weight: 300;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'FONTSPRING DEMO - Gelica Rg';
+    src: url('FONTSPRINGDEMO-GelicaRgRegular.woff2') format('woff2'),
+        url('FONTSPRINGDEMO-GelicaRgRegular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'FONTSPRING DEMO - Gelica Lt';
+    src: url('FONTSPRINGDEMO-GelicaLtLight.woff2') format('woff2'),
+        url('FONTSPRINGDEMO-GelicaLtLight.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'FONTSPRING DEMO - Gelica Md';
+    src: url('FONTSPRINGDEMO-GelicaMdMediumItalic.woff2') format('woff2'),
+        url('FONTSPRINGDEMO-GelicaMdMediumItalic.woff') format('woff');
+    font-weight: 500;
+    font-style: italic;
+    font-display: swap;
+}
+

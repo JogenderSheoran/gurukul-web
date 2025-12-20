@@ -1,0 +1,184 @@
+/* Product Variant CSS - Enhances the variant selection UI */
+
+/* Color swatches */
+.color-swatch {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 5px;
+    cursor: pointer;
+    border: 2px solid #ddd;
+    transition: all 0.2s ease;
+}
+
+.color-swatch:hover {
+    transform: scale(1.1);
+}
+
+.color-swatch.selected {
+    border: 2px solid #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+/* Variant selection buttons */
+.variant-btn {
+    display: inline-block;
+    padding: 8px 12px;
+    margin: 0 5px 5px 0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #f8f9fa;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.variant-btn:hover {
+    background-color: #e9ecef;
+}
+
+.variant-btn.selected {
+    border-color: #007bff;
+    background-color: #e6f2ff;
+    color: #007bff;
+}
+
+.variant-btn.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Variant groups */
+.variant-group {
+    margin-bottom: 15px;
+}
+
+.variant-group-title {
+    font-weight: 600;
+    margin-bottom: 8px;
+    display: block;
+}
+
+/* Variant image switcher */
+.variant-image-container {
+    position: relative;
+    overflow: hidden;
+}
+
+.variant-image {
+    transition: opacity 0.3s ease;
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+    .variant-btn {
+        padding: 10px 15px; /* Larger touch targets */
+        margin-bottom: 10px;
+    }
+
+    .color-swatch {
+        width: 40px;
+        height: 40px;
+        margin-right: 10px;
+        margin-bottom: 10px;
+    }
+
+    .variant-group {
+        margin-bottom: 20px;
+    }
+}
+
+/* Variant price display */
+.variant-price {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #28a745;
+    margin: 10px 0;
+}
+
+.variant-price .original-price {
+    text-decoration: line-through;
+    color: #6c757d;
+    font-size: 1rem;
+    margin-right: 10px;
+}
+
+.variant-price .discount-badge {
+    background-color: #dc3545;
+    color: white;
+    padding: 2px 8px;
+    border-radius: 3px;
+    font-size: 0.875rem;
+    margin-left: 10px;
+}
+
+/* Stock status indicators */
+.stock-status {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 3px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.in-stock {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.low-stock {
+    background-color: #fff3cd;
+    color: #856404;
+}
+
+.out-of-stock {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+/* Quantity selector */
+.quantity-selector {
+    display: flex;
+    align-items: center;
+    margin: 15px 0;
+}
+
+.quantity-selector .btn {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f8f9fa;
+    border: 1px solid #ddd;
+}
+
+.quantity-selector input {
+    width: 60px;
+    text-align: center;
+    border: 1px solid #ddd;
+    height: 40px;
+}
+
+/* Variant table */
+.variant-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.variant-table th,
+.variant-table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+.variant-table th {
+    background-color: #f8f9fa;
+    font-weight: 600;
+}
+
+.variant-table tr:hover {
+    background-color: #f8f9fa;
+}

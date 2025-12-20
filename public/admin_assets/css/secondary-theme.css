@@ -1,0 +1,169 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100;300;400;500&display=swap');
+
+:root {
+    --dark-color: #464646;
+    --light-color: #fff;
+    --primary-bg-color: #d91c5c;
+    /*--primary-bg-color: #f6921e;*/
+    --secondary-bg-color: #2e3191;
+    --primary-accent-color: #d91c5c;
+    /*--primary-accent-color: #f6921e;*/
+    --secondary-accent-color: #2e3191;
+    --primary-gradient: linear-gradient(45deg, rgb(1, 98, 232), rgba(1, 98, 232, .5));
+    --secondary-gradient: linear-gradient(45deg, rgba(1, 98, 232, .8), rgb(1, 98, 232));
+    --primary-font: 'Lexend', sans-serif;
+}
+
+body {
+    font-family: var(--primary-font) !important;
+}
+
+a {
+    color: var(--primary-bg-color);
+}
+
+/* Brand Logo */
+[class*="sidebar-light"] .brand-link, [class*="sidebar-light-"] .nav-treeview > .nav-item > .nav-link {
+    color: var(--dark-color);
+}
+
+/* Navigation  */
+.main-sidebar {
+    background: var(--light-color);
+}
+
+.nav-pills .nav-link {
+    color: var(--dark-color);
+}
+
+.nav-sidebar .nav-item > .nav-link {
+    padding: 0.5rem 0.5rem;
+}
+
+.nav-flat .nav-item > .nav-link > .nav-icon {
+    color: var(--primary-bg-color);
+}
+
+.nav-flat .nav-item > .nav-link.active > .nav-icon {
+    color: var(--secondary-bg-color);
+}
+
+.nav-flat .nav-item.has-treeview > .nav-link.active > .nav-icon {
+    color: var(--primary-bg-color);
+}
+
+
+[class*="sidebar-light"] .nav-sidebar > .nav-item.menu-open > .nav-link {
+    /*background: var(--primary-gradient);
+    color: #ffffff;*/
+    background: transparent;
+    color: var(--primary-bg-color);
+    border-left: .2rem solid;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+    /*background: var(--secondary-gradient);
+    color: #fff;*/
+    background: transparent;
+    color: var(--secondary-bg-color);
+}
+
+.nav-pills .nav-link:not(.active):hover {
+    background: var(--primary-gradient);
+    color: #fff;
+}
+
+/* Theme Default CSS */
+.text-primary {
+    color: var(--secondary-bg-color) !important;
+}
+
+.btn-primary {
+    background: var(--secondary-bg-color);
+    border: 1px solid var(--secondary-bg-color);
+}
+
+.btn-primary:hover {
+    background: var(--primary-bg-color);
+    border: 1px solid var(--primary-bg-color);
+}
+
+.hide {
+    display: none;
+}
+
+.content-wrapper {
+    background-color: #ecf0fa;
+}
+
+.content-header h1 {
+    font-size: 1.5rem;
+}
+
+.card-primary:not(.card-outline) > .card-header {
+    background: var(--primary-gradient);
+}
+
+/*Dashboard CSS*/
+.small-box .icon > i.fa, .small-box .icon > i.fab, .small-box .icon > i.fad, .small-box .icon > i.fal, .small-box .icon > i.far, .small-box .icon > i.fas, .small-box .icon > i.ion {
+    color: rgb(46 49 145 / 21%);
+}
+
+.bg-primary-white {
+    background: #fff;
+    color: var(--secondary-bg-color);
+}
+
+.bg-indigo-gradient {
+    background: linear-gradient(45deg, #c300c2, #fa6bff);
+    color: #fff;
+}
+
+.bg-olive-gradient {
+    background: linear-gradient(45deg, #3316c0, #9887f9);
+    color: #fff;
+}
+
+.bg-orange-gradient {
+    background: linear-gradient(45deg, #fd7e14, #ffcb2d);
+    color: #fff;
+}
+
+.bg-teal-gradient {
+    background: linear-gradient(45deg, #20c997, #8ace9a);
+    color: #fff;
+}
+
+.bg-info-gradient {
+    background: linear-gradient(45deg, #17a2b8, #81f7ff);
+    color: #fff;
+}
+
+.bg-success-gradient {
+    background: linear-gradient(45deg, #28a745, #45f95d);
+    color: #fff;
+}
+
+.bg-warning-gradient {
+    background: linear-gradient(45deg, #ffc107, #ffdb70);
+    color: #fff;
+}
+
+.bg-danger-gradient {
+    background: linear-gradient(45deg, #dc3545, #fb7079);
+    color: #fff;
+}
+
+/* Table CSS */
+.table thead th, .table tfoot th {
+    font-weight: 600;
+}
+
+/* Form CSS */
+label:not(.form-check-label):not(.custom-file-label) {
+    font-weight: 500;
+}
+
+/**
+ * Responsive Media Queries
+*/
