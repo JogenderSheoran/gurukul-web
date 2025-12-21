@@ -63,6 +63,22 @@
                         </a>
                     </li>
 
+                    <!-- Admission Enquiries -->
+                    <li class="nav-item">
+                        <a href="{{ route('admin.admission-enquiry.index') }}" class="nav-link {{ request()->routeIs('admin.admission-enquiry.*') ? 'active' : '' }}">
+                            <i class="nav-icon fas fa-graduation-cap text-primary"></i>
+                            <p>Admission Enquiries</p>
+                        </a>
+                    </li>
+
+                    <!-- Contact Enquiries -->
+                    <li class="nav-item">
+                        <a href="{{ route('admin.contact-enquiry.index') }}" class="nav-link {{ request()->routeIs('admin.contact-enquiry.*') ? 'active' : '' }}">
+                            <i class="nav-icon fas fa-envelope text-success"></i>
+                            <p>Contact Enquiries</p>
+                        </a>
+                    </li>
+
                     <!-- Statistics Management -->
                     <li class="nav-item">
                         <a href="{{ route('admin.stat.index') }}" class="nav-link {{ request()->routeIs('admin.stat.*') ? 'active' : '' }}">
@@ -93,6 +109,139 @@
                             <i class="nav-icon fas fa-file-alt text-danger"></i>
                             <p>Home Page Text</p>
                         </a>
+                    </li>
+
+                    <!-- About Us Management -->
+                    <li class="nav-item">
+                        <a href="{{ route('admin.about-us.index') }}" class="nav-link {{ request()->routeIs('admin.about-us.*') ? 'active' : '' }}">
+                            <i class="nav-icon fas fa-info-circle text-info"></i>
+                            <p>About Us</p>
+                        </a>
+                    </li>
+
+                    <!-- Page Banners Management -->
+                    <li class="nav-item">
+                        <a href="{{ route('admin.page-banner.index') }}" class="nav-link {{ request()->routeIs('admin.page-banner.*') ? 'active' : '' }}">
+                            <i class="nav-icon fas fa-image text-warning"></i>
+                            <p>Page Banners</p>
+                        </a>
+                    </li>
+
+                    <!-- Team Main Menu -->
+                    <li class="nav-item {{ request()->routeIs('admin.team-member.*') ? 'menu-open' : '' }}">
+                        <a href="#" class="nav-link {{ request()->routeIs('admin.team-member.*') ? 'active' : '' }}">
+                            <i class="nav-icon fas fa-users text-danger"></i>
+                            <p>
+                                Team
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="{{ route('admin.team-member.index') }}" class="nav-link {{ request()->routeIs('admin.team-member.*') ? 'active' : '' }}">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Team Members</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <!-- Mandatory Public Disclosure -->
+                    <li class="nav-item">
+                        <a href="{{ route('admin.mandatory-disclosure.index') }}" class="nav-link {{ request()->routeIs('admin.mandatory-disclosure.*') ? 'active' : '' }}">
+                            <i class="nav-icon fas fa-file-contract text-purple"></i>
+                            <p>Mandatory Public Disclosure</p>
+                        </a>
+                    </li>
+
+                    <!-- Infrastructure Sections -->
+                    <li class="nav-item">
+                        <a href="{{ route('admin.infrastructure-section.index') }}" class="nav-link {{ request()->routeIs('admin.infrastructure-section.*') ? 'active' : '' }}">
+                            <i class="nav-icon fas fa-building text-info"></i>
+                            <p>Infrastructure Sections</p>
+                        </a>
+                    </li>
+
+                    <!-- Programs -->
+                    <li class="nav-item">
+                        <a href="{{ route('admin.program.index') }}" class="nav-link {{ request()->routeIs('admin.program.*') ? 'active' : '' }}">
+                            <i class="nav-icon fas fa-tasks text-primary"></i>
+                            <p>Programs</p>
+                        </a>
+                    </li>
+
+                    <!-- Boarding Main Menu -->
+                    <li class="nav-item {{ request()->routeIs('admin.hostel.*') || request()->routeIs('admin.nutrition-management.*') || request()->routeIs('admin.health-nutrition.*') ? 'menu-open' : '' }}">
+                        <a href="#" class="nav-link {{ request()->routeIs('admin.hostel.*') || request()->routeIs('admin.nutrition-management.*') || request()->routeIs('admin.health-nutrition.*') ? 'active' : '' }}">
+                            <i class="nav-icon fas fa-bed text-success"></i>
+                            <p>
+                                Boarding
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="{{ route('admin.hostel.index') }}" class="nav-link {{ request()->routeIs('admin.hostel.*') ? 'active' : '' }}">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Hostel</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('admin.nutrition-management.index') }}" class="nav-link {{ request()->routeIs('admin.nutrition-management.*') ? 'active' : '' }}">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Nutrition Management</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('admin.health-nutrition.index') }}" class="nav-link {{ request()->routeIs('admin.health-nutrition.*') ? 'active' : '' }}">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Health Nutrition</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <!-- Program Main Menu -->
+                    <li class="nav-item {{ request()->routeIs('admin.sports-complex.*') || request()->routeIs('admin.reading-mission.*') || request()->routeIs('admin.co-curricular-activity.*') || request()->routeIs('admin.competitive-exam.*') || request()->routeIs('admin.house-system.*') ? 'menu-open' : '' }}">
+                        <a href="#" class="nav-link {{ request()->routeIs('admin.sports-complex.*') || request()->routeIs('admin.reading-mission.*') || request()->routeIs('admin.co-curricular-activity.*') || request()->routeIs('admin.competitive-exam.*') || request()->routeIs('admin.house-system.*') ? 'active' : '' }}">
+                            <i class="nav-icon fas fa-graduation-cap text-primary"></i>
+                            <p>
+                                Program
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="{{ route('admin.co-curricular-activity.index') }}" class="nav-link {{ request()->routeIs('admin.co-curricular-activity.*') ? 'active' : '' }}">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Co-curricular Activities</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('admin.competitive-exam.index') }}" class="nav-link {{ request()->routeIs('admin.competitive-exam.*') ? 'active' : '' }}">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Competitive Exam</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('admin.house-system.index') }}" class="nav-link {{ request()->routeIs('admin.house-system.*') ? 'active' : '' }}">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>House System</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('admin.sports-complex.index') }}" class="nav-link {{ request()->routeIs('admin.sports-complex.*') ? 'active' : '' }}">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Sports Complex</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('admin.reading-mission.index') }}" class="nav-link {{ request()->routeIs('admin.reading-mission.*') ? 'active' : '' }}">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Reading Mission</p>
+                                </a>
+                            </li>
+                        </ul>
                     </li>
             </ul>
         </nav>

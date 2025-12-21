@@ -21,13 +21,18 @@
     <!-- Principal Message Section -->
     <section class="aboutUs principalMessage py-5">
         <div class="container">
+            @if($aboutSectionData && $aboutSectionData->principal_message)
             <div class="row align-items-start">
 
                 <!-- Left Profile Card -->
                 <div class="col-lg-4 mb-4">
                     <div class="profileCard text-center">
                         <div class="profileImg">
-                            <img src="{{ asset('storage/principal/principal.jpg') }}" alt="Principal">
+                            @if($aboutSectionData->principal_image)
+                                <img src="{{ asset('storage/' . $aboutSectionData->principal_image) }}" alt="Principal">
+                            @else
+                                <img src="{{ asset('img/principal.png') }}" alt="Principal">
+                            @endif
                         </div>
                         <h4 class="mt-3">Principal</h4>
                         <span>Gurukul Takshshila</span>
@@ -38,42 +43,22 @@
                 <div class="col-lg-8">
                     <div class="messageContent">
                         <div class="MainHead text-start">
-                            <h2>Principal Message</h2>
+                            <h2>Principal&apos;s Message</h2>
                             <p>Gurukul Takshshila</p>
                         </div>
 
-                        <p>
-                            It is my great pleasure to welcome you all to Gurukul Takshshila.
-                            Our institution believes in nurturing young minds with a balance
-                            of academic excellence and strong moral values.
-                        </p>
-
-                        <p>
-                            We focus on holistic education where students are encouraged
-                            to think creatively, develop leadership qualities, and grow
-                            into responsible global citizens.
-                        </p>
-
-                        <p>
-                            Our dedicated faculty, modern infrastructure, and value-based
-                            education system ensure that every child reaches their true
-                            potential.
-                        </p>
-
-                        <p>
-                            I warmly invite parents and students to be a part of this
-                            enriching educational journey.
-                        </p>
-
-                        <p class="fw-bold mt-4">
-                            Warm Regards,<br>
-                            Principal<br>
-                            Gurukul Takshshila
-                        </p>
+                        <div class="message-text">
+                            {!! $aboutSectionData->principal_message !!}
+                        </div>
                     </div>
                 </div>
 
             </div>
+            @else
+            <div class="alert alert-info text-center">
+                <i class="fas fa-info-circle"></i> Principal&apos;s message will be available soon.
+            </div>
+            @endif
         </div>
     </section>
 

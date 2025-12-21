@@ -44,12 +44,30 @@ $(document).ready(function () {
 
 <script>
 $(document).ready(function () {
-	 $(".hoverText").hide().hide();
+	// Old Read More functionality for About section
+	$(".hoverText").hide().hide();
 	$("span.readMore").click(function () {
-      $(".hoverText").slideToggle(300);
+		var target = $(this).data('target');
+		
+		// If it's the new dynamic content
+		if (target) {
+			var previewClass = '.content-preview-' + target;
+			var fullClass = '.content-full-' + target;
+			
+			if ($(fullClass).is(':visible')) {
+				$(fullClass).slideUp(300);
+				$(previewClass).slideDown(300);
+				$(this).text('Read More');
+			} else {
+				$(previewClass).slideUp(300);
+				$(fullClass).slideDown(300);
+				$(this).text('Read Less');
+			}
+		} else {
+			// Old functionality for About section
+			$(".hoverText").slideToggle(300);
+		}
     });
-	
-	
 	
 	$(".hoverTextNext").hide().hide();
 	$("span.readMoreNext").click(function () {

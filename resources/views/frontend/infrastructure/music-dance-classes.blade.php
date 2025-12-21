@@ -28,35 +28,34 @@
     <!-- INTRO -->
     <section class="musicDanceIntro py-5">
         <div class="container">
+            @if($section)
             <div class="row align-items-center">
 
                 <div class="col-lg-6 mb-4">
                     <span class="sectionTag">Performing Arts</span>
                     <h2>Music & Dance Program</h2>
 
-                    <p>
-                        Our Music & Dance program at Gurukul Takshshila nurtures creativity,
-                        artistic expression, and confidence in students. Through structured
-                        training and regular practice, students explore their talents and
-                        develop a lifelong appreciation for the performing arts.
-                    </p>
-
-                    <p>
-                        The program offers comprehensive exposure to various forms of music
-                        and dance, encouraging discipline, teamwork, and self-expression
-                        through performances and cultural activities.
-                    </p>
+                    <div>
+                        {!! $section->description !!}
+                    </div>
                 </div>
 
                 <div class="col-lg-6 mb-4 text-center">
                     <img
-                        src="https://picsum.photos/700/450?random=601"
+                        src="{{ asset('storage/' . $section->main_image) }}"
                         class="img-fluid rounded-4 shadow"
                         alt="Music and Dance Classes at Gurukul Takshshila"
                     >
                 </div>
 
             </div>
+            @else
+            <div class="row align-items-center">
+                <div class="col-lg-12 mb-4 text-center">
+                    <p class="text-muted">Content not available at the moment.</p>
+                </div>
+            </div>
+            @endif
         </div>
     </section>
 
@@ -185,16 +184,13 @@
     </section>
 
     <!-- GALLERY (COMMON SLIDER) -->
+    @if($section && $section->slider_images && count($section->slider_images) > 0)
     <x-slider
         title="Music & Dance Gallery"
         subtitle="Moments from our vibrant performing arts sessions"
-        :images="[
-            'https://picsum.photos/600/400?random=701',
-            'https://picsum.photos/600/400?random=702',
-            'https://picsum.photos/600/400?random=703',
-            'https://picsum.photos/600/400?random=704'
-        ]"
+        :images="collect($section->slider_images)->map(fn($img) => asset('storage/' . $img))->toArray()"
     />
+    @endif
 
     @include('frontend.include.footer')
 

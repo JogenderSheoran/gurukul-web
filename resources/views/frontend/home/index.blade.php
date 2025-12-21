@@ -1,13 +1,268 @@
 <!doctype html>
 <html lang="en">
+<head>
+<meta charset="UTF-8">
 @include('frontend.include.css')
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<style>
+    .content-section {
+        padding: 15px;
+        background: #f9f9f9;
+        border-radius: 8px;
+        margin-bottom: 20px;
+        min-height: 200px;
+    }
+    
+    .content-section h3 {
+        color: #333;
+        margin-bottom: 15px;
+        font-size: 1.3rem;
+        font-weight: 600;
+    }
+    
+    .content-preview, .content-full {
+        line-height: 1.8;
+        color: #555;
+        text-align: justify;
+    }
+    
+    .content-section .readMore {
+        display: inline-block;
+        margin-top: 10px;
+        color: #ff6600;
+        cursor: pointer;
+        font-weight: 600;
+        transition: color 0.3s;
+    }
+    
+    .content-section .readMore:hover {
+        color: #cc5200;
+        text-decoration: underline;
+    }
+    
+    .mb-4 {
+        margin-bottom: 2rem !important;
+    }
+    
+    /* Quick Links Icons */
+    .NewsEvents.naturalEvents ul li a i {
+        margin-right: 8px;
+        color: #ff6600;
+    }
+    
+    /* Fixed Banner Size */
+    .bannerSlider .sliderItem img{
+        width: 100%;
+        height: 800px;
+        object-fit: cover;
+        object-position: center;
+    }
 
+    .innerBanner img {
+        width: 100%;
+        height: 400px;
+        object-fit: cover;
+        object-position: center;
+    }
+    
+    @media (max-width: 768px) {
+        .bannerSlider .sliderItem img,
+        .innerBanner img {
+            height: 250px;
+        }
+    }
+    
+    /* Top Scorers Slider Styles */
+    .TopScorer {
+        padding: 60px 0;
+        background: #f8f9fa;
+    }
+    
+    .topScorersSlider {
+        margin-top: 40px;
+    }
+    
+    .topScorersSlider .box {
+        background: white;
+        border-radius: 20px;
+        padding: 30px 20px;
+        text-align: center;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        margin: 0 15px;
+        transition: transform 0.3s ease;
+        min-height: 450px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    
+    .topScorersSlider .box:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+    }
+    
+    .topScorersSlider .image {
+        width: 80px;
+        height: 80px;
+        margin: 0 auto 20px;
+        border-radius: 50%;
+        overflow: hidden;
+        position: relative;
+        border: 5px solid #ff6600;
+    }
+    
+    .topScorersSlider .image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    
+    .topScorersSlider .default-student-icon {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    }
+    
+    .topScorersSlider .default-student-icon i {
+        font-size: 70px;
+        color: white;
+    }
+    
+    .topScorersSlider .trophy-icon {
+        position: absolute;
+        bottom: -5px;
+        right: -5px;
+        background: #ffd700;
+        color: #ff6600;
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 22px;
+        border: 3px solid white;
+        box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+    }
+    
+    .topScorersSlider .name {
+        font-size: 22px;
+        font-weight: 700;
+        color: #333;
+        margin: 15px 0 8px;
+    }
+    
+    .topScorersSlider .class {
+        color: #666;
+        font-size: 15px;
+        margin-bottom: 10px;
+    }
+    
+    .topScorersSlider .percentage {
+        background: #ff6600;
+        color: #fff !important;
+        font-size: 24px;
+        font-weight: 700;
+        padding: 10px 20px;
+        border-radius: 50px;
+        display: inline-block;
+        margin: 10px 0;
+    }
+    
+    .topScorersSlider .inSubject {
+        color: #555;
+        font-size: 14px;
+        margin: 10px 0;
+        font-weight: 500;
+    }
+    
+    .topScorersSlider .year {
+        color: #888;
+        font-size: 13px;
+        margin-top: 8px;
+    }
+    
+    /* Slick Slider Customization */
+    .topScorersSlider .slick-dots {
+        bottom: -40px;
+    }
+    
+    .topScorersSlider .slick-dots li button:before {
+        font-size: 12px;
+        color: #ff6600;
+    }
+    
+    .topScorersSlider .slick-dots li.slick-active button:before {
+        color: #ff6600;
+    }
+    
+    .topScorersSlider .slick-prev,
+    .topScorersSlider .slick-next {
+        width: 45px;
+        height: 45px;
+        background: #ff6600;
+        border-radius: 50%;
+        z-index: 1;
+    }
+    
+    .topScorersSlider .slick-prev:before,
+    .topScorersSlider .slick-next:before {
+        font-size: 20px;
+    }
+    
+    .topScorersSlider .slick-prev {
+        left: -60px;
+    }
+    
+    .topScorersSlider .slick-next {
+        right: -60px;
+    }
+    
+    @media (max-width: 1200px) {
+        .topScorersSlider .slick-prev {
+            left: -30px;
+        }
+        .topScorersSlider .slick-next {
+            right: -30px;
+        }
+    }
+    
+    @media (max-width: 768px) {
+        .topScorersSlider .slick-prev {
+            left: 10px;
+        }
+        .topScorersSlider .slick-next {
+            right: 10px;
+        }
+        .topScorersSlider .box {
+            min-height: 400px;
+        }
+    }
+</style>
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="{{URL::asset('frontend/css/bootstrap.min.css')}}">
+<link rel="stylesheet" href="{{URL::asset('frontend/css/style.css')}}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css"/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap" rel="stylesheet">
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<title>Gurukul Takshshila - Home</title>
+</head>
 <body>
      <section class="announcement">
         <div class="">
             <div class="announcementInner marqueeHorizontal">
                 <div class="item marquee-content-hori">
-                    Most Affordable Residential School
+                    गुरुकुल तक्षशिला Most Affordable Residential School
                 </div>
                 <div class="item marquee-content-hori">
                     An English medium, CBSE Affiliated, Senior Secondary, Residential (Boys) Gurukul with Difference
@@ -67,14 +322,15 @@
                                 <h3>Quick Links</h3>
 
                                 <ul>
-                                    <li><a href="#">CBSE Rules</a></li>
-                                    <li><a href="#">CBSE Rules</a></li>
-                                    <li><a href="#">CBSE Rules</a></li>
-                                    <li><a href="#">CBSE Rules</a></li>
-                                    <li><a href="#">CBSE Rules</a></li>
-                                    <li><a href="#">CBSE Rules</a></li>
-                                    <li><a href="#">CBSE Rules</a></li>
-                                    <li><a href="#">CBSE Rules</a></li>
+                                    <li><a href="/about-us"><i class="fas fa-info-circle"></i> About Us</a></li>
+                                    <li><a href="/admissions"><i class="fas fa-graduation-cap"></i> Admissions Overview</a></li>
+                                    <li><a href="/admission-process"><i class="fas fa-clipboard-list"></i> Admission Process</a></li>
+                                    <li><a href="/admission-criteria"><i class="fas fa-check-circle"></i> Eligibility & Criteria</a></li>
+                                    <li><a href="/apply-admission"><i class="fas fa-file-alt"></i> Apply for Admission</a></li>
+                                    <li><a href="/chairman-message"><i class="fas fa-user-tie"></i> Chairman Message</a></li>
+                                    <li><a href="/principal-message"><i class="fas fa-chalkboard-teacher"></i> Principal Message</a></li>
+                                    <li><a href="/contact"><i class="fas fa-envelope"></i> Contact Us</a></li>
+                                </ul>
                             </div>
                         </div>
 
@@ -83,77 +339,94 @@
                 <div class="mainInnerRight">
                     <!-- Welcome section -->
 
-                    <section class="welcome">
-                        <div class="container">
-                            <h2 class="welcomeHeading">Welcome To Gurukul Takshila</h2>
-                            @foreach($homePageTexts as $text)
-                                <h3>{{ $text->heading_en }}</h3>
-                                <div>{!! $text->text_en !!}</div>
-                                @if(!$loop->last)
-                                    <br>
+                    	<section class="welcome">
+                            <div class="container">
+                                <h2 class="welcomeHeading">Welcome To Gurukul Takshila</h2>
+                                
+                                @forelse($homePageTexts as $index => $text)
+                                <div class="row mb-4">
+                                    <!-- Hindi Content - Left Side -->
+                                    <div class="col-lg-6">
+                                        <div class="content-section">
+                                            <h3>{{ $text->heading_hi }}</h3>
+                                            <div class="content-preview content-preview-hi-{{ $index }}">
+                                                {!! Str::limit(strip_tags($text->text_hi), 250) !!}
+                                            </div>
+                                            <div class="content-full content-full-hi-{{ $index }}" style="display: none;">
+                                                {!! $text->text_hi !!}
+                                            </div>
+                                            <span class="readMore" data-target="hi-{{ $index }}">Read More</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- English Content - Right Side -->
+                                    <div class="col-lg-6">
+                                        <div class="content-section">
+                                            <h3>{{ $text->heading_en }}</h3>
+                                            <div class="content-preview content-preview-en-{{ $index }}">
+                                                {!! Str::limit(strip_tags($text->text_en), 250) !!}
+                                            </div>
+                                            <div class="content-full content-full-en-{{ $index }}" style="display: none;">
+                                                {!! $text->text_en !!}
+                                            </div>
+                                            <span class="readMore" data-target="en-{{ $index }}">Read More</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                @empty
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <h3>हमारा विज़न</h3>
+                                        <p>भारतीय मूल्यों और वैज्ञानिक सोच पर आधारित इस प्रतिष्ठित शिक्षा केंद्र से वैश्विक नेता तैयार करना।</p>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <h3>Our Vision</h3>
+                                        <p>"Build on Indian ethos and scientific temperament to prepare global leaders from this iconic learning center of the Country."</p>
+                                    </div>
+                                </div>
+                                @endforelse
+                                
+                                @if($aboutSectionData && $aboutSectionData->chairman_message)
+                                <br>
+                                <h2 class="welcomeHeading">CHAIRMAN MESSAGE</h2>
+                                <div class="personMessage">
+                                    @if($aboutSectionData->chairman_image)
+                                        <img src="{{ asset('storage/' . $aboutSectionData->chairman_image) }}" alt="Chairman">
+                                    @else
+                                        <img src="img/principal.png" alt="Chairman">
+                                    @endif
+                                    <p>{{ \Str::limit(strip_tags($aboutSectionData->chairman_message), 200) }}</p>
+                                    <a href="{{ route('chairmain-message') }}" class="btn btn-sm" style="background: #ff6600; color: white; margin-top: 10px;">
+                                        <i class="fas fa-book-reader"></i> Read More
+                                    </a>
+                                </div>
                                 @endif
-                            @endforeach
-                            
-                            @if($homePageTexts->isEmpty())
-                            <h3>Our Vision</h3>
-                            <p>"Build on Indian ethos and scientific temperament to prepare global leaders from this
-                                iconic learning center of the Country."</p>
-                            <h3>Our Mission</h3>
-                            <p>Founded in 1912 by Swami Shardhanand Ji with grand vision of inculcating Indian ethos and
-                                scientific temperament in the young minds, Gurukul Kurukshetra has been on mission mode
-                                ever since its inception to provide public school education from its sprawling 40 Acres
-                                campus to create safe, secure, happy and stimulating learning environment to instill
-                                honor, respect and compassion in each student and prepare him for success throughout his
-                                life.</p>
-                            @endif
-                        </div>
-                    </section>
+                                
+                                @if($aboutSectionData && $aboutSectionData->principal_message)
+                                <br>
+                                <h2 class="welcomeHeading">PRINCIPAL&apos;S MESSAGE</h2>
+                                <div class="personMessage">
+                                    @if($aboutSectionData->principal_image)
+                                        <img src="{{ asset('storage/' . $aboutSectionData->principal_image) }}" alt="Principal">
+                                    @else
+                                        <img src="img/principal.png" alt="Principal">
+                                    @endif
+                                    <p>{{ \Str::limit(strip_tags($aboutSectionData->principal_message), 200) }}</p>
+                                    <a href="{{ route('principal-message') }}" class="btn btn-sm" style="background: #ff6600; color: white; margin-top: 10px;">
+                                        <i class="fas fa-book-reader"></i> Read More
+                                    </a>
+                                </div>
+                                @endif
+                            </div>
+				        </section>
+
+			<!-- About section -->
+			
+                   
 
                     <!-- About section -->
 
-                    <section class="aboutUs">
-                        <div class="container">
-                            <div class="MainHead">
-                                <h2>About Us</h2>
-                                <h3>Where can I get some?</h3>
-                                <p>There are many variations of passages of Lorem Ipsum available</p>
-                            </div>
-                            <div class="row">
-                                <div class="col-lg-6">
-                                    <div class="aboutText">
-                                        It is a long established fact that a reader will be distracted by the readable
-                                        content of a page when looking at its layout. The point of using Lorem Ipsum is
-                                        that it has a more-or-less normal distribution of letters, as opposed to using
-                                        'Content here, content here', making it look like readable English.
-                                        <span class="readMore">Read More</span>
-                                        <div class="hoverText">
-                                            It is a long established fact that a reader will be distracted by the
-                                            readable content of a page when looking at its layout. The point of using
-                                            Lorem Ipsum is that it has a more-or-less normal distribution of letters, as
-                                            opposed to using 'Content here, content here', making it look like readable
-                                            English.
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="aboutText">
-                                        It is a long established fact that a reader will be distracted by the readable
-                                        content of a page when looking at its layout. The point of using Lorem Ipsum is
-                                        that it has a more-or-less normal distribution of letters, as opposed to using
-                                        'Content here, content here', making it look like readable English.
-                                        <span class="readMoreNext">Read More</span>
-                                        <div class="hoverTextNext">
-                                            It is a long established fact that a reader will be distracted by the
-                                            readable content of a page when looking at its layout. The point of using
-                                            Lorem Ipsum is that it has a more-or-less normal distribution of letters, as
-                                            opposed to using 'Content here, content here', making it look like readable
-                                            English.
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
+                  
 
 
                     <!-- Inner Banner -->
@@ -171,24 +444,28 @@
                         <div class="container">
                             <div class="MainHead text-center">
                                 <h2>Our Top Scorers</h2>
-                                <p>Stay updated with the latest happenings and upcoming events at Gurukul Takshila</p>
+                                <p>Celebrating academic excellence at Gurukul Takshshila</p>
                             </div>
-                            <div class="row">
-                                @forelse($topScorers as $scorer)
-                                <div class="col-lg-4">
+                            
+                            @if($topScorers->count() > 0)
+                            <div class="topScorersSlider">
+                                @foreach($topScorers as $scorer)
+                                <div class="scorerSlide">
                                     <div class="box">
                                         <div class="image">
                                             @if($scorer->image)
                                                 <img src="{{ asset('storage/' . $scorer->image) }}" alt="{{ $scorer->name }}">
                                             @else
-                                                <img src="img/student.png" alt="{{ $scorer->name }}">
+                                                <div class="default-student-icon">
+                                                    <i class="fas fa-user-graduate"></i>
+                                                </div>
                                             @endif
-                                            <i class="fa-solid fa-trophy"></i>
+                                            <i class="fa-solid fa-trophy trophy-icon"></i>
                                         </div>
                                         <h5 class="name">{{ $scorer->name }}</h5>
                                         <div class="class">Class {{ $scorer->class }} {{ $scorer->section }}</div>
                                         @if($scorer->percentage)
-                                        <div class="percentage">{{ $scorer->percentage }}%</div>
+                                        <div class="percentage">{{ number_format($scorer->percentage, 2) }}%</div>
                                         @endif
                                         <div class="inSubject">School Topper in {{ $scorer->subject }}</div>
                                         @if($scorer->academic_year)
@@ -196,12 +473,13 @@
                                         @endif
                                     </div>
                                 </div>
-                                @empty
-                                <div class="col-lg-12 text-center">
-                                    <p>No top scorers available at the moment.</p>
-                                </div>
-                                @endforelse
+                                @endforeach
                             </div>
+                            @else
+                            <div class="text-center">
+                                <p>No top scorers available at the moment.</p>
+                            </div>
+                            @endif
                         </div>
                     </section>
 
@@ -342,7 +620,43 @@
        
 
     </div>
+    
+    @include('frontend.include.welcome-popup')
+    @include('frontend.include.admission-popup')
     @include('frontend.include.js')
+    
+    <script>
+    $(document).ready(function(){
+        // Initialize Top Scorers Slider
+        $('.topScorersSlider').slick({
+            dots: true,
+            infinite: true,
+            speed: 500,
+            slidesToShow: 3,
+            slidesToScroll: 1,
+            autoplay: true,
+            autoplaySpeed: 3000,
+            arrows: true,
+            responsive: [
+                {
+                    breakpoint: 1024,
+                    settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 1
+                    }
+                },
+                {
+                    breakpoint: 768,
+                    settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 1,
+                        arrows: false
+                    }
+                }
+            ]
+        });
+    });
+    </script>
 </body>
 
 </html>

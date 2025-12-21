@@ -28,34 +28,34 @@
     <!-- INTRO SECTION -->
     <section class="libraryIntro py-5">
         <div class="container">
+            @if($section)
             <div class="row align-items-center">
 
                 <div class="col-lg-6 mb-4">
                     <span class="sectionTag">Knowledge Hub</span>
                     <h2>Well-Equipped School Library</h2>
 
-                    <p>
-                        The library at Gurukul Takshshila plays a vital role in nurturing reading
-                        habits, research skills, and intellectual growth among students. It serves
-                        as a quiet and inspiring space that supports academic excellence.
-                    </p>
-
-                    <p>
-                        With a wide collection of textbooks, reference books, competitive exam
-                        materials and digital resources, our library encourages independent
-                        learning and curiosity beyond the classroom.
-                    </p>
+                    <div>
+                        {!! $section->description !!}
+                    </div>
                 </div>
 
                 <div class="col-lg-6 mb-4 text-center">
                     <img
-                        src="https://picsum.photos/700/450?random=401"
+                        src="{{ asset('storage/' . $section->main_image) }}"
                         class="img-fluid rounded-4 shadow"
                         alt="School Library at Gurukul Takshshila"
                     >
                 </div>
 
             </div>
+            @else
+            <div class="row align-items-center">
+                <div class="col-lg-12 mb-4 text-center">
+                    <p class="text-muted">Content not available at the moment.</p>
+                </div>
+            </div>
+            @endif
         </div>
     </section>
 
@@ -112,16 +112,13 @@
     </section>
 
     <!-- LIBRARY GALLERY (COMMON SLIDER COMPONENT) -->
+    @if($section && $section->slider_images && count($section->slider_images) > 0)
     <x-slider
         title="Library Gallery"
         subtitle="Explore our calm and resource-rich library spaces"
-        :images="[
-            'https://picsum.photos/600/400?random=501',
-            'https://picsum.photos/600/400?random=502',
-            'https://picsum.photos/600/400?random=503',
-            'https://picsum.photos/600/400?random=504'
-        ]"
+        :images="collect($section->slider_images)->map(fn($img) => asset('storage/' . $img))->toArray()"
     />
+    @endif
 
     @include('frontend.include.footer')
 

@@ -3,6 +3,10 @@
         Options -MultiViews -Indexes
     </IfModule>
 
+    # Force UTF-8 encoding
+    AddDefaultCharset UTF-8
+    AddCharset UTF-8 .html .css .js .xml .json .rss .atom
+
     RewriteEngine On
 
     # Handle Authorization Header

@@ -11,6 +11,7 @@ class WelcomePopup extends Model
 
     protected $fillable = [
         'image',
+        'status',
     ];
 
     protected $casts = [

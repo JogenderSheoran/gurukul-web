@@ -4,13 +4,18 @@ namespace App\Http\Controllers;
 
 use App\Models\Banner;
 use App\Models\AboutSection;
+use App\Models\AboutSectionData;
 use App\Models\InnerBanner;
 use App\Models\NewsEvent;
 use App\Models\TopScorer;
 use App\Models\Infrastructure;
+use App\Models\InfrastructureSection;
 use App\Models\Stat;
 use App\Models\Lab;
 use App\Models\HomePageText;
+use App\Models\WelcomePopup;
+use App\Models\PrincipalMessage;
+use App\Models\ChairmanMessage;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -54,6 +59,12 @@ class HomeController extends Controller
         // Fetch top scorers (limit to 3 for homepage)
         $topScorers = TopScorer::orderBy('created_at', 'desc')->limit(3)->get();
         
+        // Fetch active welcome popup
+        $welcomePopup = WelcomePopup::where('status', 'active')->first();
+        
+        // Fetch about section data (principal, chairman, vision, mission, core values)
+        $aboutSectionData = AboutSectionData::first();
+        
         return view('frontend.home.index', compact(
             'banners',
             'aboutSection',
@@ -63,23 +74,38 @@ class HomeController extends Controller
             'stats',
             'labs',
             'homePageTexts',
-            'topScorers'
+            'topScorers',
+            'welcomePopup',
+            'aboutSectionData'
         ));
     }
 
     public function principalMessage()
     {
-        return view('frontend.about-us.principal-message');
+        $aboutSectionData = AboutSectionData::first();
+        
+        return view('frontend.about-us.principal-message', compact('aboutSectionData'));
+    }
+
+    public function chairmainMessage()
+    {
+        $aboutSectionData = AboutSectionData::first();
+        
+        return view('frontend.about-us.chairman-message', compact('aboutSectionData'));
     }
 
     public function visionMission()
     {
-        return view('frontend.about-us.vision-mission');
+        $aboutSectionData = AboutSectionData::first();
+        
+        return view('frontend.about-us.vision-mission', compact('aboutSectionData'));
     }
     
     public function coreValues()
     {
-        return view('frontend.about-us.core-values');
+        $aboutSectionData = AboutSectionData::first();
+        
+        return view('frontend.about-us.core-values', compact('aboutSectionData'));
     }
 
     public function team()
@@ -111,6 +137,8 @@ class HomeController extends Controller
 
     public function classroomFacilities()
     {
+        $section = InfrastructureSection::where('section_key', 'classroom')->first();
+        
         $seo = [
             'title' => 'Smart Classrooms | Gurukul Takshshila School',
             'description' => 'Modern smart classrooms at Gurukul Takshshila with digital boards, spacious seating, ventilation and student-friendly learning environment.',
@@ -118,11 +146,13 @@ class HomeController extends Controller
             'image' => asset('assets/img/classroom-banner.jpg'),
         ];
 
-        return view('frontend.infrastructure.classroom-facilities', compact('seo'));
+        return view('frontend.infrastructure.classroom-facilities', compact('seo', 'section'));
     }
 
     public function libraryFacilities()
     {
+        $section = InfrastructureSection::where('section_key', 'library')->first();
+        
         $seo = [
             'title' => 'Library Facilities | Gurukul Takshshila School',
             'description' => 'Well-equipped library at Gurukul Takshshila with academic books, reference material, digital resources and peaceful reading environment for students.',
@@ -130,11 +160,13 @@ class HomeController extends Controller
             'image' => asset('assets/img/library-banner.jpg'),
         ];
 
-        return view('frontend.infrastructure.library-facilities', compact('seo'));
+        return view('frontend.infrastructure.library-facilities', compact('seo', 'section'));
     }
 
     public function musicDanceClasses()
     {
+        $section = InfrastructureSection::where('section_key', 'music_and_dance')->first();
+        
         $seo = [
             'title' => 'Music & Dance Classes | Gurukul Takshshila Performing Arts Program',
             'description' => 'Music and dance classes at Gurukul Takshshila offering vocal, instrumental, classical, contemporary dance and performing arts training for holistic student development.',
@@ -142,11 +174,13 @@ class HomeController extends Controller
             'image' => asset('assets/img/music-dance-banner.jpg'),
         ];
 
-        return view('frontend.infrastructure.music-dance-classes', compact('seo'));
+        return view('frontend.infrastructure.music-dance-classes', compact('seo', 'section'));
     }
 
     public function smartClassrooms()
     {
+        $section = InfrastructureSection::where('section_key', 'smart_classroom')->first();
+        
         $seo = [
             'title' => 'Smart Classrooms with Virtual & Interactive Boards | Gurukul Takshshila',
             'description' => 'Virtual and interactive board smart classrooms at Gurukul Takshshila with digital learning tools, audio-visual aids and modern teaching infrastructure.',
@@ -154,7 +188,7 @@ class HomeController extends Controller
             'image' => asset('assets/img/smart-classroom-banner.jpg'),
         ];
 
-        return view('frontend.infrastructure.smart-classrooms', compact('seo'));
+        return view('frontend.infrastructure.smart-classrooms', compact('seo', 'section'));
     }
 
     public function computerLabs()

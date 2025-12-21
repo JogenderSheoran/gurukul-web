@@ -143,13 +143,16 @@
                 <div class="col-lg-6">
                     <div class="contact-card">
                         <h3>Get in Touch</h3>
-                        <form action="#" method="POST">
+                        <div class="alert alert-success d-none" id="contactSuccessMessage"></div>
+                        <div class="alert alert-danger d-none" id="contactErrorMessage"></div>
+                        <form id="contactEnquiryForm">
                             @csrf
                             <input type="text" name="name" class="form-control" placeholder="Your Name" required>
                             <input type="email" name="email" class="form-control" placeholder="Email Address" required>
-                            <input type="text" name="subject" class="form-control" placeholder="Subject" required>
+                            <input type="tel" name="phone" class="form-control" placeholder="Phone Number" pattern="[0-9]{10}" required>
+                            <input type="text" name="subject" class="form-control" placeholder="Subject (Optional)">
                             <textarea name="message" rows="6" class="form-control" placeholder="Your Message" required></textarea>
-                            <button type="submit" class="btn-contact">Send Message</button>
+                            <button type="submit" class="btn-contact" id="submitContactBtn">Send Message</button>
                         </form>
                     </div>
                 </div>
@@ -205,6 +208,54 @@
 
 @include('frontend.include.footer')
 @include('frontend.include.js')
+
+<script>
+$(document).ready(function() {
+    $('#contactEnquiryForm').on('submit', function(e) {
+        e.preventDefault();
+        
+        var formData = $(this).serialize();
+        var submitBtn = $('#submitContactBtn');
+        
+        submitBtn.prop('disabled', true).text('Sending...');
+        $('#contactSuccessMessage, #contactErrorMessage').addClass('d-none');
+        
+        $.ajax({
+            url: '{{ route("contact-enquiry.store") }}',
+            type: 'POST',
+            data: formData,
+            success: function(response) {
+                if (response.success) {
+                    $('#contactSuccessMessage').text(response.message).removeClass('d-none');
+                    $('#contactEnquiryForm')[0].reset();
+                    
+                    setTimeout(function() {
+                        $('#contactSuccessMessage').addClass('d-none');
+                    }, 5000);
+                }
+            },
+            error: function(xhr) {
+                var errors = xhr.responseJSON.errors;
+                var errorHtml = '<ul class="mb-0">';
+                
+                if (errors) {
+                    $.each(errors, function(key, value) {
+                        errorHtml += '<li>' + value[0] + '</li>';
+                    });
+                } else {
+                    errorHtml += '<li>An error occurred. Please try again.</li>';
+                }
+                
+                errorHtml += '</ul>';
+                $('#contactErrorMessage').html(errorHtml).removeClass('d-none');
+            },
+            complete: function() {
+                submitBtn.prop('disabled', false).text('Send Message');
+            }
+        });
+    });
+});
+</script>
 
 </body>
 </html>

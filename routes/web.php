@@ -13,6 +13,20 @@ use App\Http\Controllers\Admin\LabController;
 use App\Http\Controllers\Admin\HomePageTextController;
 use App\Http\Controllers\Admin\WelcomePopupController;
 use App\Http\Controllers\Admin\BlogController;
+use App\Http\Controllers\Admin\AboutUsController;
+use App\Http\Controllers\Admin\HostelController;
+use App\Http\Controllers\Admin\NutritionManagementController;
+use App\Http\Controllers\Admin\HealthNutritionController;
+use App\Http\Controllers\Admin\SportsComplexController;
+use App\Http\Controllers\Admin\ReadingMissionController;
+use App\Http\Controllers\Admin\CoCurricularActivityController;
+use App\Http\Controllers\Admin\CompetitiveExamController;
+use App\Http\Controllers\Admin\HouseSystemController;
+use App\Http\Controllers\Admin\PageBannerController;
+use App\Http\Controllers\Admin\TeamMemberController;
+use App\Http\Controllers\Admin\MandatoryDisclosureController;
+use App\Http\Controllers\Admin\InfrastructureSectionController;
+use App\Http\Controllers\Admin\ProgramController;
 use App\Http\Controllers\CommonController;
 use App\Http\Controllers\GalleryController;
 use Illuminate\Support\Facades\Route;
@@ -57,8 +71,9 @@ Route::get('important-information', [HomeController::class, 'importantInformatio
 
 Route::get('blogs', [CommonController::class, 'blogs'])->name('blogs');
 Route::get('/blogs/{slug}', [CommonController::class, 'blogDetails'])->name('blog.details');
-Route::get('contact', [HomeController::class, 'contact'])->name('contact');
 Route::get('/gallery', [GalleryController::class, 'gallery'])->name('gallery.index');
+Route::get('/mandatory-disclosure', [HomeController::class, 'mandatoryDisclosure'])->name('mandatory-disclosure');
+Route::get('/programs/{program_key}', [HomeController::class, 'showProgram'])->name('programs.show');
 
 /* EVENTS */
 Route::get('/events', [CommonController::class, 'eventsIndex'])->name('events.index');
@@ -68,7 +83,11 @@ Route::get('/news/{slug}', [CommonController::class, 'newsDetails'])->name('news
 
 Route::get('/contact-us', [CommonController::class, 'contactUs'])->name('contact');
 
+/* ADMISSION ENQUIRY */
+Route::post('/admission-enquiry', [App\Http\Controllers\AdmissionEnquiryController::class, 'store'])->name('admission-enquiry.store');
 
+/* CONTACT ENQUIRY */
+Route::post('/contact-enquiry', [App\Http\Controllers\ContactEnquiryController::class, 'store'])->name('contact-enquiry.store');
 
 
 
@@ -86,7 +105,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::prefix('admin')->name('admin.')->group(function () {
+Route::prefix('admin')->name('admin.')->middleware(['auth'])->group(function () {
     // Banner routes - specific routes must come before resource routes
     Route::get('banner/data', [BannerController::class, 'getData'])->name('banner.data');
     Route::post('banner/{banner}/toggle-status', [BannerController::class, 'toggleStatus'])->name('banner.toggle-status');
@@ -136,6 +155,77 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::get('home-page-text/data', [HomePageTextController::class, 'getData'])->name('home-page-text.data');
     Route::post('home-page-text/{homePageText}/toggle-status', [HomePageTextController::class, 'toggleStatus'])->name('home-page-text.toggle-status');
     Route::resource('home-page-text', HomePageTextController::class);
+    
+    // About Us routes
+    Route::get('about-us', [AboutUsController::class, 'index'])->name('about-us.index');
+    Route::post('about-us', [AboutUsController::class, 'store'])->name('about-us.store');
+    Route::put('about-us', [AboutUsController::class, 'update'])->name('about-us.update');
+    
+    // Hostel routes
+    Route::get('hostel', [HostelController::class, 'index'])->name('hostel.index');
+    Route::post('hostel', [HostelController::class, 'store'])->name('hostel.store');
+    Route::put('hostel', [HostelController::class, 'update'])->name('hostel.update');
+    
+    // Nutrition Management routes
+    Route::get('nutrition-management', [NutritionManagementController::class, 'index'])->name('nutrition-management.index');
+    Route::post('nutrition-management', [NutritionManagementController::class, 'store'])->name('nutrition-management.store');
+    Route::put('nutrition-management', [NutritionManagementController::class, 'update'])->name('nutrition-management.update');
+    
+    // Health Nutrition routes
+    Route::get('health-nutrition', [HealthNutritionController::class, 'index'])->name('health-nutrition.index');
+    Route::post('health-nutrition', [HealthNutritionController::class, 'store'])->name('health-nutrition.store');
+    Route::put('health-nutrition', [HealthNutritionController::class, 'update'])->name('health-nutrition.update');
+    
+    // Sports Complex routes
+    Route::get('sports-complex', [SportsComplexController::class, 'index'])->name('sports-complex.index');
+    Route::post('sports-complex', [SportsComplexController::class, 'store'])->name('sports-complex.store');
+    Route::put('sports-complex', [SportsComplexController::class, 'update'])->name('sports-complex.update');
+    
+    // Reading Mission routes
+    Route::get('reading-mission', [ReadingMissionController::class, 'index'])->name('reading-mission.index');
+    Route::post('reading-mission', [ReadingMissionController::class, 'store'])->name('reading-mission.store');
+    Route::put('reading-mission', [ReadingMissionController::class, 'update'])->name('reading-mission.update');
+    
+    // Co-curricular Activity routes
+    Route::get('co-curricular-activity', [CoCurricularActivityController::class, 'index'])->name('co-curricular-activity.index');
+    Route::post('co-curricular-activity', [CoCurricularActivityController::class, 'store'])->name('co-curricular-activity.store');
+    Route::put('co-curricular-activity', [CoCurricularActivityController::class, 'update'])->name('co-curricular-activity.update');
+    
+    // Competitive Exam routes
+    Route::get('competitive-exam', [CompetitiveExamController::class, 'index'])->name('competitive-exam.index');
+    Route::post('competitive-exam', [CompetitiveExamController::class, 'store'])->name('competitive-exam.store');
+    Route::put('competitive-exam', [CompetitiveExamController::class, 'update'])->name('competitive-exam.update');
+    
+    // House System routes
+    Route::get('house-system', [HouseSystemController::class, 'index'])->name('house-system.index');
+    Route::post('house-system', [HouseSystemController::class, 'store'])->name('house-system.store');
+    Route::put('house-system', [HouseSystemController::class, 'update'])->name('house-system.update');
+    
+    // Page Banner routes
+    Route::resource('page-banner', PageBannerController::class);
+    
+    // Team Member routes
+    Route::resource('team-member', TeamMemberController::class);
+    
+    // Mandatory Disclosure routes
+    Route::get('mandatory-disclosure', [MandatoryDisclosureController::class, 'index'])->name('mandatory-disclosure.index');
+    Route::post('mandatory-disclosure', [MandatoryDisclosureController::class, 'store'])->name('mandatory-disclosure.store');
+    
+    // Infrastructure Section routes
+    Route::resource('infrastructure-section', InfrastructureSectionController::class);
+    
+    // Program routes
+    Route::resource('program', ProgramController::class);
+    
+    // Admission Enquiry routes
+    Route::get('admission-enquiry', [App\Http\Controllers\Admin\AdmissionEnquiryController::class, 'index'])->name('admission-enquiry.index');
+    Route::get('admission-enquiry/data', [App\Http\Controllers\Admin\AdmissionEnquiryController::class, 'getData'])->name('admission-enquiry.data');
+    Route::get('admission-enquiry/{admissionEnquiry}', [App\Http\Controllers\Admin\AdmissionEnquiryController::class, 'show'])->name('admission-enquiry.show');
+    
+    // Contact Enquiry routes
+    Route::get('contact-enquiry', [App\Http\Controllers\Admin\ContactEnquiryController::class, 'index'])->name('contact-enquiry.index');
+    Route::get('contact-enquiry/data', [App\Http\Controllers\Admin\ContactEnquiryController::class, 'getData'])->name('contact-enquiry.data');
+    Route::get('contact-enquiry/{contactEnquiry}', [App\Http\Controllers\Admin\ContactEnquiryController::class, 'show'])->name('contact-enquiry.show');
 });
 
 

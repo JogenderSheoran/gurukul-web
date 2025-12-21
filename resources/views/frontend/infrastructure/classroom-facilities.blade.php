@@ -27,34 +27,34 @@
     <!-- INTRO -->
     <section class="classroomIntro py-5">
         <div class="container">
+            @if($section)
             <div class="row align-items-center">
 
                 <div class="col-lg-6 mb-4">
                     <span class="sectionTag">Learning Environment</span>
                     <h2>Smart & Student-Friendly Classrooms</h2>
 
-                    <p>
-                        At Gurukul Takshshila, classrooms are designed to create an engaging,
-                        disciplined, and distraction-free learning environment. Our well-planned
-                        classroom infrastructure supports effective teaching and focused learning.
-                    </p>
-
-                    <p>
-                        Spacious seating, natural ventilation, digital learning tools and
-                        ergonomic furniture ensure students remain comfortable and attentive
-                        throughout the academic day.
-                    </p>
+                    <div>
+                        {!! $section->description !!}
+                    </div>
                 </div>
 
                 <div class="col-lg-6 mb-4 text-center">
                     <img
-                        src="https://picsum.photos/700/450?random=201"
+                        src="{{ asset('storage/' . $section->main_image) }}"
                         class="img-fluid rounded-4 shadow"
                         alt="Smart Classroom at Gurukul Takshshila"
                     >
                 </div>
 
             </div>
+            @else
+            <div class="row align-items-center">
+                <div class="col-lg-12 mb-4 text-center">
+                    <p class="text-muted">Content not available at the moment.</p>
+                </div>
+            </div>
+            @endif
         </div>
     </section>
 
@@ -103,16 +103,13 @@
     </section>
 
     <!-- CLASSROOM GALLERY (COMMON COMPONENT) -->
+    @if($section && $section->slider_images && count($section->slider_images) > 0)
     <x-slider
         title="Classroom Gallery"
         subtitle="Explore our modern and well-equipped classrooms"
-        :images="[
-            'https://picsum.photos/600/400?random=301',
-            'https://picsum.photos/600/400?random=302',
-            'https://picsum.photos/600/400?random=303',
-            'https://picsum.photos/600/400?random=304'
-        ]"
+        :images="collect($section->slider_images)->map(fn($img) => asset('storage/' . $img))->toArray()"
     />
+    @endif
 
     @include('frontend.include.footer')
 
