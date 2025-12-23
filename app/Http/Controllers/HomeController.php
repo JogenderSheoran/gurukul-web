@@ -16,6 +16,12 @@ use App\Models\HomePageText;
 use App\Models\WelcomePopup;
 use App\Models\PrincipalMessage;
 use App\Models\ChairmanMessage;
+use App\Models\DisclosureGeneralInfo;
+use App\Models\DisclosureDocument;
+use App\Models\DisclosureResult;
+use App\Models\DisclosureStaffInfo;
+use App\Models\DisclosureInfrastructure;
+use App\Models\DisclosureTeacher;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -383,16 +389,37 @@ class HomeController extends Controller
         return view('frontend.admission.important-information', compact('seo'));
     }
 
-    
+    public function mandatoryDisclosure()
+    {
+        $seo = [
+            'title' => 'Mandatory Public Disclosure | Gurukul Takshshila School',
+            'description' => 'Complete mandatory public disclosure information as per CBSE guidelines including general information, documents, results, staff details, infrastructure and teacher information.',
+            'keywords' => 'mandatory disclosure, CBSE disclosure, school information, gurukul takshshila disclosure',
+            'image' => asset('assets/img/mandatory-disclosure-banner.jpg'),
+        ];
 
+        // Fetch all disclosure data
+        $generalInfo = DisclosureGeneralInfo::first();
+        $documents = DisclosureDocument::where('section', 'general')->get();
+        $academicDocuments = DisclosureDocument::where('section', 'results_academics')->get();
+        $resultsClassX = DisclosureResult::where('class_type', 'X')->get();
+        $resultsClassXII = DisclosureResult::where('class_type', 'XII')->get();
+        $staffInfo = DisclosureStaffInfo::first();
+        $infrastructure = DisclosureInfrastructure::first();
+        $teachers = DisclosureTeacher::all();
 
-
-
-
-
-
-
-
+        return view('frontend.mandatory-disclosure.index', compact(
+            'seo',
+            'generalInfo',
+            'documents',
+            'academicDocuments',
+            'resultsClassX',
+            'resultsClassXII',
+            'staffInfo',
+            'infrastructure',
+            'teachers'
+        ));
+    }
 
 
     

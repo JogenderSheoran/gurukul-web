@@ -15,7 +15,7 @@
 <div class="main">
 
     <!-- ORANGE INNER BANNER -->
-    <x-inner-banner title="Hostel Facilities" subtitle="Gurukul Takshshila - Residential Life" />
+    <x-inner-banner title="Hostel Facilities" subtitle="Gurukul Takshshila - Residential Life" pageKey="hostel" />
 
     <!-- SECOND IMAGE BANNER (CONTAINER WIDTH) -->
     <section class="hostelImageBanner py-5">

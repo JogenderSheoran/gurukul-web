@@ -16,7 +16,7 @@
 <div class="main">
 
     <!-- INNER BANNER COMPONENT -->
-    <x-inner-banner title="Principal Message" />
+    <x-inner-banner title="Principal Message" pageKey="principal-message" />
 
     <!-- Principal Message Section -->
     <section class="aboutUs principalMessage py-5">

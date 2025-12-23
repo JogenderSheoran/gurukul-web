@@ -27,6 +27,9 @@ use App\Http\Controllers\Admin\TeamMemberController;
 use App\Http\Controllers\Admin\MandatoryDisclosureController;
 use App\Http\Controllers\Admin\InfrastructureSectionController;
 use App\Http\Controllers\Admin\ProgramController;
+use App\Http\Controllers\Admin\AdmissionEnquiryController;
+use App\Http\Controllers\Admin\ContactEnquiryController;
+use App\Http\Controllers\Admin\GalleryController as AdminGalleryController;
 use App\Http\Controllers\CommonController;
 use App\Http\Controllers\GalleryController;
 use Illuminate\Support\Facades\Route;
@@ -226,6 +229,12 @@ Route::prefix('admin')->name('admin.')->middleware(['auth'])->group(function () 
     Route::get('contact-enquiry', [App\Http\Controllers\Admin\ContactEnquiryController::class, 'index'])->name('contact-enquiry.index');
     Route::get('contact-enquiry/data', [App\Http\Controllers\Admin\ContactEnquiryController::class, 'getData'])->name('contact-enquiry.data');
     Route::get('contact-enquiry/{contactEnquiry}', [App\Http\Controllers\Admin\ContactEnquiryController::class, 'show'])->name('contact-enquiry.show');
+    
+    // Gallery routes - specific routes must come before resource routes
+    Route::get('gallery/data', [AdminGalleryController::class, 'getData'])->name('gallery.data');
+    Route::post('gallery/{gallery}/toggle-status', [AdminGalleryController::class, 'toggleStatus'])->name('gallery.toggle-status');
+    Route::delete('gallery/{id}/remove-image', [AdminGalleryController::class, 'removeImage'])->name('gallery.remove-image');
+    Route::resource('gallery', AdminGalleryController::class);
 });
 
 

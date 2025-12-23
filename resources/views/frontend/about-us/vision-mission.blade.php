@@ -11,7 +11,7 @@
 <div class="main">
 
     <!-- DYNAMIC INNER BANNER -->
-    <x-inner-banner title="Vision & Mission" />
+    <x-inner-banner title="Vision & Mission" pageKey="vision-mission" />
 
     <!-- Vision Section -->
     <section class="visionMissionSection py-5">

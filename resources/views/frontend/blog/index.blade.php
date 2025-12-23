@@ -22,6 +22,7 @@
     <x-inner-banner
         title="Our Blog"
         subtitle="Insights, Activities & Educational Articles"
+        pageKey="blogs"
     />
 
     {{-- Blog Intro --}}

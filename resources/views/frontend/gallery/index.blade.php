@@ -25,9 +25,16 @@
                 @foreach ($images as $image)
                     <div class="col-lg-3 col-md-4 col-sm-6 galleryItem">
                         <div class="galleryCard">
-                            <img src="{{ $image }}"
-                                 alt="Gurukul Takshshila Gallery Image"
-                                 loading="lazy">
+                            @if(is_array($image))
+                                <img src="{{ $image['url'] }}"
+                                     alt="{{ $image['title'] ?? 'Gurukul Takshshila Gallery Image' }}"
+                                     title="{{ $image['title'] ?? '' }}"
+                                     loading="lazy">
+                            @else
+                                <img src="{{ $image }}"
+                                     alt="Gurukul Takshshila Gallery Image"
+                                     loading="lazy">
+                            @endif
                         </div>
                     </div>
                 @endforeach

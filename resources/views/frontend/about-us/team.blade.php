@@ -10,7 +10,7 @@
 <div class="main">
 
     <!-- Banner -->
-    <x-inner-banner title="Our Team" />
+    <x-inner-banner title="Our Team" pageKey="team" />
 
     <!-- Team Section -->
     <section class="teamModern py-5">

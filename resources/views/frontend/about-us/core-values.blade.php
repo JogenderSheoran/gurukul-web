@@ -14,7 +14,7 @@
 <div class="main">
 
     <!-- DYNAMIC ORANGE BANNER -->
-    <x-inner-banner title="Core Values" />
+    <x-inner-banner title="Core Values" pageKey="core-values" />
 
     <!-- Core Values Section -->
     <section class="coreValuesSection py-5">

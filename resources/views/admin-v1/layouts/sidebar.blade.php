@@ -55,6 +55,14 @@
                         </a>
                     </li>
 
+                    <!-- Gallery Management -->
+                    <li class="nav-item">
+                        <a href="{{ route('admin.gallery.index') }}" class="nav-link {{ request()->routeIs('admin.gallery.*') ? 'active' : '' }}">
+                            <i class="nav-icon fas fa-camera text-purple"></i>
+                            <p>Gallery</p>
+                        </a>
+                    </li>
+
                     <!-- News & Events Management -->
                     <li class="nav-item">
                         <a href="{{ route('admin.news-event.index') }}" class="nav-link {{ request()->routeIs('admin.news-event.*') ? 'active' : '' }}">
