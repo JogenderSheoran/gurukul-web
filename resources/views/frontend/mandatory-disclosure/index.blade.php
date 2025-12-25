@@ -106,38 +106,20 @@
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <div class="infoItem">
-                                        <label>Principal Experience:</label>
-                                        <p>{{ $generalInfo->principal_experience ?? 'N/A' }}</p>
+                                        <label>School Email:</label>
+                                        <p>{{ $generalInfo->school_email ?? 'N/A' }}</p>
                                     </div>
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <div class="infoItem">
-                                        <label>Email:</label>
-                                        <p>{{ $generalInfo->email ?? 'N/A' }}</p>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 mb-3">
-                                    <div class="infoItem">
-                                        <label>Contact Number:</label>
-                                        <p>{{ $generalInfo->contact_number ?? 'N/A' }}</p>
+                                        <label>Contact Details:</label>
+                                        <p>{{ $generalInfo->contact_details ?? 'N/A' }}</p>
                                     </div>
                                 </div>
                                 <div class="col-md-12 mb-3">
                                     <div class="infoItem">
-                                        <label>Address:</label>
-                                        <p>{{ $generalInfo->address ?? 'N/A' }}</p>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 mb-3">
-                                    <div class="infoItem">
-                                        <label>Year of Establishment:</label>
-                                        <p>{{ $generalInfo->year_of_establishment ?? 'N/A' }}</p>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 mb-3">
-                                    <div class="infoItem">
-                                        <label>Total Campus Area:</label>
-                                        <p>{{ $generalInfo->total_campus_area ?? 'N/A' }}</p>
+                                        <label>Complete Address:</label>
+                                        <p>{{ $generalInfo->complete_address ?? 'N/A' }}</p>
                                     </div>
                                 </div>
                             </div>
@@ -247,8 +229,8 @@
                                         @foreach($resultsClassX as $result)
                                             <tr>
                                                 <td>{{ $result->year }}</td>
-                                                <td>{{ $result->total_students }}</td>
-                                                <td>{{ $result->students_passed }}</td>
+                                                <td>{{ $result->no_of_registered_students }}</td>
+                                                <td>{{ $result->no_of_students_passed }}</td>
                                                 <td>{{ $result->pass_percentage }}%</td>
                                             </tr>
                                         @endforeach
@@ -274,8 +256,8 @@
                                         @foreach($resultsClassXII as $result)
                                             <tr>
                                                 <td>{{ $result->year }}</td>
-                                                <td>{{ $result->total_students }}</td>
-                                                <td>{{ $result->students_passed }}</td>
+                                                <td>{{ $result->no_of_registered_students }}</td>
+                                                <td>{{ $result->no_of_students_passed }}</td>
                                                 <td>{{ $result->pass_percentage }}%</td>
                                             </tr>
                                         @endforeach
@@ -296,16 +278,16 @@
                         <h3 class="sectionTitle">Staff Information</h3>
                         @if($staffInfo)
                             <div class="row">
-                                <div class="col-md-4 mb-3">
+                                <div class="col-md-6 mb-3">
                                     <div class="infoItem">
-                                        <label>Principal:</label>
-                                        <p>{{ $staffInfo->principal ?? 'N/A' }}</p>
+                                        <label>Principal Name:</label>
+                                        <p>{{ $staffInfo->principal_name ?? 'N/A' }}</p>
                                     </div>
                                 </div>
-                                <div class="col-md-4 mb-3">
+                                <div class="col-md-6 mb-3">
                                     <div class="infoItem">
-                                        <label>Vice Principal:</label>
-                                        <p>{{ $staffInfo->vice_principal ?? 'N/A' }}</p>
+                                        <label>Total Teachers:</label>
+                                        <p>{{ $staffInfo->total_teachers ?? 'N/A' }}</p>
                                     </div>
                                 </div>
                                 <div class="col-md-4 mb-3">
@@ -326,22 +308,22 @@
                                         <p>{{ $staffInfo->prt_teachers ?? 'N/A' }}</p>
                                     </div>
                                 </div>
-                                <div class="col-md-4 mb-3">
+                                <div class="col-md-6 mb-3">
                                     <div class="infoItem">
-                                        <label>PET Teachers:</label>
-                                        <p>{{ $staffInfo->pet_teachers ?? 'N/A' }}</p>
+                                        <label>Teacher-Student Ratio:</label>
+                                        <p>{{ $staffInfo->teacher_student_ratio ?? 'N/A' }}</p>
                                     </div>
                                 </div>
-                                <div class="col-md-4 mb-3">
+                                <div class="col-md-12 mb-3">
                                     <div class="infoItem">
-                                        <label>Non-Teaching Staff:</label>
-                                        <p>{{ $staffInfo->non_teaching_staff ?? 'N/A' }}</p>
+                                        <label>Special Educator Details:</label>
+                                        <p>{{ $staffInfo->special_educator_details ?? 'N/A' }}</p>
                                     </div>
                                 </div>
-                                <div class="col-md-4 mb-3">
+                                <div class="col-md-12 mb-3">
                                     <div class="infoItem">
-                                        <label>Total Staff:</label>
-                                        <p>{{ $staffInfo->total_staff ?? 'N/A' }}</p>
+                                        <label>Counsellor and Wellness Teacher Details:</label>
+                                        <p>{{ $staffInfo->counsellor_and_wellness_teacher_details ?? 'N/A' }}</p>
                                     </div>
                                 </div>
                             </div>
@@ -359,62 +341,64 @@
                             <div class="row">
                                 <div class="col-md-6 mb-3">
                                     <div class="infoItem">
-                                        <label>Total Classrooms:</label>
-                                        <p>{{ $infrastructure->total_classrooms ?? 'N/A' }}</p>
+                                        <label>Total Campus Area:</label>
+                                        <p>{{ $infrastructure->total_campus_area ?? 'N/A' }}</p>
                                     </div>
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <div class="infoItem">
-                                        <label>Laboratories:</label>
-                                        <p>{{ $infrastructure->laboratories ?? 'N/A' }}</p>
+                                        <label>Number of Classrooms:</label>
+                                        <p>{{ $infrastructure->no_of_classrooms ?? 'N/A' }}</p>
                                     </div>
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <div class="infoItem">
-                                        <label>Library:</label>
-                                        <p>{{ $infrastructure->library ?? 'N/A' }}</p>
+                                        <label>Size of Classrooms:</label>
+                                        <p>{{ $infrastructure->size_of_classrooms ?? 'N/A' }}</p>
                                     </div>
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <div class="infoItem">
-                                        <label>Playground Area:</label>
-                                        <p>{{ $infrastructure->playground_area ?? 'N/A' }}</p>
+                                        <label>Number of Laboratories:</label>
+                                        <p>{{ $infrastructure->no_of_laboratories ?? 'N/A' }}</p>
                                     </div>
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <div class="infoItem">
-                                        <label>Computer Labs:</label>
-                                        <p>{{ $infrastructure->computer_labs ?? 'N/A' }}</p>
+                                        <label>Size of Laboratories:</label>
+                                        <p>{{ $infrastructure->size_of_laboratories ?? 'N/A' }}</p>
                                     </div>
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <div class="infoItem">
-                                        <label>Smart Classrooms:</label>
-                                        <p>{{ $infrastructure->smart_classrooms ?? 'N/A' }}</p>
+                                        <label>Internet Facility:</label>
+                                        <p>{{ $infrastructure->internet_facility ?? 'N/A' }}</p>
                                     </div>
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <div class="infoItem">
-                                        <label>Auditorium:</label>
-                                        <p>{{ $infrastructure->auditorium ?? 'N/A' }}</p>
+                                        <label>Number of Girls Toilets:</label>
+                                        <p>{{ $infrastructure->no_of_girls_toilets ?? 'N/A' }}</p>
                                     </div>
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <div class="infoItem">
-                                        <label>Medical Room:</label>
-                                        <p>{{ $infrastructure->medical_room ?? 'N/A' }}</p>
+                                        <label>Number of Boys Toilets:</label>
+                                        <p>{{ $infrastructure->no_of_boys_toilets ?? 'N/A' }}</p>
                                     </div>
                                 </div>
-                                <div class="col-md-6 mb-3">
+                                <div class="col-md-12 mb-3">
                                     <div class="infoItem">
-                                        <label>Hostel Capacity:</label>
-                                        <p>{{ $infrastructure->hostel_capacity ?? 'N/A' }}</p>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 mb-3">
-                                    <div class="infoItem">
-                                        <label>Transport Facility:</label>
-                                        <p>{{ $infrastructure->transport_facility ?? 'N/A' }}</p>
+                                        <label>School Inspection Video Link:</label>
+                                        <p>
+                                            @if($infrastructure->school_inspection_video_link)
+                                                <a href="{{ $infrastructure->school_inspection_video_link }}" target="_blank" class="btn btn-sm btn-primary">
+                                                    <i class="fas fa-video"></i> Watch Video
+                                                </a>
+                                            @else
+                                                N/A
+                                            @endif
+                                        </p>
                                     </div>
                                 </div>
                             </div>
