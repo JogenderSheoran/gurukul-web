@@ -23,6 +23,7 @@
     <x-inner-banner
         title="Physics Laboratory"
         subtitle="Learning Physics Through Practical Experiments"
+        pageKey="physics-lab"
     />
 
     <!-- INTRO SECTION -->
@@ -34,25 +35,39 @@
                     <span class="sectionTag">Science Education</span>
                     <h2>Advanced Physics Laboratory</h2>
 
-                    <p>
-                        The Physics Laboratory at Gurukul Takshshila provides students with
-                        hands-on experience to understand fundamental principles of physics
-                        through observation and experimentation.
-                    </p>
+                    @if($lab && $lab->description)
+                        <div>
+                            {!! $lab->description !!}
+                        </div>
+                    @else
+                        <p>
+                            The Physics Laboratory at Gurukul Takshshila provides students with
+                            hands-on experience to understand fundamental principles of physics
+                            through observation and experimentation.
+                        </p>
 
-                    <p>
-                        Equipped with modern apparatus and guided by experienced faculty,
-                        the lab encourages curiosity, logical thinking and scientific temperament
-                        among students.
-                    </p>
+                        <p>
+                            Equipped with modern apparatus and guided by experienced faculty,
+                            the lab encourages curiosity, logical thinking and scientific temperament
+                            among students.
+                        </p>
+                    @endif
                 </div>
 
                 <div class="col-lg-6 mb-4 text-center">
-                    <img
-                        src="https://picsum.photos/700/450?random=2001"
-                        class="img-fluid rounded-4 shadow"
-                        alt="Physics Laboratory at Gurukul Takshshila"
-                    >
+                    @if($lab && $lab->main_banner)
+                        <img
+                            src="{{ asset('storage/' . $lab->main_banner) }}"
+                            class="img-fluid rounded-4 shadow"
+                            alt="Physics Laboratory at Gurukul Takshshila"
+                        >
+                    @else
+                        <img
+                            src="{{ asset('img/logo.png') }}"
+                            class="img-fluid rounded-4 shadow"
+                            alt="Physics Laboratory at Gurukul Takshshila"
+                        >
+                    @endif
                 </div>
 
             </div>
@@ -153,16 +168,13 @@
     </section>
 
     <!-- PHYSICS LAB GALLERY -->
+    @if($lab && $lab->slider_images && is_array($lab->slider_images) && count($lab->slider_images) > 0)
     <x-slider
         title="Physics Lab Gallery"
         subtitle="A glimpse of experiments and practical learning"
-        :images="[
-            'https://picsum.photos/600/400?random=2101',
-            'https://picsum.photos/600/400?random=2102',
-            'https://picsum.photos/600/400?random=2103',
-            'https://picsum.photos/600/400?random=2104'
-        ]"
+        :images="collect($lab->slider_images)->map(fn($img) => asset('storage/' . $img))->toArray()"
     />
+    @endif
 
     @include('frontend.include.footer')
 

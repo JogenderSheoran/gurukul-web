@@ -16,6 +16,7 @@
     <!-- Vision Section -->
     <section class="visionMissionSection py-5">
         <div class="container">
+            @if($aboutSectionData && $aboutSectionData->our_vision)
             <div class="row align-items-center">
 
                 <!-- Vision Text -->
@@ -26,30 +27,37 @@
 
                         <div class="vmCard">
                             <h5>Our Vision</h5>
-                            <p>
-                                Gurukul Takshshila aims to create and nurture the traditional
-                                value of the Vedic system for holistic development of the child,
-                                promoting excellence, innovation, lifelong learning, and a
-                                learner-centered environment of world-class standards.
-                            </p>
+                            <div>
+                                {!! $aboutSectionData->our_vision !!}
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Vision Image (DUMMY) -->
+                <!-- Vision Image -->
                 <div class="col-lg-6 mb-4">
                     <div class="vmImage">
-                        <img src="https://picsum.photos/700/450?random=1" alt="Vision Image">
+                        @if($aboutSectionData->our_vision_image)
+                            <img src="{{ asset('storage/' . $aboutSectionData->our_vision_image) }}" alt="Vision Image">
+                        @else
+                            <img src="{{ asset('img/default-vision.jpg') }}" alt="Vision Image">
+                        @endif
                     </div>
                 </div>
 
             </div>
+            @else
+            <div class="alert alert-info text-center">
+                <i class="fas fa-info-circle"></i> Vision content will be available soon.
+            </div>
+            @endif
         </div>
     </section>
 
     <!-- Mission Section -->
     <section class="visionMissionSection py-5 bg-light">
         <div class="container">
+            @if($aboutSectionData && $aboutSectionData->our_mission)
             <div class="row align-items-center flex-lg-row-reverse">
 
                 <!-- Mission Text -->
@@ -60,25 +68,30 @@
 
                         <div class="vmCard">
                             <h5>Our Mission</h5>
-                            <ul>
-                                <li>To develop strong moral values, character, and discipline.</li>
-                                <li>To provide a dynamic and inclusive learning environment.</li>
-                                <li>To encourage critical thinking and creativity.</li>
-                                <li>To nurture leadership, teamwork, and responsibility.</li>
-                                <li>To inspire lifelong learning and curiosity.</li>
-                            </ul>
+                            <div>
+                                {!! $aboutSectionData->our_mission !!}
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Mission Image (DUMMY) -->
+                <!-- Mission Image -->
                 <div class="col-lg-6 mb-4">
                     <div class="vmImage">
-                        <img src="https://picsum.photos/700/450?random=2" alt="Mission Image">
+                        @if($aboutSectionData->our_mission_image)
+                            <img src="{{ asset('storage/' . $aboutSectionData->our_mission_image) }}" alt="Mission Image">
+                        @else
+                            <img src="{{ asset('img/default-mission.jpg') }}" alt="Mission Image">
+                        @endif
                     </div>
                 </div>
 
             </div>
+            @else
+            <div class="alert alert-info text-center">
+                <i class="fas fa-info-circle"></i> Mission content will be available soon.
+            </div>
+            @endif
         </div>
     </section>
 

@@ -18,6 +18,7 @@
     <x-inner-banner
         title="Nutrition & Mess"
         subtitle="Gurukul Takshshila - Healthy Meals & Balanced Nutrition"
+        pageKey="nutrition"
     />
 
     <!-- NUTRITION INTRO -->
@@ -29,39 +30,51 @@
                 <div class="col-lg-7 mb-4">
                     <h2>Nutrition & Mess Facilities</h2>
 
-                    <p>
-                        Gurukul Takshshila has a well-equipped kitchen and is designed to maintain
-                        perfect hygiene. We ensure that our kitchen and cleanliness are
-                        sparkly clean by pursuing regular maintenance.
-                    </p>
+                    @if($nutrition && $nutrition->description)
+                        <div>
+                            {!! $nutrition->description !!}
+                        </div>
+                    @else
+                        <p>
+                            Gurukul Takshshila has a well-equipped kitchen and is designed to maintain
+                            perfect hygiene. We ensure that our kitchen and cleanliness are
+                            sparkly clean by pursuing regular maintenance.
+                        </p>
 
-                    <p>
-                        Meal plans are drawn up in consultation with a nutritionist to ensure a
-                        healthy, well-balanced diet. A wide choice of vegetarian cuisine is on offer.
-                    </p>
+                        <p>
+                            Meal plans are drawn up in consultation with a nutritionist to ensure a
+                            healthy, well-balanced diet. A wide choice of vegetarian cuisine is on offer.
+                        </p>
 
-                    <p>
-                        Mealtimes are fun where students get together and have their food under
-                        the observant eyes of their mentors. Reverse Osmosis systems are installed
-                        to provide clean and safe drinking water throughout the campus.
-                    </p>
+                        <p>
+                            Mealtimes are fun where students get together and have their food under
+                            the observant eyes of their mentors. Reverse Osmosis systems are installed
+                            to provide clean and safe drinking water throughout the campus.
+                        </p>
 
-                    <h6 class="mt-4 fw-bold">Our Nutrition Features:</h6>
-                    <ul class="nutritionList">
-                        <li>Well-equipped kitchen with modern facilities</li>
-                        <li>Perfect hygiene and cleanliness standards</li>
-                        <li>Nutritionist-planned balanced meals</li>
-                        <li>Wide variety of vegetarian cuisine</li>
-                        <li>Clean and safe drinking water with RO systems</li>
-                        <li>Supervised mealtimes with mentors</li>
-                    </ul>
+                        <h6 class="mt-4 fw-bold">Our Nutrition Features:</h6>
+                        <ul class="nutritionList">
+                            <li>Well-equipped kitchen with modern facilities</li>
+                            <li>Perfect hygiene and cleanliness standards</li>
+                            <li>Nutritionist-planned balanced meals</li>
+                            <li>Wide variety of vegetarian cuisine</li>
+                            <li>Clean and safe drinking water with RO systems</li>
+                            <li>Supervised mealtimes with mentors</li>
+                        </ul>
+                    @endif
                 </div>
 
                 <!-- IMAGE -->
                 <div class="col-lg-5 mb-4 text-center">
-                    <div class="nutritionIconCircle">
-                        <img src="https://cdn-icons-png.flaticon.com/512/3043/3043910.png" alt="Nutrition">
-                    </div>
+                    @if($nutrition && $nutrition->main_image)
+                        <div class="nutritionIconCircle">
+                            <img src="{{ asset('storage/' . $nutrition->main_image) }}" alt="Nutrition">
+                        </div>
+                    @else
+                        <div class="nutritionIconCircle">
+                            <img src="https://cdn-icons-png.flaticon.com/512/3043/3043910.png" alt="Nutrition">
+                        </div>
+                    @endif
                 </div>
 
             </div>
@@ -110,6 +123,7 @@
     </section>
 
     <!-- NUTRITION GALLERY -->
+    @if($nutrition && $nutrition->gallery_image && is_array($nutrition->gallery_image) && count($nutrition->gallery_image) > 0)
     <section class="nutritionGallery py-5">
         <div class="container text-center">
             <h2>Nutrition Gallery</h2>
@@ -117,25 +131,16 @@
 
             <div class="nutritionGallerySlider">
 
+                @foreach($nutrition->gallery_image as $image)
                 <div class="galleryItem">
-                    <img src="https://picsum.photos/350/260?random=61">
+                    <img src="{{ asset('storage/' . $image) }}" alt="Nutrition Gallery">
                 </div>
-
-                <div class="galleryItem">
-                    <img src="https://picsum.photos/350/260?random=62">
-                </div>
-
-                <div class="galleryItem">
-                    <img src="https://picsum.photos/350/260?random=63">
-                </div>
-
-                <div class="galleryItem">
-                    <img src="https://picsum.photos/350/260?random=64">
-                </div>
+                @endforeach
 
             </div>
         </div>
     </section>
+    @endif
 
     @include('frontend.include.footer')
 

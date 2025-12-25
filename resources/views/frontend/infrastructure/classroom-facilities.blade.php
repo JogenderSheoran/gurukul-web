@@ -22,6 +22,7 @@
     <x-inner-banner
         title="Classroom Facilities"
         subtitle="Modern, Spacious & Technology-Enabled Learning Spaces"
+        pageKey="classroom-facilities"
     />
 
     <!-- INTRO -->

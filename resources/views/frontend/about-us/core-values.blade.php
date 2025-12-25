@@ -19,34 +19,19 @@
     <!-- Core Values Section -->
     <section class="coreValuesSection py-5">
         <div class="container">
+            @if($aboutSectionData && $aboutSectionData->core_value)
             <div class="row align-items-center">
 
                 <!-- Left Content -->
                 <div class="col-lg-6 mb-4">
                     <div class="coreContent">
                         <span class="sectionTag">Our Foundation</span>
-                        <h1>Core Value</h1>
+                        <h1>Core Values</h1>
 
                         <div class="coreCard">
-                            <ul>
-                                <li>
-                                    To help children acquire the subject knowledge, skills and
-                                    understandings they need to become aware of themselves and
-                                    the world around them.
-                                </li>
-                                <li>
-                                    To help children develop an international mindset alongside
-                                    an ingrained and deep-rooted sensitivity of their own nationality.
-                                </li>
-                                <li>
-                                    To do each of these in ways that take into account up-to-date
-                                    research into how children learn and how they can be encouraged
-                                    to be lifelong learners.
-                                </li>
-                                <li>
-                                    Respect for diversity of people, faith, culture, and ideas.
-                                </li>
-                            </ul>
+                            <div>
+                                {!! $aboutSectionData->core_value !!}
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -54,11 +39,20 @@
                 <!-- Right Image -->
                 <div class="col-lg-6 mb-4">
                     <div class="coreImage">
-                        <img src="https://picsum.photos/700/500?random=10" alt="Core Values">
+                        @if($aboutSectionData->core_value_image)
+                            <img src="{{ asset('storage/' . $aboutSectionData->core_value_image) }}" alt="Core Values">
+                        @else
+                            <img src="{{ asset('img/default-core-values.jpg') }}" alt="Core Values">
+                        @endif
                     </div>
                 </div>
 
             </div>
+            @else
+            <div class="alert alert-info text-center">
+                <i class="fas fa-info-circle"></i> Core values content will be available soon.
+            </div>
+            @endif
         </div>
     </section>
 

@@ -23,6 +23,7 @@
     <x-inner-banner
         title="Music & Dance Classes"
         subtitle="Nurturing Creativity, Expression & Performing Arts Excellence"
+        pageKey="music-dance-classes"
     />
 
     <!-- INTRO -->

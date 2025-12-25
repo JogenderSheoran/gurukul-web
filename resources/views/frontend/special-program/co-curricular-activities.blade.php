@@ -23,6 +23,7 @@
     <x-inner-banner
         title="Co-curricular Activities"
         subtitle="Nurturing Creativity, Confidence & Team Spirit"
+        pageKey="co-curricular-activities"
     />
 
     <!-- INTRO SECTION -->
@@ -34,26 +35,40 @@
                 <div class="col-lg-6 mb-4">
                     <h2>Co-curricular Activities</h2>
 
-                    <p>
-                        Co-curricular Activities at Gurukul Takshshila include
-                        Declamation, Dance, Music, Quizzes, Poster Making,
-                        Extempore, Recitation and many more.
-                    </p>
+                    @if($coCurricularActivity && $coCurricularActivity->description)
+                        <div>
+                            {!! $coCurricularActivity->description !!}
+                        </div>
+                    @else
+                        <p>
+                            Co-curricular Activities at Gurukul Takshshila include
+                            Declamation, Dance, Music, Quizzes, Poster Making,
+                            Extempore, Recitation and many more.
+                        </p>
 
-                    <p>
-                        We celebrate all festivals and involve students right from
-                        the primary classes. These activities help inculcate
-                        creativity, discipline, confidence and healthy competition.
-                    </p>
+                        <p>
+                            We celebrate all festivals and involve students right from
+                            the primary classes. These activities help inculcate
+                            creativity, discipline, confidence and healthy competition.
+                        </p>
+                    @endif
                 </div>
 
                 <!-- IMAGE -->
                 <div class="col-lg-6 mb-4 text-center">
-                    <img
-                        src="https://picsum.photos/700/450?random=8001"
-                        class="img-fluid rounded-4 shadow"
-                        alt="Co-curricular Activities at Gurukul Takshshila"
-                    >
+                    @if($coCurricularActivity && $coCurricularActivity->main_image)
+                        <img
+                            src="{{ asset('storage/' . $coCurricularActivity->main_image) }}"
+                            class="img-fluid rounded-4 shadow"
+                            alt="Co-curricular Activities at Gurukul Takshshila"
+                        >
+                    @else
+                        <img
+                            src="{{ asset('img/logo.png') }}"
+                            class="img-fluid rounded-4 shadow"
+                            alt="Co-curricular Activities at Gurukul Takshshila"
+                        >
+                    @endif
                 </div>
 
             </div>
@@ -114,6 +129,7 @@
     </section>
 
     <!-- ACTIVITY GALLERY -->
+    @if($coCurricularActivity && $coCurricularActivity->gallery_images && is_array($coCurricularActivity->gallery_images) && count($coCurricularActivity->gallery_images) > 0)
     <section class="py-5 bg-light">
         <div class="container text-center">
             <h2>Activity Gallery</h2>
@@ -121,27 +137,18 @@
 
             <div class="row align-items-stretch">
 
+                @foreach($coCurricularActivity->gallery_images as $image)
                 <div class="col-lg-4 col-md-6 amenityCol">
                     <div class="amenityCard p-0">
-                        <img src="https://picsum.photos/500/320?random=8101" class="img-fluid rounded">
+                        <img src="{{ asset('storage/' . $image) }}" class="img-fluid rounded" alt="Co-curricular Activity">
                     </div>
                 </div>
-
-                <div class="col-lg-4 col-md-6 amenityCol">
-                    <div class="amenityCard p-0">
-                        <img src="https://picsum.photos/500/320?random=8102" class="img-fluid rounded">
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 amenityCol">
-                    <div class="amenityCard p-0">
-                        <img src="https://picsum.photos/500/320?random=8103" class="img-fluid rounded">
-                    </div>
-                </div>
+                @endforeach
 
             </div>
         </div>
     </section>
+    @endif
 
     @include('frontend.include.footer')
 

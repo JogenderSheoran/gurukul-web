@@ -23,6 +23,7 @@
     <x-inner-banner
         title="Reading Mission"
         subtitle="Developing Independent & Thoughtful Learners"
+        pageKey="reading-mission"
     />
 
     <!-- INTRO SECTION -->
@@ -34,26 +35,40 @@
                 <div class="col-lg-6 mb-4">
                     <h2>Reading Mission</h2>
 
-                    <p>
-                        We have incorporated an interesting Reading Programme into our
-                        curriculum. The Reading Mission Programme is an engaging initiative
-                        that encourages children to build vocabulary, derive connections
-                        between stories and real life, and understand different perspectives.
-                    </p>
+                    @if($readingMission && $readingMission->description)
+                        <div>
+                            {!! $readingMission->description !!}
+                        </div>
+                    @else
+                        <p>
+                            We have incorporated an interesting Reading Programme into our
+                            curriculum. The Reading Mission Programme is an engaging initiative
+                            that encourages children to build vocabulary, derive connections
+                            between stories and real life, and understand different perspectives.
+                        </p>
 
-                    <p>
-                        Children who read are able to think more deeply, express themselves
-                        more freely and grow into confident, independent learners.
-                    </p>
+                        <p>
+                            Children who read are able to think more deeply, express themselves
+                            more freely and grow into confident, independent learners.
+                        </p>
+                    @endif
                 </div>
 
                 <!-- IMAGE -->
                 <div class="col-lg-6 mb-4 text-center">
-                    <img
-                        src="https://picsum.photos/700/450?random=7001"
-                        class="img-fluid rounded-4 shadow"
-                        alt="Reading Mission Programme at Gurukul Takshshila"
-                    >
+                    @if($readingMission && $readingMission->main_image)
+                        <img
+                            src="{{ asset('storage/' . $readingMission->main_image) }}"
+                            class="img-fluid rounded-4 shadow"
+                            alt="Reading Mission Programme at Gurukul Takshshila"
+                        >
+                    @else
+                        <img
+                            src="{{ asset('img/logo.png') }}"
+                            class="img-fluid rounded-4 shadow"
+                            alt="Reading Mission Programme at Gurukul Takshshila"
+                        >
+                    @endif
                 </div>
 
             </div>

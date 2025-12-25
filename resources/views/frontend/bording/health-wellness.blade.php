@@ -24,6 +24,7 @@
     <x-inner-banner
         title="Health & Wellness"
         subtitle="Comprehensive Healthcare & Wellness Support"
+        pageKey="health-wellness"
     />
 
     <!-- INTRO SECTION -->
@@ -36,27 +37,41 @@
                     <span class="sectionTag">Student Care</span>
                     <h2>Health & Wellness at Gurukul Takshshila</h2>
 
-                    <p>
-                        At Gurukul Takshshila, student health and well-being are our highest
-                        priorities. A healthy mind and body are essential for effective learning,
-                        growth, and character development.
-                    </p>
+                    @if($healthNutrition && $healthNutrition->description)
+                        <div>
+                            {!! $healthNutrition->description !!}
+                        </div>
+                    @else
+                        <p>
+                            At Gurukul Takshshila, student health and well-being are our highest
+                            priorities. A healthy mind and body are essential for effective learning,
+                            growth, and character development.
+                        </p>
 
-                    <p>
-                        Our campus is equipped with comprehensive medical facilities, trained
-                        healthcare professionals, and wellness programs to ensure students remain
-                        physically fit, mentally strong, and emotionally balanced throughout their
-                        academic journey.
-                    </p>
+                        <p>
+                            Our campus is equipped with comprehensive medical facilities, trained
+                            healthcare professionals, and wellness programs to ensure students remain
+                            physically fit, mentally strong, and emotionally balanced throughout their
+                            academic journey.
+                        </p>
+                    @endif
                 </div>
 
                 <!-- IMAGE -->
                 <div class="col-lg-6 mb-4 text-center">
-                    <img
-                        src="https://picsum.photos/600/400?random=91"
-                        class="img-fluid rounded-4 shadow"
-                        alt="Student Health and Wellness at Gurukul Takshshila"
-                    >
+                    @if($healthNutrition && $healthNutrition->main_image)
+                        <img
+                            src="{{ asset('storage/' . $healthNutrition->main_image) }}"
+                            class="img-fluid rounded-4 shadow"
+                            alt="Student Health and Wellness at Gurukul Takshshila"
+                        >
+                    @else
+                        <img
+                            src="{{ asset('img/logo.png') }}"
+                            class="img-fluid rounded-4 shadow"
+                            alt="Student Health and Wellness at Gurukul Takshshila"
+                        >
+                    @endif
                 </div>
 
             </div>
@@ -120,20 +135,17 @@
     </section>
 
     <!-- GALLERY -->
+    @if($healthNutrition && $healthNutrition->gallery_image && is_array($healthNutrition->gallery_image) && count($healthNutrition->gallery_image) > 0)
     <section class="healthGallery py-5">
         <div class="container text-center">
            <x-slider
                 title="Health & Wellness Gallery"
                 subtitle="Explore our healthcare facilities and wellness programs"
-                :images="[
-                    'https://picsum.photos/600/400?random=101',
-                    'https://picsum.photos/600/400?random=102',
-                    'https://picsum.photos/600/400?random=103',
-                    'https://picsum.photos/600/400?random=104'
-                ]"
+                :images="collect($healthNutrition->gallery_image)->map(fn($img) => asset('storage/' . $img))->toArray()"
             />
         </div>
     </section>
+    @endif
 
     @include('frontend.include.footer')
 

@@ -23,6 +23,7 @@
     <x-inner-banner
         title="Sports Complex"
         subtitle="Building Strength, Discipline & Team Spirit"
+        pageKey="sports-complex"
     />
 
     <!-- INTRO SECTION -->
@@ -34,27 +35,41 @@
                     <span class="sectionTag">Physical Education</span>
                     <h2>Gurukul Takshshila Sports Complex</h2>
 
-                    <p>
-                        Sports and games are a regular feature at Gurukul Takshshila and an
-                        integral part of its curriculum. Coaches, physical education teachers,
-                        and instructors prepare students to discover their latent talents and
-                        enable them to participate in indoor and outdoor games at various levels.
-                    </p>
+                    @if($sportsComplex && $sportsComplex->description)
+                        <div>
+                            {!! $sportsComplex->description !!}
+                        </div>
+                    @else
+                        <p>
+                            Sports and games are a regular feature at Gurukul Takshshila and an
+                            integral part of its curriculum. Coaches, physical education teachers,
+                            and instructors prepare students to discover their latent talents and
+                            enable them to participate in indoor and outdoor games at various levels.
+                        </p>
 
-                    <p>
-                        Adequate space and facilities are available for Volleyball, Basketball,
-                        Football, Table Tennis, Handball, Badminton, Boxing, Gymnastics,
-                        Wrestling, Athletics, Kabaddi and more. The curriculum and coaching
-                        help students learn, practice and master a wide range of sports skills.
-                    </p>
+                        <p>
+                            Adequate space and facilities are available for Volleyball, Basketball,
+                            Football, Table Tennis, Handball, Badminton, Boxing, Gymnastics,
+                            Wrestling, Athletics, Kabaddi and more. The curriculum and coaching
+                            help students learn, practice and master a wide range of sports skills.
+                        </p>
+                    @endif
                 </div>
 
                 <div class="col-lg-6 mb-4 text-center">
-                    <img
-                        src="https://picsum.photos/700/450?random=6001"
-                        class="img-fluid rounded-4 shadow"
-                        alt="Sports Complex at Gurukul Takshshila"
-                    >
+                    @if($sportsComplex && $sportsComplex->main_image)
+                        <img
+                            src="{{ asset('storage/' . $sportsComplex->main_image) }}"
+                            class="img-fluid rounded-4 shadow"
+                            alt="Sports Complex at Gurukul Takshshila"
+                        >
+                    @else
+                        <img
+                            src="{{ asset('img/logo.png') }}"
+                            class="img-fluid rounded-4 shadow"
+                            alt="Sports Complex at Gurukul Takshshila"
+                        >
+                    @endif
                 </div>
 
             </div>
@@ -154,16 +169,13 @@
     </section>
 
     <!-- SPORTS GALLERY -->
+    @if($sportsComplex && $sportsComplex->gallery_image && is_array($sportsComplex->gallery_image) && count($sportsComplex->gallery_image) > 0)
     <x-slider
         title="Glimpses of Tournaments"
         subtitle="Explore our sports facilities and tournament moments"
-        :images="[
-            'https://picsum.photos/600/400?random=6101',
-            'https://picsum.photos/600/400?random=6102',
-            'https://picsum.photos/600/400?random=6103',
-            'https://picsum.photos/600/400?random=6104'
-        ]"
+        :images="collect($sportsComplex->gallery_image)->map(fn($img) => asset('storage/' . $img))->toArray()"
     />
+    @endif
 
     @include('frontend.include.footer')
 

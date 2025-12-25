@@ -19,7 +19,7 @@
                             </div>
                         </div>
                         <div class="card-body">
-                            <form id="createGalleryForm" method="POST" action="{{ route('admin.gallery.store') }}" enctype="multipart/form-data">
+                            <form id="createGalleryForm" method="POST" action="{{ route('admin.gallery.store') }}" enctype="multipart/form-data" accept-charset="UTF-8">
                                 @csrf
                                 
                                 <div class="row">

@@ -30,20 +30,28 @@
             <div id="teaching" class="teamWrap active">
                 <div class="row g-4">
 
-                    @for($i=1;$i<=6;$i++)
+                    @forelse($teachingStaff as $member)
                     <div class="col-lg-4 col-md-6">
                         <div class="staffCardModern">
                             <div class="cardBg"
-                                 style="background-image:url('https://picsum.photos/500/300?random={{ $i }}')">
+                                 @if($member->profile_image)
+                                 style="background-image:url('{{ asset('storage/' . $member->profile_image) }}')"
+                                 @else
+                                 style="background-image:url('{{ asset('img/logo.png') }}')"
+                                 @endif>
                             </div>
 
                             <div class="cardBody">
                                 <div class="profilePic">
-                                    <img src="https://i.pravatar.cc/200?img={{ $i }}" />
+                                    @if($member->profile_image)
+                                        <img src="{{ asset('storage/' . $member->profile_image) }}" alt="{{ $member->full_name }}" />
+                                    @else
+                                        <img src="{{ asset('img/logo.png') }}" alt="{{ $member->full_name }}" />
+                                    @endif
                                 </div>
 
-                                <h5>Mr. Navdeep Sharma</h5>
-                                <span class="designation">PGT – Physical Education</span>
+                                <h5>{{ $member->full_name }}</h5>
+                                <span class="designation">{{ $member->designation }}@if($member->teaching_subject) – {{ $member->teaching_subject }}@endif</span>
 
                                 <p>
                                     Dedicated educator with strong academic background and
@@ -52,7 +60,13 @@
                             </div>
                         </div>
                     </div>
-                    @endfor
+                    @empty
+                    <div class="col-12">
+                        <div class="alert alert-info text-center">
+                            <i class="fas fa-info-circle"></i> No teaching staff members available at the moment.
+                        </div>
+                    </div>
+                    @endforelse
 
                 </div>
             </div>
@@ -61,20 +75,28 @@
             <div id="nonTeaching" class="teamWrap">
                 <div class="row g-4">
 
-                    @for($i=7;$i<=12;$i++)
+                    @forelse($nonTeachingStaff as $member)
                     <div class="col-lg-4 col-md-6">
                         <div class="staffCardModern">
                             <div class="cardBg"
-                                 style="background-image:url('https://picsum.photos/500/300?random={{ $i }}')">
+                                 @if($member->profile_image)
+                                 style="background-image:url('{{ asset('storage/' . $member->profile_image) }}')"
+                                 @else
+                                 style="background-image:url('{{ asset('img/logo.png') }}')"
+                                 @endif>
                             </div>
 
                             <div class="cardBody">
                                 <div class="profilePic">
-                                    <img src="https://i.pravatar.cc/200?img={{ $i }}" />
+                                    @if($member->profile_image)
+                                        <img src="{{ asset('storage/' . $member->profile_image) }}" alt="{{ $member->full_name }}" />
+                                    @else
+                                        <img src="{{ asset('img/logo.png') }}" alt="{{ $member->full_name }}" />
+                                    @endif
                                 </div>
 
-                                <h5>Mr. Santosh Kumar</h5>
-                                <span class="designation">Administration</span>
+                                <h5>{{ $member->full_name }}</h5>
+                                <span class="designation">{{ $member->designation }}</span>
 
                                 <p>
                                     Responsible for smooth operations and student support services.
@@ -82,7 +104,13 @@
                             </div>
                         </div>
                     </div>
-                    @endfor
+                    @empty
+                    <div class="col-12">
+                        <div class="alert alert-info text-center">
+                            <i class="fas fa-info-circle"></i> No non-teaching staff members available at the moment.
+                        </div>
+                    </div>
+                    @endforelse
 
                 </div>
             </div>

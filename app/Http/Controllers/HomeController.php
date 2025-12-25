@@ -22,6 +22,15 @@ use App\Models\DisclosureResult;
 use App\Models\DisclosureStaffInfo;
 use App\Models\DisclosureInfrastructure;
 use App\Models\DisclosureTeacher;
+use App\Models\TeamMember;
+use App\Models\Hostel;
+use App\Models\NutritionManagement;
+use App\Models\HealthNutrition;
+use App\Models\SportsComplex;
+use App\Models\ReadingMission;
+use App\Models\CoCurricularActivity;
+use App\Models\CompetitiveExam;
+use App\Models\HouseSystem;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -116,21 +125,30 @@ class HomeController extends Controller
 
     public function team()
     {
-        return view('frontend.about-us.team');
+        $teachingStaff = TeamMember::where('member_type', 'teaching')->get();
+        $nonTeachingStaff = TeamMember::where('member_type', 'non_teaching')->get();
+        
+        return view('frontend.about-us.team', compact('teachingStaff', 'nonTeachingStaff'));
     }
 
     public function hostel()
     {
-        return view('frontend.bording.hostel');
+        $hostel = Hostel::first();
+        
+        return view('frontend.bording.hostel', compact('hostel'));
     }
     
     public function nutritiousMeals()
     {
-        return view('frontend.bording.nutrition');
+        $nutrition = NutritionManagement::first();
+        
+        return view('frontend.bording.nutrition', compact('nutrition'));
     }
 
    public function healthWellness()
     {
+        $healthNutrition = HealthNutrition::first();
+        
         $seo = [
             'title' => 'Health & Wellness Facilities | Gurukul Takshshila School',
             'description' => 'Comprehensive health and wellness facilities at Gurukul Takshshila including 24/7 medical staff, wellness programs and regular health check-ups.',
@@ -138,7 +156,7 @@ class HomeController extends Controller
             'image' => asset('assets/img/health-wellness-banner.jpg'),
         ];
 
-        return view('frontend.bording.health-wellness', compact('seo'));
+        return view('frontend.bording.health-wellness', compact('seo', 'healthNutrition'));
     }
 
     public function classroomFacilities()
@@ -199,6 +217,8 @@ class HomeController extends Controller
 
     public function computerLabs()
     {
+        $lab = Lab::where('lab_name', 'LIKE', '%Computer%')->first();
+        
         $seo = [
             'title' => 'Computer Labs | Gurukul Takshshila School',
             'description' => 'Well-equipped computer labs at Gurukul Takshshila with state-of-the-art technology, software tools and hands-on training for students.',
@@ -206,11 +226,13 @@ class HomeController extends Controller
             'image' => asset('assets/img/computer-lab-banner.jpg'),
         ];
 
-        return view('frontend.infrastructure.computer-lab', compact('seo'));
+        return view('frontend.infrastructure.computer-lab', compact('seo', 'lab'));
     }
 
     public function physicsLabs()
     {
+        $lab = Lab::where('lab_name', 'LIKE', '%Physics%')->first();
+        
         $seo = [
             'title' => 'Physics Labs | Gurukul Takshshila School',
             'description' => 'Well-equipped physics labs at Gurukul Takshshila with state-of-the-art equipment, safety measures and hands-on experiments for students.',
@@ -218,11 +240,13 @@ class HomeController extends Controller
             'image' => asset('assets/img/physics-lab-banner.jpg'),
         ];
 
-        return view('frontend.infrastructure.physics-lab', compact('seo'));
+        return view('frontend.infrastructure.physics-lab', compact('seo', 'lab'));
     }
 
     public function chemistryLabs()
     {
+        $lab = Lab::where('lab_name', 'LIKE', '%Chemistry%')->first();
+        
         $seo = [
             'title' => 'Chemistry Labs | Gurukul Takshshila School',
             'description' => 'Well-equipped chemistry labs at Gurukul Takshshila with state-of-the-art equipment, safety measures and hands-on experiments for students.',
@@ -230,11 +254,13 @@ class HomeController extends Controller
             'image' => asset('assets/img/chemistry-lab-banner.jpg'),
         ];
 
-        return view('frontend.infrastructure.chemistry-lab', compact('seo'));
+        return view('frontend.infrastructure.chemistery-lab', compact('seo', 'lab'));
     }
 
     public function biologyLabs()
     {
+        $lab = Lab::where('lab_name', 'LIKE', '%Biology%')->first();
+        
         $seo = [
             'title' => 'Biology Labs | Gurukul Takshshila School',
             'description' => 'Well-equipped biology labs at Gurukul Takshshila with state-of-the-art equipment, safety measures and hands-on experiments for students.',
@@ -242,11 +268,13 @@ class HomeController extends Controller
             'image' => asset('assets/img/biology-lab-banner.jpg'),
         ];
 
-        return view('frontend.infrastructure.biology-lab', compact('seo'));
+        return view('frontend.infrastructure.biology-lab', compact('seo', 'lab'));
     }
 
     public function artLabs()
     {
+        $lab = Lab::where('lab_name', 'LIKE', '%Art%')->first();
+        
         $seo = [
             'title' => 'Art Labs | Gurukul Takshshila School',
             'description' => 'Well-equipped art labs at Gurukul Takshshila with state-of-the-art equipment, safety measures and hands-on experiments for students.',
@@ -254,23 +282,27 @@ class HomeController extends Controller
             'image' => asset('assets/img/art-lab-banner.jpg'),
         ];
 
-        return view('frontend.infrastructure.art-lab', compact('seo'));
+        return view('frontend.infrastructure.art-lab', compact('seo', 'lab'));
     }
 
     public function sportsComplex()
     {
+        $sportsComplex = SportsComplex::first();
+        
         $seo = [
             'title' => 'Sports Complex | Gurukul Takshshila Residential School',
-            'description' => 'World-class sports complex at Gurukul Takshshila with volleyball, basketball, football, athletics, boxing, gymnastics and multi-sports facilities.',
-            'keywords' => 'school sports complex, sports facilities, gurukul sports, athletics training',
+            'description' => 'State-of-the-art sports complex at Gurukul Takshshila with facilities for cricket, football, basketball, volleyball and more.',
+            'keywords' => 'school sports complex, sports facilities, gurukul sports, outdoor sports',
             'image' => asset('assets/img/sports-complex-banner.jpg'),
         ];
 
-        return view('frontend.special-program.sports-complex', compact('seo'));
+        return view('frontend.special-program.sports-complex', compact('seo', 'sportsComplex'));
     }
 
     public function readingMission()
     {
+        $readingMission = ReadingMission::first();
+        
         $seo = [
             'title' => 'Reading Mission Programme | Gurukul Takshshila',
             'description' => 'Reading Mission Programme at Gurukul Takshshila encourages critical thinking, vocabulary building and love for literature among students.',
@@ -278,7 +310,7 @@ class HomeController extends Controller
             'image' => asset('assets/img/reading-mission-banner.jpg'),
         ];
 
-        return view('frontend.special-program.reading-mission', compact('seo'));
+        return view('frontend.special-program.reading-mission', compact('seo', 'readingMission'));
     }
 
     public function celebrationsAdventure()
@@ -295,6 +327,8 @@ class HomeController extends Controller
 
     public function coCurricularActivities()
     {
+        $coCurricularActivity = CoCurricularActivity::first();
+        
         $seo = [
             'title' => 'Co-curricular Activities | Gurukul Takshshila',
             'description' => 'Co-curricular activities at Gurukul Takshshila help students develop creativity, teamwork, leadership and confidence beyond academics.',
@@ -302,23 +336,27 @@ class HomeController extends Controller
             'image' => asset('assets/img/co-curricular-banner.jpg'),
         ];
 
-        return view('frontend.special-program.co-curricular-activities', compact('seo'));
+        return view('frontend.special-program.co-curricular-activities', compact('seo', 'coCurricularActivity'));
     }
 
-    public function competitiveExaminations()
+    public function competitiveExam()
     {
+        $competitiveExam = CompetitiveExam::first();
+        
         $seo = [
             'title' => 'Excellence in Competitive Examinations | Gurukul Takshshila',
-            'description' => 'Gurukul Takshshila prepares students for competitive examinations like NEET, JEE, NDA, Olympiads and national-level competitions.',
-            'keywords' => 'competitive exam preparation, NEET coaching, JEE preparation, olympiad training, gurukul competitive exams',
-            'image' => asset('assets/img/competitive-exams.jpg'),
+            'description' => 'Gurukul Takshshila prepares students for competitive examinations with focused coaching, practice tests and expert guidance.',
+            'keywords' => 'competitive exams, entrance exams, coaching, test preparation',
+            'image' => asset('assets/img/competitive-exam-banner.jpg'),
         ];
 
-        return view('frontend.special-program.competitive-examinations', compact('seo'));
+        return view('frontend.special-program.competitive-examinations', compact('seo', 'competitiveExam'));
     }
 
     public function houseSystem()
     {
+        $houseSystem = HouseSystem::first();
+        
         $seo = [
             'title' => 'House System | Gurukul Takshshila',
             'description' => 'The House System at Gurukul Takshshila fosters leadership, teamwork and healthy competition through four houses of excellence.',
@@ -326,7 +364,7 @@ class HomeController extends Controller
             'image' => asset('assets/img/house-system.jpg'),
         ];
 
-        return view('frontend.special-program.house-system', compact('seo'));
+        return view('frontend.special-program.house-system', compact('seo', 'houseSystem'));
     }
 
     public function admissionProcedure()

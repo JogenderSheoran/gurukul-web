@@ -23,6 +23,7 @@
     <x-inner-banner
         title="Excellence in Competitive Examinations"
         subtitle="Preparing Students for National & Global Success"
+        pageKey="competitive-exam"
     />
 
     <!-- INTRO -->
@@ -33,25 +34,39 @@
                 <div class="col-lg-6 mb-4">
                     <h2>Excellence in Competitive Examinations</h2>
 
-                    <p>
-                        With the aim of promoting English, Science, Mathematics and Computer
-                        Education, Gurukul Takshshila encourages students to take up
-                        competitive examinations like NDA, NEET, JEE, EEE and Olympiads.
-                    </p>
+                    @if($competitiveExam && $competitiveExam->description)
+                        <div>
+                            {!! $competitiveExam->description !!}
+                        </div>
+                    @else
+                        <p>
+                            With the aim of promoting English, Science, Mathematics and Computer
+                            Education, Gurukul Takshshila encourages students to take up
+                            competitive examinations like NDA, NEET, JEE, EEE and Olympiads.
+                        </p>
 
-                    <p>
-                        Our experienced faculty provides career counseling, structured guidance,
-                        and exam-oriented training including Reading India, Arya Bhatta
-                        Ganit Challenge, Vidyarthi Vigyan Manthan (VVM) and subject Olympiads.
-                    </p>
+                        <p>
+                            Our experienced faculty provides career counseling, structured guidance,
+                            and exam-oriented training including Reading India, Arya Bhatta
+                            Ganit Challenge, Vidyarthi Vigyan Manthan (VVM) and subject Olympiads.
+                        </p>
+                    @endif
                 </div>
 
                 <div class="col-lg-6 mb-4 text-center">
-                    <img
-                        src="https://picsum.photos/700/450?random=9001"
-                        class="img-fluid rounded-4 shadow"
-                        alt="Competitive Exam Preparation at Gurukul Takshshila"
-                    >
+                    @if($competitiveExam && $competitiveExam->main_image)
+                        <img
+                            src="{{ asset('storage/' . $competitiveExam->main_image) }}"
+                            class="img-fluid rounded-4 shadow"
+                            alt="Competitive Exam Preparation at Gurukul Takshshila"
+                        >
+                    @else
+                        <img
+                            src="{{ asset('img/logo.png') }}"
+                            class="img-fluid rounded-4 shadow"
+                            alt="Competitive Exam Preparation at Gurukul Takshshila"
+                        >
+                    @endif
                 </div>
 
             </div>
@@ -100,34 +115,26 @@
     </section>
 
     <!-- GALLERY SLIDER -->
+    @if($competitiveExam && $competitiveExam->gallery_images && is_array($competitiveExam->gallery_images) && count($competitiveExam->gallery_images) > 0)
     <section class="commonGallerySection bg-light">
         <div class="container text-center">
             <h2>Competitive Examinations Gallery</h2>
             <p class="gallerySubtitle">
-                Glimpses of our students’ preparation and achievements
+                Glimpses of our students' preparation and achievements
             </p>
 
             <div class="commonGallerySlider">
 
+                @foreach($competitiveExam->gallery_images as $image)
                 <div class="galleryItem">
-                    <img src="https://picsum.photos/600/400?random=9101" alt="">
+                    <img src="{{ asset('storage/' . $image) }}" alt="Competitive Exam">
                 </div>
-
-                <div class="galleryItem">
-                    <img src="https://picsum.photos/600/400?random=9102" alt="">
-                </div>
-
-                <div class="galleryItem">
-                    <img src="https://picsum.photos/600/400?random=9103" alt="">
-                </div>
-
-                <div class="galleryItem">
-                    <img src="https://picsum.photos/600/400?random=9104" alt="">
-                </div>
+                @endforeach
 
             </div>
         </div>
     </section>
+    @endif
 
     @include('frontend.include.footer')
 

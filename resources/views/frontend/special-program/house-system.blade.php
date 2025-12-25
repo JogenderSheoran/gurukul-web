@@ -23,6 +23,7 @@
     <x-inner-banner
         title="House System"
         subtitle="Gurukul Takshshila – Four Houses of Excellence"
+        pageKey="house-system"
     />
 
     <!-- INTRO SECTION -->
@@ -34,27 +35,41 @@
                 <div class="col-lg-6 mb-4">
                     <h2>House System</h2>
 
-                    <p>
-                        The students of Gurukul Takshshila are grouped into four
-                        separate Houses. Each House is guided and monitored by a
-                        House In-charge along with other dedicated teachers.
-                    </p>
+                    @if($houseSystem && $houseSystem->description)
+                        <div>
+                            {!! $houseSystem->description !!}
+                        </div>
+                    @else
+                        <p>
+                            The students of Gurukul Takshshila are grouped into four
+                            separate Houses. Each House is guided and monitored by a
+                            House In-charge along with other dedicated teachers.
+                        </p>
 
-                    <p>
-                        The House System promotes leadership, discipline, teamwork
-                        and a sense of belonging among students. Through inter-house
-                        competitions, cultural events and sports activities, students
-                        develop confidence and healthy competitive spirit.
-                    </p>
+                        <p>
+                            The House System promotes leadership, discipline, teamwork
+                            and a sense of belonging among students. Through inter-house
+                            competitions, cultural events and sports activities, students
+                            develop confidence and healthy competitive spirit.
+                        </p>
+                    @endif
                 </div>
 
                 <!-- IMAGE -->
                 <div class="col-lg-6 mb-4 text-center">
-                    <img
-                        src="https://picsum.photos/700/450?random=10001"
-                        class="img-fluid rounded-4 shadow"
-                        alt="House System Activities at Gurukul Takshshila"
-                    >
+                    @if($houseSystem && $houseSystem->main_image)
+                        <img
+                            src="{{ asset('storage/' . $houseSystem->main_image) }}"
+                            class="img-fluid rounded-4 shadow"
+                            alt="House System Activities at Gurukul Takshshila"
+                        >
+                    @else
+                        <img
+                            src="{{ asset('img/logo.png') }}"
+                            class="img-fluid rounded-4 shadow"
+                            alt="House System Activities at Gurukul Takshshila"
+                        >
+                    @endif
                 </div>
 
             </div>
@@ -62,6 +77,7 @@
     </section>
 
     <!-- GALLERY -->
+    @if($houseSystem && $houseSystem->gallery_images && is_array($houseSystem->gallery_images) && count($houseSystem->gallery_images) > 0)
     <section class="commonGallerySection bg-light">
         <div class="container text-center">
             <h2>House System Gallery</h2>
@@ -71,25 +87,16 @@
 
             <div class="commonGallerySlider">
 
+                @foreach($houseSystem->gallery_images as $image)
                 <div class="galleryItem">
-                    <img src="https://picsum.photos/600/400?random=10101" alt="">
+                    <img src="{{ asset('storage/' . $image) }}" alt="House System">
                 </div>
-
-                <div class="galleryItem">
-                    <img src="https://picsum.photos/600/400?random=10102" alt="">
-                </div>
-
-                <div class="galleryItem">
-                    <img src="https://picsum.photos/600/400?random=10103" alt="">
-                </div>
-
-                <div class="galleryItem">
-                    <img src="https://picsum.photos/600/400?random=10104" alt="">
-                </div>
+                @endforeach
 
             </div>
         </div>
     </section>
+    @endif
 
     @include('frontend.include.footer')
 

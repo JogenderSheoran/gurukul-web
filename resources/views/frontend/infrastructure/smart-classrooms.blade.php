@@ -23,6 +23,7 @@
     <x-inner-banner
         title="Smart Classrooms"
         subtitle="Virtual & Interactive Board Enabled Learning"
+        pageKey="virtual-and-interactive-board-smart-classrooms"
     />
 
     <!-- INTRO -->

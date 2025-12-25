@@ -19,6 +19,7 @@
 <x-inner-banner
     title="Art Laboratory"
     subtitle="Nurturing Creativity & Artistic Expression"
+    pageKey="art-lab"
 />
 
 <section class="artIntro py-5">
@@ -27,16 +28,26 @@
             <div class="col-lg-6 mb-4">
                 <span class="sectionTag">Creative Learning</span>
                 <h2>Creative Art Laboratory</h2>
-                <p>
-                    The Art Lab at Gurukul Takshshila provides a creative space for students
-                    to express ideas through drawing, painting and craft.
-                </p>
-                <p>
-                    Art education helps develop imagination, confidence and emotional balance.
-                </p>
+                @if($lab && $lab->description)
+                    <div>
+                        {!! $lab->description !!}
+                    </div>
+                @else
+                    <p>
+                        The Art Lab at Gurukul Takshshila provides a creative space for students
+                        to express ideas through drawing, painting and craft.
+                    </p>
+                    <p>
+                        Art education helps develop imagination, confidence and emotional balance.
+                    </p>
+                @endif
             </div>
             <div class="col-lg-6 mb-4 text-center">
-                <img src="https://picsum.photos/700/450?random=5001" class="img-fluid rounded-4 shadow" alt="Art Lab">
+                @if($lab && $lab->main_banner)
+                    <img src="{{ asset('storage/' . $lab->main_banner) }}" class="img-fluid rounded-4 shadow" alt="Art Lab">
+                @else
+                    <img src="{{ asset('img/logo.png') }}" class="img-fluid rounded-4 shadow" alt="Art Lab">
+                @endif
             </div>
         </div>
     </div>
@@ -56,15 +67,13 @@
     </div>
 </section>
 
+@if($lab && $lab->slider_images && is_array($lab->slider_images) && count($lab->slider_images) > 0)
 <x-slider
     title="Art Lab Gallery"
     subtitle="Creative moments from our art laboratory"
-    :images="[
-        'https://picsum.photos/600/400?random=5101',
-        'https://picsum.photos/600/400?random=5102',
-        'https://picsum.photos/600/400?random=5103'
-    ]"
+    :images="collect($lab->slider_images)->map(fn($img) => asset('storage/' . $img))->toArray()"
 />
+@endif
 
 @include('frontend.include.footer')
 </div>

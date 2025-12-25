@@ -18,13 +18,15 @@
     <x-inner-banner title="Hostel Facilities" subtitle="Gurukul Takshshila - Residential Life" pageKey="hostel" />
 
     <!-- SECOND IMAGE BANNER (CONTAINER WIDTH) -->
+    @if($hostel && $hostel->banner_image)
     <section class="hostelImageBanner py-5">
         <div class="container">
             <div class="hostelBannerCard">
-                <img src="https://picsum.photos/1200/420?random=11" alt="Hostel Banner">
+                <img src="{{ asset('storage/' . $hostel->banner_image) }}" alt="Hostel Banner">
             </div>
         </div>
     </section>
+    @endif
 
     <!-- HOSTEL INTRO -->
     <section class="hostelIntroSection py-5">
@@ -35,16 +37,22 @@
                     <span class="sectionTag">Our Hostel</span>
                     <h2>Our Hostel Facilities</h2>
 
-                    <p class="hostelText">
-                        Boarding is one of the most distinctive features of a residential gurukul.
-                        At Gurukul Takshshila, students experience a safe, disciplined, and homely
-                        environment that supports academic and personal growth.
-                    </p>
+                    @if($hostel && $hostel->description)
+                        <div class="hostelText">
+                            {!! $hostel->description !!}
+                        </div>
+                    @else
+                        <p class="hostelText">
+                            Boarding is one of the most distinctive features of a residential gurukul.
+                            At Gurukul Takshshila, students experience a safe, disciplined, and homely
+                            environment that supports academic and personal growth.
+                        </p>
 
-                    <p class="hostelText">
-                        With modern facilities, nutritious meals, and dedicated mentors, our
-                        hostel becomes a second home for students.
-                    </p>
+                        <p class="hostelText">
+                            With modern facilities, nutritious meals, and dedicated mentors, our
+                            hostel becomes a second home for students.
+                        </p>
+                    @endif
 
                     <div class="facilityList">
                         <div>🛏 Comfortable Accommodation</div>
@@ -57,9 +65,15 @@
                 </div>
 
                 <div class="col-lg-6 mb-4">
-                    <img src="https://picsum.photos/700/450?random=12"
-                         class="img-fluid hostelMainImage"
-                         alt="Hostel Image">
+                    @if($hostel && $hostel->additional_image)
+                        <img src="{{ asset('storage/' . $hostel->additional_image) }}"
+                             class="img-fluid hostelMainImage"
+                             alt="Hostel Image">
+                    @else
+                        <img src="{{ asset('img/logo.png') }}"
+                             class="img-fluid hostelMainImage"
+                             alt="Hostel Image">
+                    @endif
                 </div>
 
             </div>
@@ -110,6 +124,7 @@
     </section>
 
     <!-- HOSTEL GALLERY SLIDER -->
+    @if($hostel && $hostel->gallery_image && is_array($hostel->gallery_image) && count($hostel->gallery_image) > 0)
     <section class="hostelGallery py-5">
         <div class="container text-center">
             <h2>Hostel Gallery</h2>
@@ -117,29 +132,16 @@
 
             <div class="hostelGallerySlider">
 
+                @foreach($hostel->gallery_image as $image)
                 <div class="galleryItem">
-                    <img src="https://picsum.photos/350/260?random=21">
+                    <img src="{{ asset('storage/' . $image) }}" alt="Hostel Gallery">
                 </div>
-
-                <div class="galleryItem">
-                    <img src="https://picsum.photos/350/260?random=22">
-                </div>
-
-                <div class="galleryItem">
-                    <img src="https://picsum.photos/350/260?random=23">
-                </div>
-
-                <div class="galleryItem">
-                    <img src="https://picsum.photos/350/260?random=24">
-                </div>
-
-                <div class="galleryItem">
-                    <img src="https://picsum.photos/350/260?random=25">
-                </div>
+                @endforeach
 
             </div>
         </div>
     </section>
+    @endif
 
     @include('frontend.include.footer')
 

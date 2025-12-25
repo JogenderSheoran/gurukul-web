@@ -23,6 +23,7 @@
     <x-inner-banner
         title="Library Facilities"
         subtitle="A Knowledge-Rich & Peaceful Learning Environment"
+        pageKey="library-facilities"
     />
 
     <!-- INTRO SECTION -->

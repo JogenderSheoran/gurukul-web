@@ -29,49 +29,10 @@
     <section class="mandatoryDisclosure py-5">
         <div class="container">
             
-            <!-- Tabs Navigation -->
-            <div class="disclosureTabs mb-4">
-                <ul class="nav nav-pills justify-content-center" id="disclosureTabs" role="tablist">
-                    <li class="nav-item">
-                        <a class="nav-link active" id="general-tab" data-toggle="pill" href="#general" role="tab">
-                            <i class="fas fa-info-circle"></i> General Information
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" id="documents-tab" data-toggle="pill" href="#documents" role="tab">
-                            <i class="fas fa-file-alt"></i> Documents
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" id="results-tab" data-toggle="pill" href="#results" role="tab">
-                            <i class="fas fa-graduation-cap"></i> Results & Academics
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" id="staff-tab" data-toggle="pill" href="#staff" role="tab">
-                            <i class="fas fa-users"></i> Staff Information
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" id="infrastructure-tab" data-toggle="pill" href="#infrastructure" role="tab">
-                            <i class="fas fa-building"></i> Infrastructure
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" id="teachers-tab" data-toggle="pill" href="#teachers" role="tab">
-                            <i class="fas fa-chalkboard-teacher"></i> Teacher Details
-                        </a>
-                    </li>
-                </ul>
-            </div>
-
-            <!-- Tabs Content -->
-            <div class="tab-content" id="disclosureTabContent">
-                
-                <!-- TAB 1: GENERAL INFORMATION -->
-                <div class="tab-pane fade show active" id="general" role="tabpanel">
-                    <div class="disclosureCard">
-                        <h3 class="sectionTitle">General Information</h3>
+            <!-- SECTION 1: GENERAL INFORMATION -->
+            <div class="disclosureSection mb-5">
+                <div class="disclosureCard">
+                        <h3 class="sectionTitle"><i class="fas fa-info-circle"></i> General Information</h3>
                         @if($generalInfo)
                             <div class="row">
                                 <div class="col-md-6 mb-3">
@@ -129,10 +90,10 @@
                     </div>
                 </div>
 
-                <!-- TAB 2: DOCUMENTS -->
-                <div class="tab-pane fade" id="documents" role="tabpanel">
+                <!-- SECTION 2: DOCUMENTS -->
+                <div class="disclosureSection mb-5">
                     <div class="disclosureCard">
-                        <h3 class="sectionTitle">Documents</h3>
+                        <h3 class="sectionTitle"><i class="fas fa-file-alt"></i> Documents</h3>
                         @if($documents->count() > 0)
                             <div class="table-responsive">
                                 <table class="table table-bordered">
@@ -171,10 +132,10 @@
                     </div>
                 </div>
 
-                <!-- TAB 3: RESULTS & ACADEMICS -->
-                <div class="tab-pane fade" id="results" role="tabpanel">
+                <!-- SECTION 3: RESULTS & ACADEMICS -->
+                <div class="disclosureSection mb-5">
                     <div class="disclosureCard">
-                        <h3 class="sectionTitle">Results & Academics</h3>
+                        <h3 class="sectionTitle"><i class="fas fa-graduation-cap"></i> Results & Academics</h3>
                         
                         <!-- Academic Documents -->
                         @if($academicDocuments->count() > 0)
@@ -272,10 +233,10 @@
                     </div>
                 </div>
 
-                <!-- TAB 4: STAFF INFORMATION -->
-                <div class="tab-pane fade" id="staff" role="tabpanel">
+                <!-- SECTION 4: STAFF INFORMATION -->
+                <div class="disclosureSection mb-5">
                     <div class="disclosureCard">
-                        <h3 class="sectionTitle">Staff Information</h3>
+                        <h3 class="sectionTitle"><i class="fas fa-users"></i> Staff Information</h3>
                         @if($staffInfo)
                             <div class="row">
                                 <div class="col-md-6 mb-3">
@@ -333,10 +294,10 @@
                     </div>
                 </div>
 
-                <!-- TAB 5: INFRASTRUCTURE -->
-                <div class="tab-pane fade" id="infrastructure" role="tabpanel">
+                <!-- SECTION 5: INFRASTRUCTURE -->
+                <div class="disclosureSection mb-5">
                     <div class="disclosureCard">
-                        <h3 class="sectionTitle">Infrastructure</h3>
+                        <h3 class="sectionTitle"><i class="fas fa-building"></i> Infrastructure</h3>
                         @if($infrastructure)
                             <div class="row">
                                 <div class="col-md-6 mb-3">
@@ -408,10 +369,10 @@
                     </div>
                 </div>
 
-                <!-- TAB 6: TEACHER DETAILS -->
-                <div class="tab-pane fade" id="teachers" role="tabpanel">
+                <!-- SECTION 6: TEACHER DETAILS -->
+                <div class="disclosureSection mb-5">
                     <div class="disclosureCard">
-                        <h3 class="sectionTitle">Teacher Details</h3>
+                        <h3 class="sectionTitle"><i class="fas fa-chalkboard-teacher"></i> Teacher Details</h3>
                         @if($teachers->count() > 0)
                             <div class="table-responsive">
                                 <table class="table table-bordered">
@@ -445,7 +406,6 @@
                     </div>
                 </div>
 
-            </div>
         </div>
     </section>
 
@@ -459,35 +419,8 @@
     background: #f8f9fa;
 }
 
-.disclosureTabs .nav-pills {
-    flex-wrap: wrap;
-}
-
-.disclosureTabs .nav-link {
-    background: #fff;
-    color: #333;
-    border: 2px solid #e0e0e0;
-    border-radius: 8px;
-    padding: 12px 20px;
-    margin: 5px;
-    transition: all 0.3s ease;
-    font-weight: 500;
-}
-
-.disclosureTabs .nav-link:hover {
-    background: #ff8a00;
-    color: #fff;
-    border-color: #ff8a00;
-}
-
-.disclosureTabs .nav-link.active {
-    background: #ff8a00;
-    color: #fff;
-    border-color: #ff8a00;
-}
-
-.disclosureTabs .nav-link i {
-    margin-right: 8px;
+.disclosureSection {
+    margin-bottom: 2rem;
 }
 
 .disclosureCard {
@@ -495,6 +428,18 @@
     border-radius: 12px;
     padding: 30px;
     box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    animation: fadeInUp 0.6s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .sectionTitle {
@@ -503,6 +448,13 @@
     margin-bottom: 25px;
     padding-bottom: 15px;
     border-bottom: 3px solid #ff8a00;
+    display: flex;
+    align-items: center;
+}
+
+.sectionTitle i {
+    margin-right: 12px;
+    font-size: 1.2em;
 }
 
 .infoItem {
@@ -510,6 +462,12 @@
     padding: 15px;
     border-radius: 8px;
     border-left: 4px solid #ff8a00;
+    transition: all 0.3s ease;
+}
+
+.infoItem:hover {
+    box-shadow: 0 4px 12px rgba(255, 138, 0, 0.15);
+    transform: translateX(5px);
 }
 
 .infoItem label {
@@ -522,6 +480,7 @@
 .infoItem p {
     margin: 0;
     color: #666;
+    word-wrap: break-word;
 }
 
 .table {
@@ -538,28 +497,35 @@
     font-weight: 600;
 }
 
+.table tbody tr {
+    transition: all 0.3s ease;
+}
+
 .table tbody tr:hover {
     background: #fff3e6;
+    transform: scale(1.01);
 }
 
 .btn-primary {
     background: #ff8a00;
     border-color: #ff8a00;
+    transition: all 0.3s ease;
 }
 
 .btn-primary:hover {
     background: #e67a00;
     border-color: #e67a00;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(255, 138, 0, 0.3);
 }
 
 @media (max-width: 768px) {
-    .disclosureTabs .nav-link {
-        font-size: 14px;
-        padding: 10px 15px;
-    }
-    
     .disclosureCard {
         padding: 20px;
+    }
+    
+    .sectionTitle {
+        font-size: 1.3rem;
     }
 }
 </style>

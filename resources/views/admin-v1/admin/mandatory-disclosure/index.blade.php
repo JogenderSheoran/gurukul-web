@@ -3,7 +3,7 @@
 @section('content')
 <section class="content">
     <div class="container-fluid">
-        <form action="{{ route('admin.mandatory-disclosure.store') }}" method="POST" enctype="multipart/form-data" id="disclosureForm">
+        <form action="{{ route('admin.mandatory-disclosure.store') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8" id="disclosureForm">
             @csrf
             <div class="row">
                 <div class="col-12">

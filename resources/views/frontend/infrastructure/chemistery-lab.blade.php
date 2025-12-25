@@ -19,6 +19,7 @@
 <x-inner-banner
     title="Chemistry Laboratory"
     subtitle="Exploring Chemistry Through Safe & Practical Experiments"
+    pageKey="chemistry-lab"
 />
 
 <section class="chemistryIntro py-5">
@@ -27,17 +28,27 @@
             <div class="col-lg-6 mb-4">
                 <span class="sectionTag">Science Education</span>
                 <h2>Advanced Chemistry Laboratory</h2>
-                <p>
-                    Our Chemistry Laboratory enables students to understand chemical concepts
-                    through observation, experimentation and analysis in a safe environment.
-                </p>
-                <p>
-                    Proper safety measures, modern equipment and guided supervision make
-                    chemistry learning engaging and effective.
-                </p>
+                @if($lab && $lab->description)
+                    <div>
+                        {!! $lab->description !!}
+                    </div>
+                @else
+                    <p>
+                        Our Chemistry Laboratory enables students to understand chemical concepts
+                        through observation, experimentation and analysis in a safe environment.
+                    </p>
+                    <p>
+                        Proper safety measures, modern equipment and guided supervision make
+                        chemistry learning engaging and effective.
+                    </p>
+                @endif
             </div>
             <div class="col-lg-6 mb-4 text-center">
-                <img src="https://picsum.photos/700/450?random=3001" class="img-fluid rounded-4 shadow" alt="Chemistry Lab">
+                @if($lab && $lab->main_banner)
+                    <img src="{{ asset('storage/' . $lab->main_banner) }}" class="img-fluid rounded-4 shadow" alt="Chemistry Lab">
+                @else
+                    <img src="{{ asset('img/logo.png') }}" class="img-fluid rounded-4 shadow" alt="Chemistry Lab">
+                @endif
             </div>
         </div>
     </div>
@@ -57,15 +68,13 @@
     </div>
 </section>
 
+@if($lab && $lab->slider_images && is_array($lab->slider_images) && count($lab->slider_images) > 0)
 <x-slider
     title="Chemistry Lab Gallery"
     subtitle="Hands-on chemistry experiments in action"
-    :images="[
-        'https://picsum.photos/600/400?random=3101',
-        'https://picsum.photos/600/400?random=3102',
-        'https://picsum.photos/600/400?random=3103'
-    ]"
+    :images="collect($lab->slider_images)->map(fn($img) => asset('storage/' . $img))->toArray()"
 />
+@endif
 
 @include('frontend.include.footer')
 </div>
