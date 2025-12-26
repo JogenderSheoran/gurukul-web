@@ -23,6 +23,7 @@
     <x-inner-banner
         title="Celebrations & Adventure Trips"
         subtitle="Creating unforgettable memories through exciting adventures and celebrations"
+        pageKey="celebration-adventure"
     />
 
     <!-- ADVENTURE TRIPS -->
@@ -36,37 +37,27 @@
 
             <div class="row align-items-stretch">
 
-                <div class="col-lg-3 col-md-6 amenityCol">
-                    <div class="amenityCard">
-                        <img src="https://picsum.photos/400/260?random=5001" class="img-fluid rounded mb-3">
-                        <h6>Adventure Trip to Manali</h6>
-                        <a href="#" class="btn btn-orange mt-auto">View Gallery</a>
+                @if($adventures && count($adventures) > 0)
+                    @foreach($adventures as $adventure)
+                    <div class="col-lg-3 col-md-6 amenityCol">
+                        <div class="amenityCard">
+                            @if($adventure->card_image)
+                                <img src="{{ asset('storage/' . $adventure->card_image) }}" class="img-fluid rounded mb-3" alt="{{ $adventure->title }}">
+                            @else
+                                <img src="{{ asset('img/logo.png') }}" class="img-fluid rounded mb-3" alt="{{ $adventure->title }}">
+                            @endif
+                            <h6>{{ $adventure->title }}</h6>
+                            @if($adventure->gallery_link)
+                                <a href="{{ $adventure->gallery_link }}" target="_blank" class="btn btn-orange mt-auto">View Gallery</a>
+                            @endif
+                        </div>
                     </div>
-                </div>
-
-                <div class="col-lg-3 col-md-6 amenityCol">
-                    <div class="amenityCard">
-                        <img src="https://picsum.photos/400/260?random=5002" class="img-fluid rounded mb-3">
-                        <h6>Educational Trip to Chhatbir Zoo</h6>
-                        <a href="#" class="btn btn-orange mt-auto">View Gallery</a>
+                    @endforeach
+                @else
+                    <div class="col-12">
+                        <p class="text-muted">No adventure trips available at the moment.</p>
                     </div>
-                </div>
-
-                <div class="col-lg-3 col-md-6 amenityCol">
-                    <div class="amenityCard">
-                        <img src="https://picsum.photos/400/260?random=5003" class="img-fluid rounded mb-3">
-                        <h6>Trip to Amritsar & Wagah Border</h6>
-                        <a href="#" class="btn btn-orange mt-auto">View Gallery</a>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-6 amenityCol">
-                    <div class="amenityCard">
-                        <img src="https://picsum.photos/400/260?random=5004" class="img-fluid rounded mb-3">
-                        <h6>Geeta Jayanti Visit</h6>
-                        <a href="#" class="btn btn-orange mt-auto">View Gallery</a>
-                    </div>
-                </div>
+                @endif
 
             </div>
         </div>
@@ -83,37 +74,27 @@
 
             <div class="row align-items-stretch">
 
-                <div class="col-lg-3 col-md-6 amenityCol">
-                    <div class="amenityCard">
-                        <img src="https://picsum.photos/400/260?random=6001" class="img-fluid rounded mb-3">
-                        <h6>School Opening Function</h6>
-                        <a href="#" class="btn btn-orange mt-auto">View Gallery</a>
+                @if($celebrations && count($celebrations) > 0)
+                    @foreach($celebrations as $celebration)
+                    <div class="col-lg-3 col-md-6 amenityCol">
+                        <div class="amenityCard">
+                            @if($celebration->card_image)
+                                <img src="{{ asset('storage/' . $celebration->card_image) }}" class="img-fluid rounded mb-3" alt="{{ $celebration->title }}">
+                            @else
+                                <img src="{{ asset('img/logo.png') }}" class="img-fluid rounded mb-3" alt="{{ $celebration->title }}">
+                            @endif
+                            <h6>{{ $celebration->title }}</h6>
+                            @if($celebration->gallery_link)
+                                <a href="{{ $celebration->gallery_link }}" target="_blank" class="btn btn-orange mt-auto">View Gallery</a>
+                            @endif
+                        </div>
                     </div>
-                </div>
-
-                <div class="col-lg-3 col-md-6 amenityCol">
-                    <div class="amenityCard">
-                        <img src="https://picsum.photos/400/260?random=6002" class="img-fluid rounded mb-3">
-                        <h6>Independence Day</h6>
-                        <a href="#" class="btn btn-orange mt-auto">View Gallery</a>
+                    @endforeach
+                @else
+                    <div class="col-12">
+                        <p class="text-muted">No celebrations available at the moment.</p>
                     </div>
-                </div>
-
-                <div class="col-lg-3 col-md-6 amenityCol">
-                    <div class="amenityCard">
-                        <img src="https://picsum.photos/400/260?random=6003" class="img-fluid rounded mb-3">
-                        <h6>Annual Function 2018</h6>
-                        <a href="#" class="btn btn-orange mt-auto">View Gallery</a>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-6 amenityCol">
-                    <div class="amenityCard">
-                        <img src="https://picsum.photos/400/260?random=6004" class="img-fluid rounded mb-3">
-                        <h6>Annual Function 2019</h6>
-                        <a href="#" class="btn btn-orange mt-auto">View Gallery</a>
-                    </div>
-                </div>
+                @endif
 
             </div>
         </div>

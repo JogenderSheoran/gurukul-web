@@ -459,6 +459,28 @@ class HomeController extends Controller
         ));
     }
 
+    public function celebrationAdventure()
+    {
+        $adventures = \App\Models\AdventureCelebration::active()
+            ->adventure()
+            ->orderBy('created_at', 'desc')
+            ->get();
+            
+        $celebrations = \App\Models\AdventureCelebration::active()
+            ->celebration()
+            ->orderBy('created_at', 'desc')
+            ->get();
+        
+        $seo = [
+            'title' => 'Celebration & Adventure Trips | Gurukul Takshshila',
+            'description' => 'Celebration and Adventure Trips at Gurukul Takshshila create unforgettable memories through educational tours, cultural events and joyful celebrations.',
+            'keywords' => 'school adventure trips, school celebrations, educational tours, gurukul activities',
+            'image' => asset('assets/img/celebrations-banner.jpg'),
+        ];
+
+        return view('frontend.special-program.celebrations-adventure', compact('seo', 'adventures', 'celebrations'));
+    }
+
 
     
 

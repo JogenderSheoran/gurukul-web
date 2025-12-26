@@ -128,7 +128,11 @@ body {
 }
 
 body {
-    font-family: 'FONTSPRING DEMO - Gelica Rg';
+    font-family: Arial, sans-serif;
+}
+
+* {
+    font-family: Arial, sans-serif;
 }
 button.btn.btn-primary {
     background: #ff7a00;

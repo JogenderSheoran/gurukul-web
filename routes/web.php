@@ -235,6 +235,11 @@ Route::prefix('admin')->name('admin.')->middleware(['auth'])->group(function () 
     Route::post('gallery/{gallery}/toggle-status', [AdminGalleryController::class, 'toggleStatus'])->name('gallery.toggle-status');
     Route::delete('gallery/{id}/remove-image', [AdminGalleryController::class, 'removeImage'])->name('gallery.remove-image');
     Route::resource('gallery', AdminGalleryController::class);
+    
+    // Adventure & Celebrations routes
+    Route::get('adventure-celebration/data', [App\Http\Controllers\Admin\AdventureCelebrationController::class, 'getData'])->name('adventure-celebration.data');
+    Route::post('adventure-celebration/{adventureCelebration}/toggle-status', [App\Http\Controllers\Admin\AdventureCelebrationController::class, 'toggleStatus'])->name('adventure-celebration.toggle-status');
+    Route::resource('adventure-celebration', App\Http\Controllers\Admin\AdventureCelebrationController::class);
 });
 
 

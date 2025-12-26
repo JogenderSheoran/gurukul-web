@@ -22,6 +22,11 @@ class GalleryController extends Controller
             ->orderBy('created_at', 'desc')
             ->get();
 
+        // Fetch Adventure & Celebrations data
+        $adventureCelebrations = \App\Models\AdventureCelebration::active()
+            ->orderBy('created_at', 'desc')
+            ->get();
+
         // If no images in database, use fallback static images
         if ($galleryImages->isEmpty()) {
             $images = [
@@ -58,6 +63,6 @@ class GalleryController extends Controller
             });
         }
 
-        return view('frontend.gallery.index', compact('seo', 'images'));
+        return view('frontend.gallery.index', compact('seo', 'images', 'adventureCelebrations'));
     }
 }
