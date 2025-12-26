@@ -108,7 +108,12 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+use App\Http\Controllers\Admin\DashboardController;
+
 Route::prefix('admin')->name('admin.')->middleware(['auth'])->group(function () {
+    // Admin Dashboard
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+
     // Banner routes - specific routes must come before resource routes
     Route::get('banner/data', [BannerController::class, 'getData'])->name('banner.data');
     Route::post('banner/{banner}/toggle-status', [BannerController::class, 'toggleStatus'])->name('banner.toggle-status');
