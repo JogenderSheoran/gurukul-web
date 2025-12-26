@@ -109,14 +109,17 @@ class PageBannerController extends Controller
             'banner_content' => 'nullable|string',
         ]);
 
-        $data = $request->except(['banner_image']);
+        $data = $request->only(['page_key', 'banner_content']);
 
         if ($request->hasFile('banner_image')) {
+            // Delete old image if exists
             if ($banner->banner_image && Storage::disk('public')->exists($banner->banner_image)) {
                 Storage::disk('public')->delete($banner->banner_image);
             }
+            // Upload new image
             $data['banner_image'] = $request->file('banner_image')->store('page-banners', 'public');
         }
+        // If no new image uploaded, keep the existing image (don't update banner_image field)
 
         $banner->update($data);
 
