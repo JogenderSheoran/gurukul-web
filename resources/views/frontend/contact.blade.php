@@ -11,35 +11,6 @@
     />
 
     <style>
-        /* --- Banner Style --- */
-        .contact-banner {
-            background: url('https://picsum.photos/1600/400?random=601') center/cover no-repeat;
-            height: 350px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #fff;
-            text-align: center;
-            border-radius: 12px;
-            margin-bottom: 50px;
-            position: relative;
-        }
-
-        .contact-banner::after {
-            content: '';
-            position: absolute;
-            inset:0;
-            background: rgba(0,0,0,0.4);
-            border-radius: 12px;
-        }
-
-        .contact-banner h1 {
-            position: relative;
-            font-size: 48px;
-            font-weight: 700;
-            z-index: 1;
-        }
-
         /* --- Contact Form --- */
         .contact-section {
             padding: 60px 0;
@@ -127,12 +98,11 @@
 
 <div class="main">
 
-    <!-- Banner -->
-    <div class="container">
-        <div class="contact-banner">
-            <h1>Contact Us</h1>
-        </div>
-    </div>
+    <!-- ORANGE BANNER -->
+    <x-inner-banner
+        title="Contact Us"
+        subtitle="Get in Touch with Gurukul Takshshila"
+    />
 
     <!-- Contact Section -->
     <section class="contact-section">

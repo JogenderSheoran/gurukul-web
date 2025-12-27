@@ -110,11 +110,15 @@
                 <div class="col-lg-4">
 
                     <div class="sideBox">
-                        <h5>Quick Navigation</h5>
+                        <h5>Quick Links</h5>
                         <ul class="sideLinks">
-                            <li class="active"><a href="#">Required Items</a></li>
-                            <li><a href="#">Inventory Detail</a></li>
-                            <li><a href="#">School Uniform</a></li>
+                            <li><a href="{{ route('admission-form') }}">Admission Form</a></li>
+                            <li><a href="{{ route('admission-procedure') }}">Admission Procedure</a></li>
+                            <li><a href="{{ route('entrance-cum-syllabus') }}">Entrance cum Syllabus</a></li>
+                            <li><a href="{{ route('fee-structure') }}">Fee Structure</a></li>
+                            <li class="active"><a href="{{ route('required-item') }}">Required Items</a></li>
+                            <li><a href="{{ route('important-information') }}">Important Information</a></li>
+                            <li><a href="{{ route('contact') }}">Contact Us</a></li>
                         </ul>
                     </div>
 

@@ -97,3 +97,82 @@ $(document).ready(function () {
 
 });
 </script>
+
+<script>
+// Admission Popup Functionality
+$(document).ready(function() {
+    // Open modal when Apply Now button is clicked - works globally
+    $(document).on('click', '.btn-primary', function(e) {
+        if ($(this).text().trim() === 'Apply Now') {
+            e.preventDefault();
+            $('#admissionEnquiryModal').modal('show');
+        }
+    });
+
+    // Calculate age from date of birth
+    $('#date_of_birth').on('change', function() {
+        var dob = new Date($(this).val());
+        var today = new Date();
+        var age = today.getFullYear() - dob.getFullYear();
+        var monthDiff = today.getMonth() - dob.getMonth();
+        
+        if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < dob.getDate())) {
+            age--;
+        }
+        
+        $('#age').val(age);
+    });
+
+    // Submit form
+    $('#submitEnquiry').on('click', function() {
+        var form = $('#admissionEnquiryForm')[0];
+        
+        // Check HTML5 validation
+        if (!form.checkValidity()) {
+            form.reportValidity();
+            return;
+        }
+
+        var formData = $('#admissionEnquiryForm').serialize();
+        var submitBtn = $(this);
+        
+        submitBtn.prop('disabled', true).html('<i class="fas fa-spinner fa-spin"></i> Submitting...');
+        $('#successMessage, #errorMessage').addClass('d-none');
+        
+        $.ajax({
+            url: '{{ route("admission-enquiry.store") }}',
+            type: 'POST',
+            data: formData,
+            success: function(response) {
+                if (response.success) {
+                    $('#successMessage').text(response.message).removeClass('d-none');
+                    $('#admissionEnquiryForm')[0].reset();
+                    
+                    setTimeout(function() {
+                        $('#admissionEnquiryModal').modal('hide');
+                        $('#successMessage').addClass('d-none');
+                    }, 3000);
+                }
+            },
+            error: function(xhr) {
+                var errors = xhr.responseJSON.errors;
+                var errorHtml = '<ul class="mb-0">';
+                
+                if (errors) {
+                    $.each(errors, function(key, value) {
+                        errorHtml += '<li>' + value[0] + '</li>';
+                    });
+                } else {
+                    errorHtml += '<li>An error occurred. Please try again.</li>';
+                }
+                
+                errorHtml += '</ul>';
+                $('#errorMessage').html(errorHtml).removeClass('d-none');
+            },
+            complete: function() {
+                submitBtn.prop('disabled', false).html('<i class="fas fa-paper-plane"></i> Submit Enquiry');
+            }
+        });
+    });
+});
+</script>

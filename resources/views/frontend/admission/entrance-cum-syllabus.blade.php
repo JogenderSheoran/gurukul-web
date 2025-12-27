@@ -122,10 +122,13 @@
                     <div class="sideBox">
                         <h5>Quick Links</h5>
                         <ul class="sideLinks">
-                            <li><a href="#">Admission Procedure</a></li>
-                            <li class="active"><a href="#">Entrance cum Syllabus</a></li>
-                            <li><a href="#">Required Items</a></li>
-                            <li><a href="#">Contact Us</a></li>
+                            <li><a href="{{ route('admission-form') }}">Admission Form</a></li>
+                            <li><a href="{{ route('admission-procedure') }}">Admission Procedure</a></li>
+                            <li class="active"><a href="{{ route('entrance-cum-syllabus') }}">Entrance cum Syllabus</a></li>
+                            <li><a href="{{ route('fee-structure') }}">Fee Structure</a></li>
+                            <li><a href="{{ route('required-item') }}">Required Items</a></li>
+                            <li><a href="{{ route('important-information') }}">Important Information</a></li>
+                            <li><a href="{{ route('contact') }}">Contact Us</a></li>
                         </ul>
                     </div>
 

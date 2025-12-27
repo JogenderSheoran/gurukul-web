@@ -367,6 +367,18 @@ class HomeController extends Controller
         return view('frontend.special-program.house-system', compact('seo', 'houseSystem'));
     }
 
+    public function admissionForm()
+    {
+        $seo = [
+            'title' => 'Admission Form | Gurukul Takshshila',
+            'description' => 'Fill out the admission enquiry form for Gurukul Takshshila. Submit your details for admission process.',
+            'keywords' => 'admission form, gurukul admission, school admission enquiry',
+            'image' => asset('assets/img/admission-banner.jpg'),
+        ];
+
+        return view('frontend.admission.admission-form', compact('seo'));
+    }
+
     public function admissionProcedure()
     {
         $seo = [
