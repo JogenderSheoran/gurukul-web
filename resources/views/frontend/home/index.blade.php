@@ -321,14 +321,12 @@
                                 <h3>Quick Links</h3>
 
                                 <ul>
-                                    <li><a href="/about-us"><i class="fas fa-info-circle"></i> About Us</a></li>
-                                    <li><a href="/admissions"><i class="fas fa-graduation-cap"></i> Admissions Overview</a></li>
-                                    <li><a href="/admission-process"><i class="fas fa-clipboard-list"></i> Admission Process</a></li>
-                                    <li><a href="/admission-criteria"><i class="fas fa-check-circle"></i> Eligibility & Criteria</a></li>
-                                    <li><a href="/apply-admission"><i class="fas fa-file-alt"></i> Apply for Admission</a></li>
-                                    <li><a href="/chairman-message"><i class="fas fa-user-tie"></i> Chairman Message</a></li>
-                                    <li><a href="/principal-message"><i class="fas fa-chalkboard-teacher"></i> Principal Message</a></li>
-                                    <li><a href="/contact"><i class="fas fa-envelope"></i> Contact Us</a></li>
+                                     <li><a href="{{route('chairmain-message')}}"><i class="fas fa-user-tie"></i> Chairman Message</a></li>
+                                    <li><a href="{{route('principal-message')}}"><i class="fas fa-chalkboard-teacher"></i> Principal Message</a></li>
+                                    <li><a href="{{route('mandatory-disclosure')}}"><i class="fas fa-graduation-cap"></i>Mandatory Disclosure</a></li>
+                                    <li><a href="{{route('admission-form')}}"><i class="fas fa-clipboard-list"></i>Admission Form</a></li>
+                                    <li><a href="{{route('admission-procedure')}}"><i class="fas fa-check-circle"></i>Admission Procedure</a></li>
+                                    <li><a href="{{route('contact')}}"><i class="fas fa-envelope"></i> Contact Us</a></li>
                                 </ul>
                             </div>
                         </div>

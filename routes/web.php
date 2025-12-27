@@ -225,6 +225,7 @@ Route::prefix('admin')->name('admin.')->middleware(['auth'])->group(function () 
     // Program routes
     Route::resource('program', ProgramController::class);
     
+    
     // Admission Enquiry routes
     Route::get('admission-enquiry', [App\Http\Controllers\Admin\AdmissionEnquiryController::class, 'index'])->name('admission-enquiry.index');
     Route::get('admission-enquiry/data', [App\Http\Controllers\Admin\AdmissionEnquiryController::class, 'getData'])->name('admission-enquiry.data');
