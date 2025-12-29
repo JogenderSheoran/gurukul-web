@@ -115,19 +115,22 @@ class BlogController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'title' => 'required|string|max:255',
-            'author' => 'required|string|max:255',
-            'content' => 'required|string',
-            'status' => 'required|in:draft,published',
+        $validated = $request->validate([
+            'title'        => 'required|string|max:255',
+            'author'       => 'required|string|max:255',
+            'content'      => 'required|string',
+            'status'       => 'required|in:draft,published',
             'publish_date' => 'nullable|date',
         ]);
 
-        Blog::create($request->all());
+        Blog::create($validated);
 
-        return redirect()->route('admin.blog.index')
-            ->with('success', 'Blog post created successfully.');
+        return response()->json([
+            'success' => true,
+            'message' => 'Blog post created successfully.'
+        ]);
     }
+
 
     /**
      * Show the form for editing the specified resource.
@@ -153,8 +156,10 @@ class BlogController extends Controller
 
         $blog->update($request->all());
 
-        return redirect()->route('admin.blog.index')
-            ->with('success', 'Blog post updated successfully.');
+         return response()->json([
+            'success' => true,
+            'message' => 'Blog post update successfully.'
+        ]);
     }
 
     /**

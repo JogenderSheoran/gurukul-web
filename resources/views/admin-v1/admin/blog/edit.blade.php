@@ -175,47 +175,7 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     
     <script>
-        $(document).ready(function() {
-            // Form submission with validation
-            $('#editBlogForm').on('submit', function(e) {
-                e.preventDefault();
-                
-                var formData = $(this).serialize();
-                var actionUrl = $(this).attr('action');
-                
-                $.ajax({
-                    url: actionUrl,
-                    type: 'POST',
-                    data: formData,
-                    success: function(response) {
-                        if (response.success) {
-                            Swal.fire({
-                                title: 'Success!',
-                                text: 'Blog post updated successfully.',
-                                icon: 'success',
-                                confirmButtonText: 'OK'
-                            }).then((result) => {
-                                if (result.isConfirmed) {
-                                    window.location.href = "{{ route('admin.blog.index') }}";
-                                }
-                            });
-                        } else {
-                            Swal.fire('Error', response.message || 'Failed to update blog post', 'error');
-                        }
-                    },
-                    error: function(xhr) {
-                        var errors = xhr.responseJSON?.errors;
-                        var errorMessage = 'Failed to update blog post.';
-                        
-                        if (errors) {
-                            errorMessage = Object.values(errors).flat().join('<br>');
-                        }
-                        
-                        Swal.fire('Error', errorMessage, 'error');
-                    }
-                });
-            });
-        });
+        
     </script>
 @endpush
 

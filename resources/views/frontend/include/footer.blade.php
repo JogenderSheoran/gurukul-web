@@ -45,4 +45,5 @@
 			</div>
 		</footer>
 
+@include('frontend.include.admission-popup-css')
 @include('frontend.include.admission-popup')

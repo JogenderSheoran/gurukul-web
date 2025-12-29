@@ -173,8 +173,8 @@ $(document).ready(function () {
 }
 
 .nutritionIconCircle{
-    width:220px;
-    height:220px;
+    width:350px;
+    height:350px;
     margin:auto;
     border-radius:50%;
     background:#e9fbff;
@@ -184,7 +184,7 @@ $(document).ready(function () {
 }
 
 .nutritionIconCircle img{
-    width:120px;
+    width:200px;
 }
 
 /* Nutrition Cards */

@@ -1,7 +1,7 @@
 <!-- Admission Enquiry Popup Modal -->
 <div class="modal fade" id="admissionEnquiryModal" tabindex="-1" role="dialog" aria-labelledby="admissionEnquiryModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content" style="border: 3px solid #ff6600; max-height: 90vh; overflow: hidden;">
+        <div class="modal-content" style="border: 3px solid #ff6600;">
             <div class="modal-header text-white" style="background-color: #ff6600;">
                 <h5 class="modal-title" id="admissionEnquiryModalLabel">
                     <i class="fas fa-graduation-cap"></i> Admission Enquiry Form
@@ -10,7 +10,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <div class="modal-body" style="max-height: calc(90vh - 120px); overflow-y: auto;">
+            <div class="modal-body" style="max-height: calc(85vh - 140px); overflow-y: auto; padding: 25px;">
                 <form id="admissionEnquiryForm">
                     @csrf
                     
@@ -147,25 +147,3 @@
         </div>
     </div>
 </div>
-
-<style>
-#admissionEnquiryModal .form-control:focus {
-    border-color: #ff6600;
-    box-shadow: 0 0 0 0.2rem rgba(255, 102, 0, 0.25);
-}
-
-#admissionEnquiryModal h6 {
-    font-weight: 600;
-    border-bottom: 2px solid #ff6600;
-    padding-bottom: 8px;
-}
-
-#admissionEnquiryModal label {
-    font-weight: 500;
-    font-size: 14px;
-}
-
-#admissionEnquiryModal .text-danger {
-    font-weight: bold;
-}
-</style>

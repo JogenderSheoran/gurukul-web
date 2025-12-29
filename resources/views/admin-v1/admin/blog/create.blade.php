@@ -167,47 +167,49 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     
     <script>
-        $(document).ready(function() {
-            // Form submission with validation
-            $('#createBlogForm').on('submit', function(e) {
-                e.preventDefault();
-                
-                var formData = $(this).serialize();
-                var actionUrl = $(this).attr('action');
-                
-                $.ajax({
-                    url: actionUrl,
-                    type: 'POST',
-                    data: formData,
-                    success: function(response) {
-                        if (response.success) {
-                            Swal.fire({
-                                title: 'Success!',
-                                text: 'Blog post created successfully.',
-                                icon: 'success',
-                                confirmButtonText: 'OK'
-                            }).then((result) => {
-                                if (result.isConfirmed) {
-                                    window.location.href = "{{ route('admin.blog.index') }}";
-                                }
-                            });
-                        } else {
-                            Swal.fire('Error', response.message || 'Failed to create blog post', 'error');
-                        }
-                    },
-                    error: function(xhr) {
-                        var errors = xhr.responseJSON?.errors;
-                        var errorMessage = 'Failed to create blog post.';
-                        
-                        if (errors) {
-                            errorMessage = Object.values(errors).flat().join('<br>');
-                        }
-                        
-                        Swal.fire('Error', errorMessage, 'error');
-                    }
-                });
-            });
+
+    $(document).ready(function () {
+    $('#createBlogForm').on('submit', function (e) {
+        e.preventDefault();
+
+        let formData = $(this).serialize();
+        let actionUrl = $(this).attr('action');
+
+        $.ajax({
+            url: actionUrl,
+            type: 'POST',
+            data: formData,
+            dataType: 'json', // 🔴 IMPORTANT
+            success: function (response) {
+                console.log(response); // 👈 confirm response in console
+
+                if (response.success === true) {
+                    Swal.fire({
+                        title: 'Success!',
+                        text: response.message,
+                        icon: 'success',
+                        confirmButtonText: 'OK'
+                    }).then(() => {
+                        window.location.href = "{{ route('admin.blog.index') }}";
+                    });
+                }
+            },
+            error: function (xhr) {
+                let errorMessage = 'Failed to create blog post.';
+
+                if (xhr.responseJSON && xhr.responseJSON.errors) {
+                    errorMessage = Object.values(xhr.responseJSON.errors)
+                        .flat()
+                        .join('<br>');
+                }
+
+                Swal.fire('Error', errorMessage, 'error');
+            }
         });
+    });
+});
+
+
     </script>
 @endpush
 
