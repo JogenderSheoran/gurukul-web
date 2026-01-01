@@ -211,6 +211,7 @@
                     data: formData,
                     processData: false,
                     contentType: false,
+                    dataType: 'json',
                     success: function(response) {
                         if (response.success) {
                             Swal.fire({

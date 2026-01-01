@@ -134,28 +134,28 @@
                             <div class="info-box">
                                 <i class="fas fa-map-marker-alt"></i>
                                 <h5>Address</h5>
-                                <p>Gurukul Takshshila, Rohtak, Haryana, India</p>
+                                <p> KARNAL KAITHAL ROAD VPO AHMEDPUR, RASINA, Pundri, Haryana 136042</p>
                             </div>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-6" style="margin-top:20px;">
                             <div class="info-box">
                                 <i class="fas fa-phone"></i>
                                 <h5>Phone</h5>
-                                <p>+91 98122 xxxxx</p>
+                                <p>074191 92930</p>
                             </div>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-6" style="margin-top:20px;">
                             <div class="info-box">
                                 <i class="fas fa-envelope"></i>
                                 <h5>Email</h5>
-                                <p>info@gurukultakshshila.com</p>
+                                <p style="word-wrap: break-word;">gurukultakshshilaadmissions@gmail.com</p>
                             </div>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-6" style="margin-top:20px;">
                             <div class="info-box">
                                 <i class="fas fa-clock"></i>
                                 <h5>Timing</h5>
-                                <p>Mon - Sat: 08:00 AM - 05:00 PM</p>
+                                <p>Mon - Sat: 08:00 AM - 06:00 PM</p>
                             </div>
                         </div>
                     </div>
@@ -166,13 +166,13 @@
     </section>
 
     <!-- Map Section -->
-    <section class="pb-5">
+    <!-- <section class="pb-5">
         <div class="container">
             <iframe 
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3500.123456789!2d76.6!3d28.9!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x123456789abcdef!2sGurukul%20Takshshila!5e0!3m2!1sen!2sin!4v1234567890" 
                 width="100%" height="400" style="border:0; border-radius:15px;" allowfullscreen="" loading="lazy"></iframe>
         </div>
-    </section>
+    </section> -->
 
 </div>
 

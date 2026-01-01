@@ -136,8 +136,10 @@ class TopScorerController extends Controller
 
         TopScorer::create($data);
 
-        return redirect()->route('admin.top-scorer.index')
-            ->with('success', 'Top Scorer added successfully.');
+        return response()->json([
+            'success' => true,
+            'message' => 'Top Scorer added successfully.'
+        ]);
     }
 
     /**
@@ -176,8 +178,10 @@ class TopScorerController extends Controller
 
         $topScorer->update($data);
 
-        return redirect()->route('admin.top-scorer.index')
-            ->with('success', 'Top Scorer updated successfully.');
+        return response()->json([
+            'success' => true,
+            'message' => 'Top Scorer updated successfully.'
+        ]);
     }
 
     /**
