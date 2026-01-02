@@ -257,19 +257,6 @@
 <title>Gurukul Takshshila - Home</title>
 </head>
 <body>
-     <section class="announcement">
-        <div class="">
-            <div class="announcementInner marqueeHorizontal">
-                <div class="item marquee-content-hori">
-                    गुरुकुल तक्षशिला Most Affordable Residential School
-                </div>
-                <div class="item marquee-content-hori">
-                    An English medium, CBSE Affiliated, Senior Secondary, Residential (Boys) Gurukul with Difference
-                </div>
-
-            </div>
-        </div>
-    </section>
     @include('frontend.include.topbar')
     @include('frontend.include.head')
 

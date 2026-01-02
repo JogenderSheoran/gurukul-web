@@ -146,29 +146,22 @@
                         <div class="row g-3">
                             <div class="col-md-6">
                                 <div class="contactCard">
-                                    <strong>Admission Department</strong>
-                                    7082001718, 7419192930
+                                    <strong>Contact</strong>
+                                    7419192930
                                 </div>
                             </div>
 
                             <div class="col-md-6">
                                 <div class="contactCard">
-                                    <strong>Warden</strong>
-                                    7419192937
+                                    <strong>Reception</strong>
+                                    7419192931 (Time 08:00 AM to 05:00 PM)
                                 </div>
                             </div>
 
                             <div class="col-md-6">
                                 <div class="contactCard">
-                                    <strong>Query & Counseling</strong>
-                                    7419192932
-                                </div>
-                            </div>
-
-                            <div class="col-md-6">
-                                <div class="contactCard">
-                                    <strong>Assistant Registrar</strong>
-                                    7419192938
+                                    <strong>Admission Related Query</strong>
+                                    7419192932, 7082001718
                                 </div>
                             </div>
 
@@ -181,7 +174,21 @@
 
                             <div class="col-md-6">
                                 <div class="contactCard">
-                                    <strong>Accountant</strong>
+                                    <strong>Asst. Warden</strong>
+                                    7419192937
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="contactCard">
+                                    <strong>CBSE & Other Related Query</strong>
+                                    7419192938
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="contactCard">
+                                    <strong>Student Fees Related</strong>
                                     7419192939
                                 </div>
                             </div>

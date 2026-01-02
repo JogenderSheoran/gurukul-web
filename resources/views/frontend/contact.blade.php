@@ -134,21 +134,21 @@
                             <div class="info-box">
                                 <i class="fas fa-map-marker-alt"></i>
                                 <h5>Address</h5>
-                                <p> KARNAL KAITHAL ROAD VPO AHMEDPUR, RASINA, Pundri, Haryana 136042</p>
+                                <p>Gurukul Takshshila<br>Karnal-Kaithal Highway<br>Ahmedpur, Rasina-136042<br>Teh. Pundri District Kaithal, Haryana</p>
                             </div>
                         </div>
                         <div class="col-md-6" style="margin-top:20px;">
                             <div class="info-box">
                                 <i class="fas fa-phone"></i>
                                 <h5>Phone</h5>
-                                <p>074191 92930</p>
+                                <p>7419192930</p>
                             </div>
                         </div>
                         <div class="col-md-6" style="margin-top:20px;">
                             <div class="info-box">
                                 <i class="fas fa-envelope"></i>
                                 <h5>Email</h5>
-                                <p style="word-wrap: break-word;">gurukultakshshilaadmissions@gmail.com</p>
+                                <p style="word-wrap: break-word;">Gurukultakshshilaadmission@gmail.com</p>
                             </div>
                         </div>
                         <div class="col-md-6" style="margin-top:20px;">

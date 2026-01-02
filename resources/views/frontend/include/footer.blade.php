@@ -35,9 +35,9 @@
 						<div class="footerLinks">
 							<h3>Contact Info</h3>
 							<ul class="contactInfo">
-							<li><i class="fa-solid fa-location-dot"></i> Gurukul Takshila, Karnal Kaithal Road VPO Ahmedpur, Rasina, Pundir, Haryana 136042</li>
+							<li><i class="fa-solid fa-location-dot"></i> Gurukul Takshshila, Karnal-Kaithal Highway Ahmedpur, Rasina-136042 Teh. Pundri District Kaithal, Haryana</li>
 							<li><i class="fa-solid fa-phone"></i> +917419192930</li>
-							<li><i class="fa-regular fa-envelope"></i> gurukultakshilaadmissions@gmail.com</li>
+							<li><i class="fa-regular fa-envelope"></i> Gurukultakshshilaadmission@gmail.com</li>
 							</ul>
 						</div>
 					</div>						

@@ -173,14 +173,16 @@
             <div class="contactBox mt-5">
                 <div class="row">
                     <div class="col-md-6">
-                        <h5>📞 For PTM Permission</h5>
-                        <p>+91 7419192930</p>
+                        <h5>📞 Contact</h5>
+                        <p>7419192930</p>
                     </div>
                     <div class="col-md-6">
                         <h5>📍 Address</h5>
                         <p>
-                            Gurukul Takshshila, Karnal Kaithal Road,
-                            VPO Ahmedpur, Rasina, Pundri, Haryana – 136042
+                            Gurukul Takshshila<br>
+                            Karnal-Kaithal Highway<br>
+                            Ahmedpur, Rasina-136042<br>
+                            Teh. Pundri District Kaithal, Haryana
                         </p>
                     </div>
                 </div>
