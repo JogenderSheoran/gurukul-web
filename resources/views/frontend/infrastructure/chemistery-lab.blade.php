@@ -19,7 +19,7 @@
 <x-inner-banner
     title="Chemistry Laboratory"
     subtitle="Exploring Chemistry Through Safe & Practical Experiments"
-    pageKey="chemistry-lab"
+    pageKey="chemistry-labs"
 />
 
 <section class="chemistryIntro py-5">

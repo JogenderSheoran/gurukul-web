@@ -23,7 +23,7 @@
     <x-inner-banner
         title="Physics Laboratory"
         subtitle="Learning Physics Through Practical Experiments"
-        pageKey="physics-lab"
+        pageKey="physics-labs"
     />
 
     <!-- INTRO SECTION -->

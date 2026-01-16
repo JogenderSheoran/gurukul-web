@@ -72,7 +72,7 @@
 
 <div class="main">
 
-<x-inner-banner title="School Events" subtitle="Upcoming & Recent Events"/>
+<x-inner-banner title="School Events" subtitle="Upcoming & Recent Events" pageKey="events" />
 
 <section class="py-5">
     <div class="container">

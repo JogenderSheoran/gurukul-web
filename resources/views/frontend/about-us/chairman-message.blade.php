@@ -81,7 +81,7 @@
 <div class="main">
 
     <!-- INNER BANNER COMPONENT -->
-    <x-inner-banner title="Chairman Message" pageKey="chairmain-message" />
+    <x-inner-banner title="Chairman Message" pageKey="chairman-message" />
 
     <!-- Chairman Message Section -->
     <section class="aboutUs principalMessage py-5">

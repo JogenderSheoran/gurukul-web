@@ -19,7 +19,7 @@
 <x-inner-banner
     title="Art Laboratory"
     subtitle="Nurturing Creativity & Artistic Expression"
-    pageKey="art-lab"
+    pageKey="art-labs"
 />
 
 <section class="artIntro py-5">

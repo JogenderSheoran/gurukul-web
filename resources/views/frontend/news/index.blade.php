@@ -76,7 +76,7 @@
 
 <div class="main">
 
-<x-inner-banner title="School News" subtitle="Latest Updates & Announcements"/>
+<x-inner-banner title="School News" subtitle="Latest Updates & Announcements" pageKey="news" />
 
 <section class="py-5">
     <div class="container">

@@ -102,6 +102,7 @@
     <x-inner-banner
         title="Contact Us"
         subtitle="Get in Touch with Gurukul Takshshila"
+        pageKey="contact"
     />
 
     <!-- Contact Section -->

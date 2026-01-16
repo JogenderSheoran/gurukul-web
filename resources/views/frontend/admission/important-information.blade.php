@@ -24,6 +24,7 @@
     <x-inner-banner
         title="Important Information"
         subtitle="Gurukul Takshshila – Rules, Regulations & Guidelines"
+        pageKey="important-information"
     />
 
     <!-- ===== CONTENT ===== -->

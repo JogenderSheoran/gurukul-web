@@ -22,6 +22,7 @@
     <x-inner-banner
         title="Admission Procedure"
         subtitle="Gurukul Takshshila – Requirements & Selection Process"
+        pageKey="admission-procedure"
     />
 
     <section class="admissionPage py-5">

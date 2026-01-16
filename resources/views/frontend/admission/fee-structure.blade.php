@@ -25,6 +25,7 @@
     <x-inner-banner
         title="Fee Structure"
         subtitle="Gurukul Takshshila – Comprehensive Fee Details & Payment Options"
+        pageKey="fee-structure"
     />
 
     <section class="admissionPage py-5">

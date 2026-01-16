@@ -24,6 +24,7 @@
     <x-inner-banner
         title="Required Items"
         subtitle="Complete list of items required for admission and hostel stay"
+        pageKey="required-item"
     />
 
     <section class="requiredPage py-5">

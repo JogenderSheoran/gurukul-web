@@ -15,7 +15,7 @@ class PageBannerController extends Controller
         return [
             'home' => 'Home',
             'principal-message' => 'Principal Message',
-            'chairmain-message' => 'Chairman Message',
+            'chairman-message' => 'Chairman Message',
             'vision-mission' => 'Vision & Mission',
             'core-values' => 'Core Values',
             'team' => 'Team',

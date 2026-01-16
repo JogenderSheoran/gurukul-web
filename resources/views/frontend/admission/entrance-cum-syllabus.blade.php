@@ -22,6 +22,7 @@
     <x-inner-banner
         title="Entrance cum Syllabus"
         subtitle="Gurukul Takshshila – Admission Test Information & Syllabus Details"
+        pageKey="entrance-cum-syllabus"
     />
 
     <section class="admissionPage py-5">

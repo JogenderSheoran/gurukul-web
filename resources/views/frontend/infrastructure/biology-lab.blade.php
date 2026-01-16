@@ -19,7 +19,7 @@
 <x-inner-banner
     title="Biology Laboratory"
     subtitle="Understanding Life Through Observation & Experiments"
-    pageKey="biology-lab"
+    pageKey="biology-labs"
 />
 
 <section class="biologyIntro py-5">

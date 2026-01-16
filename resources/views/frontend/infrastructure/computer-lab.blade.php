@@ -23,7 +23,7 @@
     <x-inner-banner
         title="Computer Lab"
         subtitle="Hands-on Digital Learning & Technology Skills"
-        pageKey="computer-lab"
+        pageKey="computer-labs"
     />
 
     <!-- INTRO SECTION -->

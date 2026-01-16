@@ -25,6 +25,7 @@
     <x-inner-banner
         title="Admission Form"
         subtitle="Gurukul Takshshila – Submit Your Admission Enquiry"
+        pageKey="admission-form"
     />
 
     <section class="admissionPage py-5">
