@@ -37,7 +37,7 @@
                                  @if($member->profile_image)
                                  style="background-image:url('{{ asset('storage/' . $member->profile_image) }}')"
                                  @else
-                                 style="background-image:url('{{ asset('img/logo.png') }}')"
+                                 style="background-image:url('{{ asset('frontend/img/logo.jpeg') }}')"
                                  @endif>
                             </div>
 
@@ -46,7 +46,7 @@
                                     @if($member->profile_image)
                                         <img src="{{ asset('storage/' . $member->profile_image) }}" alt="{{ $member->full_name }}" />
                                     @else
-                                        <img src="{{ asset('img/logo.png') }}" alt="{{ $member->full_name }}" />
+                                        <img src="{{ asset('frontend/img/logo.jpeg') }}" alt="{{ $member->full_name }}" />
                                     @endif
                                 </div>
 
@@ -82,7 +82,7 @@
                                  @if($member->profile_image)
                                  style="background-image:url('{{ asset('storage/' . $member->profile_image) }}')"
                                  @else
-                                 style="background-image:url('{{ asset('img/logo.png') }}')"
+                                 style="background-image:url('{{ asset('frontend/img/logo.jpeg') }}')"
                                  @endif>
                             </div>
 
@@ -91,7 +91,7 @@
                                     @if($member->profile_image)
                                         <img src="{{ asset('storage/' . $member->profile_image) }}" alt="{{ $member->full_name }}" />
                                     @else
-                                        <img src="{{ asset('img/logo.png') }}" alt="{{ $member->full_name }}" />
+                                        <img src="{{ asset('frontend/img/logo.jpeg') }}" alt="{{ $member->full_name }}" />
                                     @endif
                                 </div>
 
