@@ -436,15 +436,13 @@
                                 @foreach($topScorers as $scorer)
                                 <div class="scorerSlide">
                                     <div class="box">
-                                        <div class="image">
+                                        <div {{ $scorer->image ? 'class="image"' : 'class=""' }}>
                                             @if($scorer->image)
                                                 <img src="{{ asset('storage/' . $scorer->image) }}" alt="{{ $scorer->name }}">
                                             @else
-                                                <div class="default-student-icon">
-                                                    <i class="fas fa-user-graduate"></i>
-                                                </div>
+                                               <img src="{{ asset('frontend/img/logo.jpeg') }}" alt="{{ $scorer->name }}">
                                             @endif
-                                            <i class="fa-solid fa-trophy trophy-icon"></i>
+                                           
                                         </div>
                                         <h5 class="name">{{ $scorer->name }}</h5>
                                         <div class="class">Class {{ $scorer->class }} {{ $scorer->section }}</div>
