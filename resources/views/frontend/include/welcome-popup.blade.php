@@ -19,20 +19,28 @@
 </div>
 
 <script>
-$(document).ready(function() {
-    // Check if popup has been shown in this session
-    if (!sessionStorage.getItem('welcomePopupShown')) {
-        // Show popup after 1 second delay
-        setTimeout(function() {
-            $('#welcomePopupModal').modal('show');
-        }, 1000);
+// Wait for jQuery to be available
+(function checkJQuery() {
+    if (typeof jQuery !== 'undefined') {
+        $(document).ready(function() {
+            // Check if popup has been shown in this session
+            if (!sessionStorage.getItem('welcomePopupShown')) {
+                // Show popup after 1 second delay
+                setTimeout(function() {
+                    $('#welcomePopupModal').modal('show');
+                }, 1000);
+            }
+            
+            // Mark popup as shown when closed
+            $('#closeWelcomePopup, #welcomePopupModal').on('hidden.bs.modal', function() {
+                sessionStorage.setItem('welcomePopupShown', 'true');
+            });
+        });
+    } else {
+        // If jQuery is not loaded yet, wait and try again
+        setTimeout(checkJQuery, 100);
     }
-    
-    // Mark popup as shown when closed
-    $('#closeWelcomePopup, #welcomePopupModal').on('hidden.bs.modal', function() {
-        sessionStorage.setItem('welcomePopupShown', 'true');
-    });
-});
+})();
 </script>
 
 <style>

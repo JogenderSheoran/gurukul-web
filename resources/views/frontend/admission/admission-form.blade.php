@@ -276,6 +276,10 @@ $(document).ready(function() {
             url: '{{ route("admission-enquiry.store") }}',
             type: 'POST',
             data: formData,
+            dataType: 'json',
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
             success: function(response) {
                 if (response.success) {
                     $('#successMessagePage').text(response.message).removeClass('d-none');
@@ -292,15 +296,37 @@ $(document).ready(function() {
                 }
             },
             error: function(xhr) {
-                var errors = xhr.responseJSON.errors;
-                var errorHtml = '<ul class="mb-0">';
+                console.log('AJAX Error:', xhr.status, xhr.responseText);
+                console.log('Response JSON:', xhr.responseJSON);
                 
-                if (errors) {
+                var errorHtml = '<ul class="mb-0">';
+                var responseData = xhr.responseJSON;
+                
+                // Try to parse JSON if it's not already parsed
+                if (!responseData && xhr.responseText) {
+                    try {
+                        responseData = JSON.parse(xhr.responseText);
+                    } catch (e) {
+                        console.log('Failed to parse JSON response:', e);
+                    }
+                }
+                
+                // Check if we have validation errors
+                if (responseData && responseData.errors) {
+                    var errors = responseData.errors;
                     $.each(errors, function(key, value) {
-                        errorHtml += '<li>' + value[0] + '</li>';
+                        if (key === 'email_address' && (value[0].includes('has already been taken') || value[0].includes('already been taken'))) {
+                            errorHtml += '<li>This email address has already been used for an admission enquiry. Please use a different email address or contact us if you need assistance.</li>';
+                        } else {
+                            errorHtml += '<li>' + value[0] + '</li>';
+                        }
                     });
+                } else if (responseData && responseData.message) {
+                    // Handle single error message
+                    errorHtml += '<li>' + responseData.message + '</li>';
                 } else {
-                    errorHtml += '<li>An error occurred. Please try again.</li>';
+                    // Fallback error message
+                    errorHtml += '<li>An error occurred. Please try again. (Status: ' + xhr.status + ')</li>';
                 }
                 
                 errorHtml += '</ul>';

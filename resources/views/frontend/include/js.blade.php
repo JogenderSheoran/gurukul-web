@@ -1,5 +1,14 @@
 <script src="https://kit.fontawesome.com/2691c044c1.js" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        // Fallback for jQuery if CDN fails
+        if (typeof jQuery == 'undefined') {
+            document.write('<script src="https://code.jquery.com/jquery-3.6.0.min.js"><\/script>');
+            console.warn('Primary jQuery CDN failed, loaded fallback');
+        } else {
+            console.log('jQuery loaded successfully from primary CDN');
+        }
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
@@ -144,6 +153,10 @@ $(document).ready(function() {
             url: '{{ route("admission-enquiry.store") }}',
             type: 'POST',
             data: formData,
+            dataType: 'json',
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
             success: function(response) {
                 if (response.success) {
                     $('#successMessage').text(response.message).removeClass('d-none');
@@ -156,15 +169,37 @@ $(document).ready(function() {
                 }
             },
             error: function(xhr) {
-                var errors = xhr.responseJSON.errors;
-                var errorHtml = '<ul class="mb-0">';
+                console.log('AJAX Error:', xhr.status, xhr.responseText);
+                console.log('Response JSON:', xhr.responseJSON);
                 
-                if (errors) {
+                var errorHtml = '<ul class="mb-0">';
+                var responseData = xhr.responseJSON;
+                
+                // Try to parse JSON if it's not already parsed
+                if (!responseData && xhr.responseText) {
+                    try {
+                        responseData = JSON.parse(xhr.responseText);
+                    } catch (e) {
+                        console.log('Failed to parse JSON response:', e);
+                    }
+                }
+                
+                // Check if we have validation errors
+                if (responseData && responseData.errors) {
+                    var errors = responseData.errors;
                     $.each(errors, function(key, value) {
-                        errorHtml += '<li>' + value[0] + '</li>';
+                        if (key === 'email_address' && (value[0].includes('has already been taken') || value[0].includes('already been taken'))) {
+                            errorHtml += '<li>This email address has already been used for an admission enquiry. Please use a different email address or contact us if you need assistance.</li>';
+                        } else {
+                            errorHtml += '<li>' + value[0] + '</li>';
+                        }
                     });
+                } else if (responseData && responseData.message) {
+                    // Handle single error message
+                    errorHtml += '<li>' + responseData.message + '</li>';
                 } else {
-                    errorHtml += '<li>An error occurred. Please try again.</li>';
+                    // Fallback error message
+                    errorHtml += '<li>An error occurred. Please try again. (Status: ' + xhr.status + ')</li>';
                 }
                 
                 errorHtml += '</ul>';

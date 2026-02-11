@@ -370,7 +370,7 @@
                 </div>
 
                 <!-- SECTION 6: TEACHER DETAILS -->
-                <div class="disclosureSection mb-5">
+                <!-- <div class="disclosureSection mb-5">
                     <div class="disclosureCard">
                         <h3 class="sectionTitle"><i class="fas fa-chalkboard-teacher"></i> Teacher Details</h3>
                         @if($teachers->count() > 0)
@@ -404,7 +404,7 @@
                             <p class="text-muted">No teacher details available.</p>
                         @endif
                     </div>
-                </div>
+                </div> -->
 
         </div>
     </section>
