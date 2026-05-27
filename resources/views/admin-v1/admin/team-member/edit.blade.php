@@ -64,6 +64,16 @@
                                         @enderror
                                     </div>
                                 </div>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="description">Description</label>
+                                        <textarea class="form-control @error('description') is-invalid @enderror" id="description" name="description" rows="4">{{ old('description', $member->description) }}</textarea>
+                                        <small class="form-text text-muted">Add a brief description about the team member (Max: 5000 characters)</small>
+                                        @error('description')
+                                            <span class="invalid-feedback">{{ $message }}</span>
+                                        @enderror
+                                    </div>
+                                </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="profile_image">Profile Image</label>

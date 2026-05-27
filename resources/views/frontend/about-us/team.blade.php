@@ -54,8 +54,12 @@
                                 <span class="designation">{{ $member->designation }}@if($member->teaching_subject) – {{ $member->teaching_subject }}@endif</span>
 
                                 <p>
-                                    Dedicated educator with strong academic background and
-                                    student-centric teaching approach.
+                                    @if($member->description)
+                                        {{ $member->description }}
+                                    @else
+                                        Dedicated educator with strong academic background and
+                                        student-centric teaching approach.
+                                    @endif
                                 </p>
                             </div>
                         </div>
@@ -99,7 +103,11 @@
                                 <span class="designation">{{ $member->designation }}</span>
 
                                 <p>
-                                    Responsible for smooth operations and student support services.
+                                    @if($member->description)
+                                        {{ $member->description }}
+                                    @else
+                                        Responsible for smooth operations and student support services.
+                                    @endif
                                 </p>
                             </div>
                         </div>

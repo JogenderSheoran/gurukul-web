@@ -3,6 +3,42 @@
 
 @include('frontend.include.css')
 
+<style>
+.profileCard {
+    background: #fff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.profileImg {
+    width: 100%;
+    height: auto;
+    margin: 0 auto 20px;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 5px solid #ff6600;
+}
+
+.profileImg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profileCard h4 {
+    font-size: 24px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.profileCard span {
+    color: #666;
+    font-size: 16px;
+}
+</style>
+
 <body>
 
 <!-- head top -->

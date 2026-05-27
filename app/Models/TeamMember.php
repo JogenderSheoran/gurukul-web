@@ -15,5 +15,6 @@ class TeamMember extends Model
         'designation',
         'teaching_subject',
         'profile_image',
+        'description',
     ];
 }

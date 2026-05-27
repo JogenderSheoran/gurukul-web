@@ -30,6 +30,7 @@ class TeamMemberController extends Controller
             'member_type' => 'required|in:teaching,non_teaching',
             'full_name' => 'required|string|max:255',
             'designation' => 'required|string|max:255',
+            'description' => 'nullable|string|max:5000',
             'profile_image' => 'nullable|image|mimes:png,jpg,jpeg|max:2048',
         ];
 
@@ -67,6 +68,7 @@ class TeamMemberController extends Controller
             'member_type' => 'required|in:teaching,non_teaching',
             'full_name' => 'required|string|max:255',
             'designation' => 'required|string|max:255',
+            'description' => 'nullable|string|max:5000',
             'profile_image' => 'nullable|image|mimes:png,jpg,jpeg|max:2048',
         ];
 
